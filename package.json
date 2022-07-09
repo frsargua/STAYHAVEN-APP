@@ -9,7 +9,8 @@
     "prepare": "husky install && chmod ug+x .husky/* && chmod ug+x .git/hooks/*",
     "lint": "eslint \"**/*.js\"",
     "lint-fix": "eslint --fix \"**/*.js\"",
-    "precommit": "npm run lint-fix && git add ."
+    "precommit": "npm run lint-fix && git add .",
+    "test": "jest --watch"
   },
   "keywords": [],
   "author": "",

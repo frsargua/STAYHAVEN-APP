@@ -4,15 +4,15 @@ const sequelize = require('../config/connection.js');
 
 class Bookings extends Model {}
 
-Bookings.innit(
+Bookings.init(
   {
-    booking_id: {
+    id: {
       type: DataTypes.INTEGER,
       allowNull: false,
       primaryKey: true,
       autoIncrement: true,
     },
-    propertyId: {
+    property_id: {
       type: DataTypes.INTEGER,
       allowNull: false,
       references: {
@@ -20,12 +20,26 @@ Bookings.innit(
         key: 'property_id',
       },
     },
-    userId: {
+    user_id: {
       type: DataTypes.INTEGER,
       allowNull: false,
       references: {
         model: 'user',
         key: 'user_id',
+      },
+    },
+    starting_date: {
+      type: DataTypes.DATE,
+      allowNull: false,
+      validate: {
+        isDate: true,
+      },
+    },
+    end_date: {
+      type: DataTypes.DATE,
+      allowNull: false,
+      validate: {
+        isDate: true,
       },
     },
   },
@@ -34,7 +48,7 @@ Bookings.innit(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'user',
+    modelName: 'bookings',
   }
 );
 

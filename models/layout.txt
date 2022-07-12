@@ -4,6 +4,7 @@ Users:
 -   Last_name
 -   Phone_number
 -   Email-Address
+-   password
 -   Address
 -   city
 

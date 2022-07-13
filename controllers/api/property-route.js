@@ -34,8 +34,23 @@ router.post('/', async (req, res) => {
 //   // update a property's description by its `id` value
 // });
 
-// router.delete('/:id', (req, res) => {
-//   // delete a property by its `id` value
-// });
+router.delete('/:id', async (req, res) => {
+  // delete a property by its `id` value
+  try {
+    const deletedProperty = await Property.destroy({
+      where: {
+        id: req.params.id,
+      },
+    });
+
+    if (!deletedProperty) {
+      res.status(404).json({ message: 'No property found with this id!' });
+      return;
+    }
+    res.status(200).json(deletedProperty);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
 
 module.exports = router;

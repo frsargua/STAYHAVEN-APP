@@ -4,9 +4,9 @@ const sequelize = require('../config/connection.js');
 
 class Users extends Model {}
 
-Category.innit(
+Users.innit(
   {
-    id: {
+    user_id: {
       type: DataTypes.INTEGER,
       allowNull: false,
       primaryKey: true,

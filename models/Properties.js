@@ -4,7 +4,7 @@ const sequelize = require('../config/connection.js');
 
 class Properties extends Model {}
 
-Category.innit(
+Properties.innit(
   {
     property_id: {
       type: DataTypes.INTEGER,

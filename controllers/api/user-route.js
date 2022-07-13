@@ -1,5 +1,5 @@
-// const router = require('express').Router();
-// const { User, Property } = require('../../models');
+const router = require('express').Router();
+const { User, Property } = require('../../models');
 
 // router.get('/booked', (req, res) => {
 //   // query db and return all bookings where user_id == logged in user ID
@@ -21,9 +21,15 @@
 //   // update a User's description by its `id` value
 // });
 
-// router.post('/login', (req, res) => {
-//   // Redirects user to login page
-// });
+router.post('/signUp', async (req, res) => {
+  console.log(Property);
+  try {
+    const newUser = await User.create(req.body);
+    res.status(200).json(newUser);
+  } catch (error) {
+    res.status(400).json(error);
+  }
+});
 
 // //Optional
 
@@ -31,4 +37,4 @@
 //   // delete a User by its `id` value
 // });
 
-// module.exports = router
+module.exports = router;

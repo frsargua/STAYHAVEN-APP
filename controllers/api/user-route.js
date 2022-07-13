@@ -5,10 +5,6 @@
 //   // query db and return all bookings where user_id == logged in user ID
 // });
 
-// router.get('/bookmark', (req, res) => {
-//   // find all users' bookmarks in the database
-// });
-
 // router.get('/properties', (req, res) => {
 //   // find all users rentals in the database
 // });

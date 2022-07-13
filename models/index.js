@@ -2,6 +2,7 @@
 const Booking = require('./Booking');
 const Property = require('./Property');
 const User = require('./User');
+const Bookmark = require('./Bookmark');
 
 // Categories have many Products
 // User.hasMany(Property, {
@@ -20,4 +21,5 @@ module.exports = {
   Booking,
   Property,
   User,
+  Bookmark,
 };

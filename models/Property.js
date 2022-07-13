@@ -12,14 +12,14 @@ Property.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    // landlord_id: {
-    //   type: DataTypes.INTEGER,
-    //   allowNull: false,
-    //   references: {
-    //     model: 'user',
-    //     key: 'id',
-    //   },
-    // },
+    landlord_id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      references: {
+        model: 'user',
+        key: 'id',
+      },
+    },
 
     address: {
       type: DataTypes.STRING,

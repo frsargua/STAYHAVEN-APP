@@ -32,7 +32,9 @@ router.post('/signUp', async (req, res) => {
   try {
     const userData = await User.create(req.body);
     req.session.save(() => {
-      req.session.loggedIn = true;
+      req.session.logged_in = true;
+      req.session.user_id = userData.id;
+      console.log(req.session.user_id);
 
       res.status(200).json(userData);
     });
@@ -60,21 +62,21 @@ router.post('/signIn', async (req, res) => {
         .json({ message: 'Incorrect email orr password, please try again' });
       return;
     }
-    res.json({ user: userData, message: 'You are now logged in!' });
+    // res.json({ user: userData, message: 'You are now logged in!' });
 
-    // req.session.save(() => {
-    //   req.session.user_id = userData.id;
-    //   req.session.logged_in = true;
+    req.session.save(() => {
+      req.session.user_id = userData.id;
+      req.session.logged_in = true;
 
-    //   res.json({ user: userData, message: 'You are now logged in!' });
-    // });
+      res.json({ user: userData, message: 'You are now logged in!' });
+    });
   } catch (err) {
     res.status(400).json(err);
   }
 });
 
 router.post('/signOut', async (req, res) => {
-  if (req.session.loggedIn) {
+  if (req.session.logged_in) {
     req.session.destroy(() => {
       res.status(204).end();
     });

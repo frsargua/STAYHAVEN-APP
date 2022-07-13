@@ -4,7 +4,7 @@ const sequelize = require('../config/connection.js');
 
 class Bookings extends Model {}
 
-Bookings.innit(
+Bookings.init(
   {
     booking_id: {
       type: DataTypes.INTEGER,
@@ -34,7 +34,7 @@ Bookings.innit(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'user',
+    modelName: 'bookings',
   }
 );
 

@@ -6,18 +6,47 @@ const { Property, User } = require('../../models');
 //   // be sure to include its associated Users
 // });
 
-// router.get('/:location', (req, res) => {
-//   // find one property by its `id` value
-//   // be sure to include its associated Users
-//   //TO DO: We will have to pair a property to a table containing its images
-//   //Add functionality to sort by price, number or rooms and date added
-//   //This will be done using querys
-// });
-// router.get('/:id', (req, res) => {
-//   // find one property by its `id` value
-//   // be sure to include its associated Users
-//   //TO DO: We will have to pair a property to a table containing its images
-// });
+router.get('/:location', async (req, res) => {
+  // find one property by its `id` value
+  // be sure to include its associated Users
+  //TO DO: We will have to pair a property to a table containing its images
+  //Add functionality to sort by price, number or rooms and date added
+  //This will be done using querys
+  try {
+    const propertiesData = await Property.findAll({
+      where: {
+        city: req.params.location,
+        available: true,
+      },
+    });
+    if (!propertiesData) {
+      res.status(404).json({ message: 'Location not present in the database' });
+      return;
+    }
+    res.status(200).json(propertiesData);
+  } catch (error) {
+    res.status(500).json(error);
+  }
+});
+router.get('/:id', async (req, res) => {
+  // find one property by its `id` value
+  // be sure to include its associated Users
+  //TO DO: We will have to pair a property to a table containing its images
+  try {
+    const propertyData = await Property.findOne({
+      where: {
+        id: req.params.id,
+      },
+    });
+    if (!propertyData) {
+      res.status(404).json({ message: 'Id does not exist' });
+      return;
+    }
+    res.status(200).json(propertyData);
+  } catch (error) {
+    res.status(500).json(error);
+  }
+});
 
 router.post('/', async (req, res) => {
   // create a new property

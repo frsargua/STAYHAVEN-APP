@@ -28,8 +28,23 @@ router.post('/', async (req, res) => {
 //   // update a User's description by its `id` value
 // });
 
-// router.delete('/:id', (req, res) => {
-//   // delete a Userby its `id` value
-// });
+router.delete('/:id', async (req, res) => {
+  // delete a Userby its `id` value
+  try {
+    const deleteBooking = await Booking.destroy({
+      where: {
+        id: req.params.id,
+      },
+    });
+
+    if (!deleteBooking) {
+      res.status(404).json({ message: 'No booking found with this id!' });
+      return;
+    }
+    res.status(200).json(deleteBooking);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
 
 module.exports = router;

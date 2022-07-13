@@ -3,11 +3,6 @@ const { Booking, User, Property } = require('../../models');
 
 console.log(User, Property);
 
-// router.get('/', (req, res) => {
-//   // find all users in the data base
-//   // be sure to include its associated Users
-// });
-
 router.get('/', async (req, res) => {
   // find one User by its `id` value
   // be sure to include its associated Users

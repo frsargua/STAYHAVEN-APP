@@ -27,14 +27,6 @@ router.get('/:id', async (req, res) => {
   }
 });
 
-// router.post('/', (req, res) => {
-//   // create a new User
-// });
-
-// router.put('/:id', (req, res) => {
-//   // update a User's description by its `id` value
-// });
-
 router.post('/signUp', async (req, res) => {
   console.log(Property);
   try {
@@ -92,6 +84,10 @@ router.post('/signOut', async (req, res) => {
 });
 
 // //Optional
+
+// router.put('/:id', (req, res) => {
+//   // update a User's description by its `id` value
+// });
 
 // router.delete('/:id', (req, res) => {
 //   // delete a User by its `id` value

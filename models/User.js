@@ -2,9 +2,9 @@ const { Model, DataTypes } = require('sequelize');
 
 const sequelize = require('../config/connection.js');
 
-class Users extends Model {}
+class User extends Model {}
 
-Category.innit(
+User.init(
   {
     id: {
       type: DataTypes.INTEGER,
@@ -53,4 +53,4 @@ Category.innit(
   }
 );
 
-module.exports = Users;
+module.exports = User;

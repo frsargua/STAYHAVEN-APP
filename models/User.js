@@ -2,11 +2,11 @@ const { Model, DataTypes } = require('sequelize');
 
 const sequelize = require('../config/connection.js');
 
-class Users extends Model {}
+class User extends Model {}
 
-Users.innit(
+User.init(
   {
-    user_id: {
+    id: {
       type: DataTypes.INTEGER,
       allowNull: false,
       primaryKey: true,
@@ -53,4 +53,4 @@ Users.innit(
   }
 );
 
-module.exports = Users;
+module.exports = User;

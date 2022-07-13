@@ -2,17 +2,17 @@ const { Model, DataTypes } = require('sequelize');
 
 const sequelize = require('../config/connection.js');
 
-class Bookings extends Model {}
+class Booking extends Model {}
 
-Bookings.init(
+Booking.init(
   {
-    booking_id: {
+    id: {
       type: DataTypes.INTEGER,
       allowNull: false,
       primaryKey: true,
       autoIncrement: true,
     },
-    propertyId: {
+    property_id: {
       type: DataTypes.INTEGER,
       allowNull: false,
       references: {
@@ -20,12 +20,26 @@ Bookings.init(
         key: 'property_id',
       },
     },
-    userId: {
+    user_id: {
       type: DataTypes.INTEGER,
       allowNull: false,
       references: {
         model: 'user',
         key: 'user_id',
+      },
+    },
+    starting_date: {
+      type: DataTypes.DATE,
+      allowNull: false,
+      validate: {
+        isDate: true,
+      },
+    },
+    end_date: {
+      type: DataTypes.DATE,
+      allowNull: false,
+      validate: {
+        isDate: true,
       },
     },
   },
@@ -34,8 +48,8 @@ Bookings.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'bookings',
+    modelName: 'booking',
   }
 );
 
-module.exports = Bookings;
+module.exports = Booking;

@@ -2,15 +2,23 @@ const { Model, DataTypes } = require('sequelize');
 
 const sequelize = require('../config/connection.js');
 
-class Properties extends Model {}
+class Property extends Model {}
 
-Properties.innit(
+Property.init(
   {
-    property_id: {
+    id: {
       type: DataTypes.INTEGER,
       allowNull: false,
       primaryKey: true,
       autoIncrement: true,
+    },
+    landlord_id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      references: {
+        model: 'user',
+        key: 'id',
+      },
     },
 
     address: {
@@ -60,4 +68,4 @@ Properties.innit(
   }
 );
 
-module.exports = Properties;
+module.exports = Property;

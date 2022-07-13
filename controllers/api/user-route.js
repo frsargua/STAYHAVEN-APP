@@ -2,19 +2,19 @@
 // const { User, Property } = require('../../models');
 
 // router.get('/booked', (req, res) => {
-//   // find all users' bookeing in the database
+//   // query db and return all bookings where user_id == logged in user ID
 // });
+
 // router.get('/bookmark', (req, res) => {
 //   // find all users' bookmarks in the database
 // });
+
 // router.get('/properties', (req, res) => {
 //   // find all users rentals in the database
 // });
 
 // router.get('/:id', (req, res) => {
 //   // find one User by its `id` value
-//   // be sure to include its associated Users
-//   //TO DO: We will have to pair a User to a table containing its images
 // });
 
 // router.post('/', (req, res) => {
@@ -34,3 +34,5 @@
 // router.delete('/:id', (req, res) => {
 //   // delete a User by its `id` value
 // });
+
+// module.exports = router

@@ -1,23 +1,23 @@
 // import models
-const Bookings = require('./Bookings');
-const Properties = require('./Properties');
-const Users = require('./Users');
+const Booking = require('./Booking');
+const Property = require('./Property');
+const User = require('./User');
 
 // Categories have many Products
-Users.hasMany(Properties, {
+User.hasMany(Property, {
   onDelete: 'CASCADE',
 });
 
 // Products belongsTo Category
-Properties.belongsTo(Users);
+Property.belongsTo(User);
 
 // Products belongToMany Tags (through ProductTag)
-Properties.belongsToMany(Users, { through: Bookings, unique: false });
+Property.belongsToMany(Users, { through: Booking, unique: false });
 // Tags belongToMany Products (through ProductTag)
-Users.belongsToMany(Properties, { through: Bookings, unique: false });
+User.belongsToMany(Property, { through: Booking, unique: false });
 
 module.exports = {
-  Bookings,
-  Properties,
-  Users,
+  Booking,
+  Property,
+  User,
 };

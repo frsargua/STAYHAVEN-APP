@@ -81,15 +81,15 @@ router.post('/signIn', async (req, res) => {
   }
 });
 
-// router.post('/signOut', async (req, res) => {
-//   console.log(Property);
-//   try {
-//     const newUser = await User.create(req.body);
-//     res.status(200).json(newUser);
-//   } catch (error) {
-//     res.status(400).json(error);
-//   }
-// });
+router.post('/signOut', async (req, res) => {
+  if (req.session.loggedIn) {
+    req.session.destroy(() => {
+      res.status(204).end();
+    });
+  } else {
+    res.status(404).end();
+  }
+});
 
 // //Optional
 

@@ -8,11 +8,25 @@ console.log(User, Property);
 //   // be sure to include its associated Users
 // });
 
-// router.get('/:id', (req, res) => {
-//   // find one User by its `id` value
-//   // be sure to include its associated Users
-//   //TO DO: We will have to pair a User to a table containing its images
-// });
+router.get('/', async (req, res) => {
+  // find one User by its `id` value
+  // be sure to include its associated Users
+  //TO DO: We will have to pair a User to a table containing its images
+  try {
+    const bookingData = await Booking.findAll({
+      where: {
+        user_id: req.session.user_id,
+      },
+    });
+    if (!bookingData) {
+      res.status(404).json({ message: 'Location not present in the database' });
+      return;
+    }
+    res.status(200).json(bookingData);
+  } catch (error) {
+    res.status(500).json(error);
+  }
+});
 
 router.post('/', async (req, res) => {
   // create a new User

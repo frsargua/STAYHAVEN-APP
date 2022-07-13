@@ -23,3 +23,5 @@
 // router.delete('/:id', (req, res) => {
 //   // delete a Userby its `id` value
 // });
+
+// module.exports = router;

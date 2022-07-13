@@ -12,7 +12,7 @@ User.hasMany(Property, {
 Property.belongsTo(User);
 
 // Products belongToMany Tags (through ProductTag)
-Property.belongsToMany(Users, { through: Booking, unique: false });
+Property.belongsToMany(User, { through: Booking, unique: false });
 // Tags belongToMany Products (through ProductTag)
 User.belongsToMany(Property, { through: Booking, unique: false });
 

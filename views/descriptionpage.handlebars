@@ -1,32 +1,8 @@
 <!-- Navbar -->
-<div
-  class='d-flex flex-column flex-md-row align-items-center p-2 px-md-4 mb-3 bg-warning justify-content-between'
->
-  <h5 class='my-0 mr-md-auto font-weight-normal'>STAYHAVEN</h5>
-
-  <nav class='my-2 my-md-0 mr-md-3 d-flex'>
-    <a class='p-2 text-dark btn btn-warning' href=''>Add Listing</a>
-    <div class='dropdown'>
-      <button
-        class='btn btn-warning dropdown-toggle'
-        type='button'
-        id='dropdownMenuButton1'
-        data-bs-toggle='dropdown'
-        aria-expanded='false'
-      >
-        My Account
-      </button>
-      <ul class='dropdown-menu' aria-labelledby='dropdownMenuButton1'>
-        <li><a class='dropdown-item bg-light' href='#'>Bookmarks</a></li>
-        <li><a class='dropdown-item bg-light' href='#'>Sign-Out</a></li>
-      </ul>
-    </div>
-  </nav>
-</div>
-
+{{>navbar}}
 <!-- Back to results -->
-<div class='container-md pb-2'>
-  <a class='text-black backToPage' href='/'>
+<div class='container-md pb-2 pt-4'>
+  <a class='text-black backToPage' href='javascript:history.back()'>
     <i class='fa-solid fa-chevron-left'></i>
     Back to search results</a>
 </div>
@@ -38,26 +14,9 @@
   <div
     class='col d-flex flex-row justify-content-evenly align-content-center flex-wrap'
   >
-    <img
-      src='https://res.cloudinary.com/dooyigunm/image/upload/v1657650966/StayHaven/selly-oak-3/walsall_1_drnd00.jpg'
-      alt=''
-      class='col-6'
-    />
-    <img
-      src='https://res.cloudinary.com/dooyigunm/image/upload/v1657650966/StayHaven/selly-oak-3/2_xy39ye.jpg'
-      alt=''
-      class='col-6'
-    />
-    <img
-      src='https://res.cloudinary.com/dooyigunm/image/upload/v1657650965/StayHaven/selly-oak-3/3_quh3js.jpg'
-      alt=''
-      class='col-6'
-    />
-    <img
-      src='https://res.cloudinary.com/dooyigunm/image/upload/v1657650965/StayHaven/selly-oak-3/5_j2nyk4.jpg'
-      alt=''
-      class='col-6'
-    />
+  {{!-- Images from Db --}}
+  {{>descriptionPageImgs}}
+
   </div>
   <div class='col text-center d-block align-items-center'>
     <div class='col-lg-10 col-sm-11 text-start mx-auto mb-5 fixed'>
@@ -79,10 +38,10 @@
       class='d-md-flex d-none flex-md-column align-items-center sticky-md-bottom'
     >
       <button type='button' class='btn btn-warning col-sm-8 col-md-6 mb-3'>
-        Email1
+        Email
       </button>
       <button type='button' class='btn btn-warning col-sm-8 col-md-6'>
-        Call1
+        Call
       </button>
     </div>
   </div>
@@ -164,13 +123,4 @@
   <div class='block-section mx-auto col-10' id='map'></div>
 </div>
 <!-- Footer -->
-<footer
-  class='d-flex flex-column flex-md-row align-items-center p-2 px-md-4 bg-warning justify-content-between'
-  style='margin-top: 5rem'
->
-  <h5 class='my-0 mr-md-auto font-weight-normal'>© Copyright</h5>
-
-  <div class='my-2 my-md-0 mr-md-3'>
-    <a class='p-2 text-dark btn btn-warning' href=''>Contact Us</a>
-  </div>
-</footer>
+{{>footer}}

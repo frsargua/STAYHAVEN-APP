@@ -7,4 +7,8 @@ router.get('/about-property', async (req, res) => {
   res.render('descriptionpage');
 });
 
+router.get('/add-listing', async (req, res) => {
+  res.render('addListing');
+});
+
 module.exports = router;

@@ -8,7 +8,7 @@
 .block-section-1 {
   margin-bottom: 1rem;
 }
-.pb-9{
+.pb-9 {
   padding-bottom: 9rem;
 }
 /* landing page */
@@ -21,11 +21,10 @@
   position: relative;
 }
 
-.wave{
+.wave {
   position: absolute;
   bottom: 0;
   fill: white;
-}
 }
 
 /* Description page */
@@ -55,6 +54,15 @@
 
 a {
   text-decoration: none;
+  color: black;
+}
+
+nav a {
+  font-size: 1.2rem;
+}
+nav a:hover {
+  text-decoration: none;
+  color: black;
 }
 
 /* Expand and contract description area */

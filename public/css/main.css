@@ -30,3 +30,20 @@
 a {
   text-decoration: none;
 }
+
+/* Expand and contract description area */
+#property-description {
+  height: 200px;
+  display: block;
+
+  overflow: hidden;
+}
+
+.expand-description,
+.decrease-description {
+  color: gray;
+}
+
+#less {
+  display: none;
+}

@@ -26,7 +26,7 @@
 }
 
 .backToPage:hover i {
-  transform: scale(1.4);
+  transform: scale(1.1);
   position: relative;
   right: 10px;
 }

@@ -11,8 +11,8 @@ const bookingSeedData = require('./bookingSeedData.json');
 // TODO Use async / await to Refactor the seedDatabase function below
 const seedDatabase = async () => {
   await sequelize.sync({ force: false });
-  await Property.bulkCreate(propertySeedData);
   await User.bulkCreate(userSeedData);
+  await Property.bulkCreate(propertySeedData);
   await Booking.bulkCreate(bookingSeedData);
   console.log('All Seeds Planted');
   process.exit(0);

@@ -8,14 +8,24 @@
 .block-section-1 {
   margin-bottom: 1rem;
 }
-
+.pb-9{
+  padding-bottom: 9rem;
+}
 /* landing page */
 .hero {
-  background-image: url('https://content.tui.co.uk/adamtui/2019_10/21_12/a1948b09-5d54-4503-a8d7-aaed00d1931a/beach-holidays-banner-V02-1920x820WebOriginalCompressed.jpg?i10c=img.resize(width:1920);img.crop(width:1920%2Cheight:820)');
+  background-image: url('https://www.birmingham.ac.uk/Images/College-MDS-only/facilities/cpd/askpermissiontouse/vm-skyline1250x394.jpg');
   background-repeat: no-repeat;
   background-size: cover;
   background-position: 50%;
-  height: 250px;
+  height: 450px;
+  position: relative;
+}
+
+.wave{
+  position: absolute;
+  bottom: 0;
+  fill: white;
+}
 }
 
 /* Description page */

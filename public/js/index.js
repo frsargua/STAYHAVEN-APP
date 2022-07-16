@@ -50,3 +50,25 @@ function initMap() {
 }
 
 window.initMap = initMap;
+
+// Query for expanding and contracting text area in description page
+var h = $('#property-description')[0].scrollHeight;
+
+$('#more').click(function () {
+  $('#property-description').animate({
+    height: h,
+  });
+  $('#property-description').animate({
+    height: 'fit-content',
+  });
+  $('#less').css('display', 'block');
+  $('#more').css('display', 'none');
+});
+
+$('#less').click(function () {
+  $('#property-description').animate({
+    height: '200px',
+  });
+  $('#less').css('display', 'none');
+  $('#more').css('display', 'block');
+});

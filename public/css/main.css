@@ -3,14 +3,14 @@
 }
 
 .block-section {
-  margin-bottom: 7rem;
+  margin-bottom: 5rem;
 }
 
 /* Description page */
 #map {
   height: 400px;
   /* The height is 400 pixels */
-  width: 70%;
+  /* width: 70%; */
   /* The width is the width of the web page */
 }
 

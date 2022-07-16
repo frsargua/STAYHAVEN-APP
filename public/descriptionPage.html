@@ -143,12 +143,12 @@
 
     <!-- Description -->
     <div class="container-md text-center block-section">
-      <header class="mb-5">
-        <h3>Description</h3>
-      </header>
       <div class="d-flex flex-column align-items-center">
+        <header class="col-10 text-start">
+          <h3>Description</h3>
+        </header>
         <div
-          class="w-75 mb-1 text-start shadow-sm p-5 rounded-2"
+          class="col-10 text-start shadow-sm px-4 pt-3 pb-3 rounded-2"
           id="property-description"
         >
           <p>
@@ -195,14 +195,19 @@
             tremendous refurbishment and hence now is offering luxury self
             contained accommodation.
           </p>
-          <br />
         </div>
-        <h3 id="more" class="expand-description">Read more</h3>
-        <h3 id="less" class="decrease-description">Read less</h3>
+        <h5 id="more" class="expand-description py-1">Read more</h5>
+        <h5 id="less" class="decrease-description py-1">Read less</h5>
       </div>
     </div>
     <!-- Maps -->
-    <div class="container-md block-section" id="map"></div>
+    <div class="container-md block-section">
+      <header class="text-lg-start col-10 mx-auto">
+        <h3>Location</h3>
+      </header>
+      <div class="block-section mx-auto col-10" id="map"></div>
+    </div>
+    <!-- Footer -->
     <footer
       class="d-flex flex-column flex-md-row align-items-center p-2 px-md-4 bg-warning justify-content-between"
       style="margin-top: 5rem"

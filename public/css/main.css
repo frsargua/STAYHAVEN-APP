@@ -9,3 +9,24 @@
   width: 70%;
   /* The width is the width of the web page */
 }
+
+/* This styles the back to page a tag */
+.backToPage {
+  border-bottom: 2px solid #ffc107;
+  padding-bottom: 2px;
+  transition: all 400ms;
+}
+.backToPage:hover {
+  border-bottom: 2px solid #e9af00;
+  padding-bottom: 2px;
+}
+
+.backToPage:hover i {
+  transform: scale(1.4);
+  position: relative;
+  right: 10px;
+}
+
+a {
+  text-decoration: none;
+}

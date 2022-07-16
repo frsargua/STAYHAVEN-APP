@@ -40,6 +40,35 @@
   </head>
   <body>
     <div
+      class="d-flex flex-column flex-md-row align-items-center p-2 px-md-4 mb-3 bg-warning justify-content-between"
+    >
+      <h5 class="my-0 mr-md-auto font-weight-normal">STAYHAVEN</h5>
+
+      <nav class="my-2 my-md-0 mr-md-3 d-flex">
+        <a class="p-2 text-dark btn btn-warning" href="">Add Listing</a>
+        <div class="dropdown">
+          <button
+            class="btn btn-warning dropdown-toggle"
+            type="button"
+            id="dropdownMenuButton1"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            My Account
+          </button>
+          <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+            <li><a class="dropdown-item bg-light" href="#">Bookmarks</a></li>
+            <li><a class="dropdown-item bg-light" href="#">Sign-Out</a></li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+    <div class="container-md pb-2">
+      <a class="text-black backToPage" href="/">
+        <i class="fa-solid fa-chevron-left"></i> Back to search results</a
+      >
+    </div>
+    <div
       class="container-md d-flex flex-md-row flex-column mb-sm-0 mb-5 justify-content-center align-items-center"
     >
       <div class="col">
@@ -103,7 +132,16 @@
       </div>
     </div>
     <div id="map"></div>
+    <footer
+      class="d-flex flex-column flex-md-row align-items-center p-2 px-md-4 bg-warning justify-content-between"
+      style="margin-top: 5rem"
+    >
+      <h5 class="my-0 mr-md-auto font-weight-normal">© Copyright</h5>
 
+      <div class="my-2 my-md-0 mr-md-3">
+        <a class="p-2 text-dark btn btn-warning" href="">Contact Us</a>
+      </div>
+    </footer>
     <script
       async
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyARmkjSXxUaA1zlQOgV9mNy41KlJbRlqh8&callback=initMap&libraries=places"

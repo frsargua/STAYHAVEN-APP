@@ -39,6 +39,7 @@
     <script src="//cdn.muicss.com/mui-0.10.3/js/mui.min.js"></script>
   </head>
   <body>
+    <!-- Navbar -->
     <div
       class="d-flex flex-column flex-md-row align-items-center p-2 px-md-4 mb-3 bg-warning justify-content-between"
     >
@@ -63,14 +64,17 @@
         </div>
       </nav>
     </div>
+
+    <!-- Back to results -->
     <div class="container-md pb-2">
       <a class="text-black backToPage" href="/">
         <i class="fa-solid fa-chevron-left"></i> Back to search results</a
       >
     </div>
 
+    <!-- Images  -->
     <div
-      class="container-md d-flex flex-md-row flex-column mb-sm-0 mb-5 justify-content-center align-items-center"
+      class="container-md d-flex flex-md-row flex-column block-section justify-content-center align-items-center"
     >
       <div
         class="col d-flex flex-row justify-content-evenly align-content-center flex-wrap"
@@ -127,7 +131,7 @@
         </div>
       </div>
     </div>
-
+    <!-- Call to action buttons -->
     <div class="d-md-none sticky-sm-top text-center py-sm-2 bg-white">
       <button type="button" class="btn btn-warning col-11 mb-2">Email</button>
       <button type="button" class="btn btn-warning col-11">Call</button>
@@ -138,7 +142,7 @@
     </div>
 
     <!-- Description -->
-    <div class="container-md text-center pt-5">
+    <div class="container-md text-center block-section">
       <header class="mb-5">
         <h3>Description</h3>
       </header>
@@ -198,7 +202,7 @@
       </div>
     </div>
     <!-- Maps -->
-    <div class="container-md" id="map"></div>
+    <div class="container-md block-section" id="map"></div>
     <footer
       class="d-flex flex-column flex-md-row align-items-center p-2 px-md-4 bg-warning justify-content-between"
       style="margin-top: 5rem"

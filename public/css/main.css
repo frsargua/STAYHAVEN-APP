@@ -2,6 +2,10 @@
   max-width: 1280px;
 }
 
+.block-section {
+  margin-bottom: 7rem;
+}
+
 /* Description page */
 #map {
   height: 400px;

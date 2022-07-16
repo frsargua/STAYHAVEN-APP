@@ -1,4 +1,5 @@
 .trendy {
+//descriptionPage
   max-width: 1280px;
 }
 
@@ -50,4 +51,10 @@ a {
 
 #less {
   display: none;
+    max-width: 1280px;
+}
+
+.listing-img-mw {
+    max-width: 200px;
+
 }

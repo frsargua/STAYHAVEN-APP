@@ -1,3 +1,8 @@
+DROP DATABASE IF EXISTS project2_db;
+CREATE DATABASE project2_db;
+
+USE project2_db;
+
 CREATE TABLE IF NOT EXISTS `users_image` (
   `id` int(5) NOT NULL AUTO_INCREMENT,
   `first_name` varchar(255) NOT NULL,

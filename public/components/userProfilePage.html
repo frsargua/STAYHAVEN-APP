@@ -39,31 +39,6 @@
     <script src="//cdn.muicss.com/mui-0.10.3/js/mui.min.js"></script>
   </head>
   <body>
-    <!-- <div
-      class="d-flex flex-column flex-md-row align-items-center p-2 px-md-4 mb-3 bg-warning justify-content-between"
-    >
-      <h5 class="my-0 mr-md-auto font-weight-normal">STAYHAVEN</h5>
-
-      <nav class="my-2 my-md-0 mr-md-3 d-flex">
-        <a class="p-2 text-dark btn btn-warning" href="">Add Listing</a>
-        <div class="dropdown">
-          <button
-            class="btn btn-warning dropdown-toggle"
-            type="button"
-            id="dropdownMenuButton1"
-            data-bs-toggle="dropdown"
-            aria-expanded="false"
-          >
-            My Account
-          </button>
-          <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-            <li><a class="dropdown-item bg-light" href="#">Bookmarks</a></li>
-            <li><a class="dropdown-item bg-light" href="#">Sign-Out</a></li>
-          </ul>
-        </div>
-      </nav>
-    </div> -->
-
     <nav
       class="d-flex flex-column flex-md-row align-items-center p-2 px-md-4 bg-warning justify-content-between"
     >
@@ -86,224 +61,236 @@
           </button>
           <ul class="dropdown-menu">
             <li><a class="dropdown-item" href="#">Bookmarks</a></li>
+            li><a class="dropdown-item" href="#">Update Account Info</a></li>
             <li><a class="dropdown-item" href="#">Sign Out</a></li>
           </ul>
         </div>
       </nav>
     </nav>
 
-    <div class="hero block-section d-flex flex-column justify-content-center">
-      <h2 class="text-center text-white">Your Next Place...</h2>
-      <div class="row align-items-center">
-        <div class="col-lg-6 mx-auto">
-          <div class="input-group">
-            <input
-              type="text"
-              class="form-control"
-              placeholder="Search for..."
+    <!-- My Listings -->
+    <div class="container">
+        <div class="row">
+            <div class="col-3">
+                <!-- User profile info here -->
+                <div>
+                    Profile Image here
+                </div>
+                <div>
+                    Email address pulled here
+                </div>
+                <div>
+                    Address info pulled here
+                </div>
+                <div>
+                    Update Account Info button
+                </div>
+            </div>
+            <div class="col-9">
+                <div class="row">
+                <!-- Listings and bookings here -->
+                <div class="col-12 mx-auto block-section-1">
+                    <h3 class="text-center mb-2">My Listings</h3>
+                    <div
+                      class="d-flex flex-column flex-md-row align-items-center justify-content-center flex-wrap"
+                    >
+                      <div class="card col-sm-12 col-md-5 col-lg-2 m-3">
+                        <img
+                          class="card-img-top"
+                          src="https://res.cloudinary.com/dooyigunm/image/upload/v1657652029/StayHaven/edgbaston-2/3_r1cw5h.webp"
+                          alt="Card image cap"
+                        />
+                        <div class="d-flex flex-column p-2">
+                          <li class="list-unstyled">Birmingham</li>
+                          <li class="ms-auto list-unstyled">£400 p/m</li>
+                        </div>
+                      </div>
+                      <div class="card col-sm-12 col-md-5 col-lg-2 m-3">
+                        <img
+                          class="card-img-top"
+                          src="https://res.cloudinary.com/dooyigunm/image/upload/v1657652029/StayHaven/edgbaston-2/3_r1cw5h.webp"
+                          alt="Card image cap"
+                        />
+                        <div class="d-flex flex-column p-2">
+                          <li class="list-unstyled">Birmingham</li>
+                          <li class="ms-auto list-unstyled">£400 p/m</li>
+                        </div>
+                      </div>
+                      <div class="card col-sm-12 col-md-5 col-lg-2 m-3">
+                        <img
+                          class="card-img-top"
+                          src="https://res.cloudinary.com/dooyigunm/image/upload/v1657652029/StayHaven/edgbaston-2/3_r1cw5h.webp"
+                          alt="Card image cap"
+                        />
+                        <div class="d-flex flex-column p-2">
+                          <li class="list-unstyled">Birmingham</li>
+                          <li class="ms-auto list-unstyled">£400 p/m</li>
+                        </div>
+                      </div>
+                      <div class="card col-sm-12 col-md-5 col-lg-2 m-3">
+                        <img
+                          class="card-img-top"
+                          src="https://res.cloudinary.com/dooyigunm/image/upload/v1657652029/StayHaven/edgbaston-2/3_r1cw5h.webp"
+                          alt="Card image cap"
+                        />
+                        <div class="d-flex flex-column p-2">
+                          <li class="list-unstyled">Birmingham</li>
+                          <li class="ms-auto list-unstyled">£400 p/m</li>
+                        </div>
+                      </div>
+              
+                      <div class="card col-sm-12 col-md-5 col-lg-2 m-3">
+                        <img
+                          class="card-img-top"
+                          src="https://res.cloudinary.com/dooyigunm/image/upload/v1657652029/StayHaven/edgbaston-2/3_r1cw5h.webp"
+                          alt="Card image cap"
+                        />
+                        <div class="d-flex flex-column p-2">
+                          <li class="list-unstyled">Birmingham</li>
+                          <li class="ms-auto list-unstyled">£400 p/m</li>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                              <!-- Upcoming Bookings -->
+    <div class="col-12 mx-auto block-section-1">
+        <h3 class="text-center mb-2">Upcoming Bookings</h3>
+        <div
+          class="d-flex flex-column flex-md-row align-items-center justify-content-center flex-wrap"
+        >
+          <div class="card col-sm-12 col-md-5 col-lg-2 m-3">
+            <img
+              class="card-img-top"
+              src="https://res.cloudinary.com/dooyigunm/image/upload/v1657652029/StayHaven/edgbaston-2/3_r1cw5h.webp"
+              alt="Card image cap"
             />
-            <span class="input-group-btn">
-              <button class="btn btn-secondary" type="button">Go!</button>
-            </span>
+            <div class="d-flex flex-column p-2">
+              <li class="list-unstyled">Birmingham</li>
+              <li class="ms-auto list-unstyled">£400 p/m</li>
+            </div>
+          </div>
+          <div class="card col-sm-12 col-md-5 col-lg-2 m-3">
+            <img
+              class="card-img-top"
+              src="https://res.cloudinary.com/dooyigunm/image/upload/v1657652029/StayHaven/edgbaston-2/3_r1cw5h.webp"
+              alt="Card image cap"
+            />
+            <div class="d-flex flex-column p-2">
+              <li class="list-unstyled">Birmingham</li>
+              <li class="ms-auto list-unstyled">£400 p/m</li>
+            </div>
+          </div>
+          <div class="card col-sm-12 col-md-5 col-lg-2 m-3">
+            <img
+              class="card-img-top"
+              src="https://res.cloudinary.com/dooyigunm/image/upload/v1657652029/StayHaven/edgbaston-2/3_r1cw5h.webp"
+              alt="Card image cap"
+            />
+            <div class="d-flex flex-column p-2">
+              <li class="list-unstyled">Birmingham</li>
+              <li class="ms-auto list-unstyled">£400 p/m</li>
+            </div>
+          </div>
+          <div class="card col-sm-12 col-md-5 col-lg-2 m-3">
+            <img
+              class="card-img-top"
+              src="https://res.cloudinary.com/dooyigunm/image/upload/v1657652029/StayHaven/edgbaston-2/3_r1cw5h.webp"
+              alt="Card image cap"
+            />
+            <div class="d-flex flex-column p-2">
+              <li class="list-unstyled">Birmingham</li>
+              <li class="ms-auto list-unstyled">£400 p/m</li>
+            </div>
+          </div>
+  
+          <div class="card col-sm-12 col-md-5 col-lg-2 m-3">
+            <img
+              class="card-img-top"
+              src="https://res.cloudinary.com/dooyigunm/image/upload/v1657652029/StayHaven/edgbaston-2/3_r1cw5h.webp"
+              alt="Card image cap"
+            />
+            <div class="d-flex flex-column p-2">
+              <li class="list-unstyled">Birmingham</li>
+              <li class="ms-auto list-unstyled">£400 p/m</li>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-    <!-- Row 1 -->
-    <div class="col-11 mx-auto block-section-1">
-      <h3 class="text-center mb-2">Trendy Places</h3>
-      <div
-        class="d-flex flex-column flex-md-row align-items-center justify-content-center flex-wrap"
-      >
-        <div class="card col-sm-12 col-md-5 col-lg-2 m-3">
-          <img
-            class="card-img-top"
-            src="https://res.cloudinary.com/dooyigunm/image/upload/v1657652029/StayHaven/edgbaston-2/3_r1cw5h.webp"
-            alt="Card image cap"
-          />
-          <div class="d-flex flex-column p-2">
-            <li class="list-unstyled">Birmingham</li>
-            <li class="ms-auto list-unstyled">£400 p/m</li>
-          </div>
-        </div>
-        <div class="card col-sm-12 col-md-5 col-lg-2 m-3">
-          <img
-            class="card-img-top"
-            src="https://res.cloudinary.com/dooyigunm/image/upload/v1657652029/StayHaven/edgbaston-2/3_r1cw5h.webp"
-            alt="Card image cap"
-          />
-          <div class="d-flex flex-column p-2">
-            <li class="list-unstyled">Birmingham</li>
-            <li class="ms-auto list-unstyled">£400 p/m</li>
-          </div>
-        </div>
-        <div class="card col-sm-12 col-md-5 col-lg-2 m-3">
-          <img
-            class="card-img-top"
-            src="https://res.cloudinary.com/dooyigunm/image/upload/v1657652029/StayHaven/edgbaston-2/3_r1cw5h.webp"
-            alt="Card image cap"
-          />
-          <div class="d-flex flex-column p-2">
-            <li class="list-unstyled">Birmingham</li>
-            <li class="ms-auto list-unstyled">£400 p/m</li>
-          </div>
-        </div>
-        <div class="card col-sm-12 col-md-5 col-lg-2 m-3">
-          <img
-            class="card-img-top"
-            src="https://res.cloudinary.com/dooyigunm/image/upload/v1657652029/StayHaven/edgbaston-2/3_r1cw5h.webp"
-            alt="Card image cap"
-          />
-          <div class="d-flex flex-column p-2">
-            <li class="list-unstyled">Birmingham</li>
-            <li class="ms-auto list-unstyled">£400 p/m</li>
-          </div>
-        </div>
+    
+    <!-- Previous Bookings -->
 
-        <div class="card col-sm-12 col-md-5 col-lg-2 m-3">
-          <img
-            class="card-img-top"
-            src="https://res.cloudinary.com/dooyigunm/image/upload/v1657652029/StayHaven/edgbaston-2/3_r1cw5h.webp"
-            alt="Card image cap"
-          />
-          <div class="d-flex flex-column p-2">
-            <li class="list-unstyled">Birmingham</li>
-            <li class="ms-auto list-unstyled">£400 p/m</li>
+    <div class="col-12 mx-auto block-section-1">
+        <h3 class="text-center mb-2">Previous Bookings</h3>
+        <div
+          class="d-flex flex-column flex-md-row align-items-center justify-content-center flex-wrap"
+        >
+          <div class="card col-sm-12 col-md-5 col-lg-2 m-3">
+            <img
+              class="card-img-top"
+              src="https://res.cloudinary.com/dooyigunm/image/upload/v1657652029/StayHaven/edgbaston-2/3_r1cw5h.webp"
+              alt="Card image cap"
+            />
+            <div class="d-flex flex-column p-2">
+              <li class="list-unstyled">Birmingham</li>
+              <li class="ms-auto list-unstyled">£400 p/m</li>
+            </div>
+          </div>
+          <div class="card col-sm-12 col-md-5 col-lg-2 m-3">
+            <img
+              class="card-img-top"
+              src="https://res.cloudinary.com/dooyigunm/image/upload/v1657652029/StayHaven/edgbaston-2/3_r1cw5h.webp"
+              alt="Card image cap"
+            />
+            <div class="d-flex flex-column p-2">
+              <li class="list-unstyled">Birmingham</li>
+              <li class="ms-auto list-unstyled">£400 p/m</li>
+            </div>
+          </div>
+          <div class="card col-sm-12 col-md-5 col-lg-2 m-3">
+            <img
+              class="card-img-top"
+              src="https://res.cloudinary.com/dooyigunm/image/upload/v1657652029/StayHaven/edgbaston-2/3_r1cw5h.webp"
+              alt="Card image cap"
+            />
+            <div class="d-flex flex-column p-2">
+              <li class="list-unstyled">Birmingham</li>
+              <li class="ms-auto list-unstyled">£400 p/m</li>
+            </div>
+          </div>
+          <div class="card col-sm-12 col-md-5 col-lg-2 m-3">
+            <img
+              class="card-img-top"
+              src="https://res.cloudinary.com/dooyigunm/image/upload/v1657652029/StayHaven/edgbaston-2/3_r1cw5h.webp"
+              alt="Card image cap"
+            />
+            <div class="d-flex flex-column p-2">
+              <li class="list-unstyled">Birmingham</li>
+              <li class="ms-auto list-unstyled">£400 p/m</li>
+            </div>
+          </div>
+  
+          <div class="card col-sm-12 col-md-5 col-lg-2 m-3">
+            <img
+              class="card-img-top"
+              src="https://res.cloudinary.com/dooyigunm/image/upload/v1657652029/StayHaven/edgbaston-2/3_r1cw5h.webp"
+              alt="Card image cap"
+            />
+            <div class="d-flex flex-column p-2">
+              <li class="list-unstyled">Birmingham</li>
+              <li class="ms-auto list-unstyled">£400 p/m</li>
+            </div>
           </div>
         </div>
       </div>
+                </div>
+            </div>
+        </div>
     </div>
+    
 
-    <!-- Row 2 -->
-    <div class="col-11 mx-auto block-section-1">
-      <h3 class="text-center mb-2">Low Cost Options</h3>
-      <div
-        class="d-flex flex-column flex-md-row align-items-center justify-content-center flex-wrap"
-      >
-        <div class="card col-sm-12 col-md-5 col-lg-2 m-3">
-          <img
-            class="card-img-top"
-            src="https://res.cloudinary.com/dooyigunm/image/upload/v1657652029/StayHaven/edgbaston-2/3_r1cw5h.webp"
-            alt="Card image cap"
-          />
-          <div class="d-flex flex-column p-2">
-            <li class="list-unstyled">Birmingham</li>
-            <li class="ms-auto list-unstyled">£400 p/m</li>
-          </div>
-        </div>
-        <div class="card col-sm-12 col-md-5 col-lg-2 m-3">
-          <img
-            class="card-img-top"
-            src="https://res.cloudinary.com/dooyigunm/image/upload/v1657652029/StayHaven/edgbaston-2/3_r1cw5h.webp"
-            alt="Card image cap"
-          />
-          <div class="d-flex flex-column p-2">
-            <li class="list-unstyled">Birmingham</li>
-            <li class="ms-auto list-unstyled">£400 p/m</li>
-          </div>
-        </div>
-        <div class="card col-sm-12 col-md-5 col-lg-2 m-3">
-          <img
-            class="card-img-top"
-            src="https://res.cloudinary.com/dooyigunm/image/upload/v1657652029/StayHaven/edgbaston-2/3_r1cw5h.webp"
-            alt="Card image cap"
-          />
-          <div class="d-flex flex-column p-2">
-            <li class="list-unstyled">Birmingham</li>
-            <li class="ms-auto list-unstyled">£400 p/m</li>
-          </div>
-        </div>
-        <div class="card col-sm-12 col-md-5 col-lg-2 m-3">
-          <img
-            class="card-img-top"
-            src="https://res.cloudinary.com/dooyigunm/image/upload/v1657652029/StayHaven/edgbaston-2/3_r1cw5h.webp"
-            alt="Card image cap"
-          />
-          <div class="d-flex flex-column p-2">
-            <li class="list-unstyled">Birmingham</li>
-            <li class="ms-auto list-unstyled">£400 p/m</li>
-          </div>
-        </div>
 
-        <div class="card col-sm-12 col-md-5 col-lg-2 m-3">
-          <img
-            class="card-img-top"
-            src="https://res.cloudinary.com/dooyigunm/image/upload/v1657652029/StayHaven/edgbaston-2/3_r1cw5h.webp"
-            alt="Card image cap"
-          />
-          <div class="d-flex flex-column p-2">
-            <li class="list-unstyled">Birmingham</li>
-            <li class="ms-auto list-unstyled">£400 p/m</li>
-          </div>
-        </div>
-      </div>
-    </div>
 
-    <!-- Row 3 -->
 
-    <div class="col-11 mx-auto block-section-1">
-      <h3 class="text-center mb-2">Low Cost Options</h3>
-      <div
-        class="d-flex flex-column flex-md-row align-items-center justify-content-center flex-wrap"
-      >
-        <div class="card col-sm-12 col-md-5 col-lg-2 m-3">
-          <img
-            class="card-img-top"
-            src="https://res.cloudinary.com/dooyigunm/image/upload/v1657652029/StayHaven/edgbaston-2/3_r1cw5h.webp"
-            alt="Card image cap"
-          />
-          <div class="d-flex flex-column p-2">
-            <li class="list-unstyled">Birmingham</li>
-            <li class="ms-auto list-unstyled">£400 p/m</li>
-          </div>
-        </div>
-        <div class="card col-sm-12 col-md-5 col-lg-2 m-3">
-          <img
-            class="card-img-top"
-            src="https://res.cloudinary.com/dooyigunm/image/upload/v1657652029/StayHaven/edgbaston-2/3_r1cw5h.webp"
-            alt="Card image cap"
-          />
-          <div class="d-flex flex-column p-2">
-            <li class="list-unstyled">Birmingham</li>
-            <li class="ms-auto list-unstyled">£400 p/m</li>
-          </div>
-        </div>
-        <div class="card col-sm-12 col-md-5 col-lg-2 m-3">
-          <img
-            class="card-img-top"
-            src="https://res.cloudinary.com/dooyigunm/image/upload/v1657652029/StayHaven/edgbaston-2/3_r1cw5h.webp"
-            alt="Card image cap"
-          />
-          <div class="d-flex flex-column p-2">
-            <li class="list-unstyled">Birmingham</li>
-            <li class="ms-auto list-unstyled">£400 p/m</li>
-          </div>
-        </div>
-        <div class="card col-sm-12 col-md-5 col-lg-2 m-3">
-          <img
-            class="card-img-top"
-            src="https://res.cloudinary.com/dooyigunm/image/upload/v1657652029/StayHaven/edgbaston-2/3_r1cw5h.webp"
-            alt="Card image cap"
-          />
-          <div class="d-flex flex-column p-2">
-            <li class="list-unstyled">Birmingham</li>
-            <li class="ms-auto list-unstyled">£400 p/m</li>
-          </div>
-        </div>
-
-        <div class="card col-sm-12 col-md-5 col-lg-2 m-3">
-          <img
-            class="card-img-top"
-            src="https://res.cloudinary.com/dooyigunm/image/upload/v1657652029/StayHaven/edgbaston-2/3_r1cw5h.webp"
-            alt="Card image cap"
-          />
-          <div class="d-flex flex-column p-2">
-            <li class="list-unstyled">Birmingham</li>
-            <li class="ms-auto list-unstyled">£400 p/m</li>
-          </div>
-        </div>
-      </div>
-    </div>
 
     <footer
       class="d-flex flex-column flex-md-row align-items-center p-2 px-md-4 bg-warning justify-content-between"

@@ -13,10 +13,12 @@
 }
 /* landing page */
 .hero {
-  background-image: url('https://www.birmingham.ac.uk/Images/College-MDS-only/facilities/cpd/askpermissiontouse/vm-skyline1250x394.jpg');
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url('https://cdn.wallpapersafari.com/18/72/WFCoBQ.jpeg');
   background-repeat: no-repeat;
   background-size: cover;
   background-position: 50%;
+
   height: 450px;
   position: relative;
 }
@@ -85,4 +87,10 @@ nav a:hover {
 
 .listing-img-mw {
   max-width: 200px;
+}
+
+/* Navbar */
+
+#nav-bar {
+  z-index: 999;
 }

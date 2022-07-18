@@ -4,7 +4,27 @@ const { Property, User } = require('../models');
 
 router.get('/', async (req, res) => {
   let logged = req.session.logged_in;
-  res.render('homepage', { logged });
+  try {
+    const propertyData = await Property.findAll({
+      raw: true,
+      limit: 5,
+      order: [['number_visits', 'DESC']],
+    });
+    const lowCostProperties = await Property.findAll({
+      raw: true,
+      limit: 5,
+      order: [['Price', 'ASC']],
+    });
+
+    if (!propertyData || !lowCostProperties) {
+      res.status(404).json({ message: 'Id does not exist' });
+      return;
+    }
+    res.render('homepage', { logged, propertyData, lowCostProperties });
+  } catch (error) {
+    res.status(500).json(error);
+  }
+  // res.render('homepage', { logged });
 });
 router.get('/about-property/:id', async (req, res) => {
   let logged = req.session.logged_in;

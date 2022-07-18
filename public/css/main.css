@@ -1,7 +1,9 @@
 .trendy {
   max-width: 1280px;
 }
-
+body {
+  overflow-x: hidden;
+}
 .block-section {
   margin-bottom: 5rem;
 }

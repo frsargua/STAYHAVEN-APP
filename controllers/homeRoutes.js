@@ -21,6 +21,12 @@ router.get('/about-property/:id', async (req, res) => {
       },
       include: [{ model: User, as: 'owner' }],
     });
+
+    Property.increment('number_visits', {
+      by: 1,
+      where: { id: req.params.id },
+    });
+
     if (!propertyData) {
       res.status(404).json({ message: 'Id does not exist' });
       return;

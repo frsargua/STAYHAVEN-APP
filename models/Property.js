@@ -58,6 +58,10 @@ Property.init(
       defaultValue: true,
       allowNull: false,
     },
+    number_visits: {
+      type: DataTypes.INTEGER,
+      defaultValue: 1,
+    },
   },
   {
     sequelize,

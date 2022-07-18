@@ -216,7 +216,8 @@ signInButton.addEventListener('click', async (e) => {
     .then((data) => {
       console.log('Successful POST request:', data);
       // Empty the input fields
-      loginForm();
+      window.location.href = '/';
+
       return data;
     })
     .catch((error) => {
@@ -254,6 +255,8 @@ signUpButton.addEventListener('click', async (e) => {
     .then((data) => {
       console.log('Successful POST request:', data);
       // Empty the input fields
+      // Simulate an HTTP redirect:
+      window.location.href = '/';
       return data;
     })
     .catch((error) => {

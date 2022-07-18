@@ -1,12 +1,36 @@
 const router = require('express').Router();
 const withAuth = require('../utils/auth');
+const { Property } = require('../models');
+
 router.get('/', async (req, res) => {
   let logged = req.session.logged_in;
   res.render('homepage', { logged });
 });
-router.get('/about-property', withAuth, async (req, res) => {
+router.get('/about-property/:id', async (req, res) => {
   let logged = req.session.logged_in;
-  res.render('descriptionpage', { logged });
+  let images = [
+    'https://res.cloudinary.com/dooyigunm/image/upload/v1657650966/StayHaven/selly-oak-3/walsall_1_drnd00.jpg',
+    'https://res.cloudinary.com/dooyigunm/image/upload/v1657650966/StayHaven/selly-oak-3/2_xy39ye.jpg',
+    'https://res.cloudinary.com/dooyigunm/image/upload/v1657650965/StayHaven/selly-oak-3/3_quh3js.jpg',
+    'https://res.cloudinary.com/dooyigunm/image/upload/v1657650965/StayHaven/selly-oak-3/5_j2nyk4.jpg',
+  ];
+  try {
+    const propertyData = await Property.findOne({
+      where: {
+        id: req.params.id,
+      },
+    });
+    if (!propertyData) {
+      res.status(404).json({ message: 'Id does not exist' });
+      return;
+    }
+    const properties = propertyData.get({ plain: true });
+
+    console.log(properties);
+    res.render('descriptionpage', { logged, images, properties });
+  } catch (error) {
+    res.status(500).json(error);
+  }
 });
 
 router.get('/add-listing', withAuth, async (req, res) => {

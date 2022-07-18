@@ -21,16 +21,16 @@
   <div class='col text-center d-block align-items-center'>
     <div class='col-lg-10 col-sm-11 text-start mx-auto mb-5 fixed'>
       <h2>Location</h2>
-      <h3 class='my-sm-4'>Price per week</h3>
+      <h3 class='my-sm-4'>£{{properties.price}}/moth</h3>
       <div class='d-flex justify-content-start'>
         <h5 class='px-3'>
-          <i class='fa-solid fa-bed'><span class='px-3'>3</span></i>bed
+          <i class='fa-solid fa-bed'><span class='px-3'>{{properties.bathroom_number}}</span></i>bed
         </h5>
         <h5 class='px-3'>
-          <i class='fa-solid fa-toilet'><span class='px-3'>3</span></i>Bath
+          <i class='fa-solid fa-toilet'><span class='px-3'>{{properties.rooms_number}}</span></i>Bath
         </h5>
         <h5 class='px-3'>
-          <i class='fa-solid fa-couch'><span class='px-3'>1</span></i>reception
+          <i class='fa-solid fa-couch'><span class='px-3'>{{properties.rooms_number}}</span></i>reception
         </h5>
       </div>
     </div>
@@ -66,50 +66,7 @@
       class='col-10 text-start shadow-sm px-4 pt-3 pb-3 rounded-2'
       id='property-description'
     >
-      <p>
-        Profectus Estates are proud to present this newly constructed one
-        bedroom self contained first floor flat located on Jerry's Lane in the
-        popular area of Erdington. Within walking distance to Erdington train
-        station and less than 10 minutes by car to the city centre this property
-        is ideal for working professionals.The premises itself used to be the
-        old Jerry's Inn public house and now has undergone a tremendous
-        refurbishment and hence now is offering luxury self contained
-        accommodation.
-      </p>
-
-      <br />
-      <p>
-        Profectus Estates are proud to present this newly constructed one
-        bedroom self contained first floor flat located on Jerry's Lane in the
-        popular area of Erdington. Within walking distance to Erdington train
-        station and less than 10 minutes by car to the city centre this property
-        is ideal for working professionals.The premises itself used to be the
-        old Jerry's Inn public house and now has undergone a tremendous
-        refurbishment and hence now is offering luxury self contained
-        accommodation.
-      </p>
-      <br />
-      <p>
-        Profectus Estates are proud to present this newly constructed one
-        bedroom self contained first floor flat located on Jerry's Lane in the
-        popular area of Erdington. Within walking distance to Erdington train
-        station and less than 10 minutes by car to the city centre this property
-        is ideal for working professionals.The premises itself used to be the
-        old Jerry's Inn public house and now has undergone a tremendous
-        refurbishment and hence now is offering luxury self contained
-        accommodation.
-      </p>
-      <br />
-      <p>
-        Profectus Estates are proud to present this newly constructed one
-        bedroom self contained first floor flat located on Jerry's Lane in the
-        popular area of Erdington. Within walking distance to Erdington train
-        station and less than 10 minutes by car to the city centre this property
-        is ideal for working professionals.The premises itself used to be the
-        old Jerry's Inn public house and now has undergone a tremendous
-        refurbishment and hence now is offering luxury self contained
-        accommodation.
-      </p>
+      {{properties.description}}
     </div>
     <h5 id='more' class='expand-description py-1'>Read more</h5>
     <h5 id='less' class='decrease-description py-1'>Read less</h5>

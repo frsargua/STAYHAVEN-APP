@@ -91,35 +91,35 @@ function fillInAddress() {
     const componentType = component.types[0];
 
     switch (componentType) {
-    case 'street_number': {
-      address1 = `${component.long_name} ${address1}`;
-      break;
-    }
+      case 'street_number': {
+        address1 = `${component.long_name} ${address1}`;
+        break;
+      }
 
-    case 'route': {
-      address1 += component.short_name;
-      break;
-    }
+      case 'route': {
+        address1 += component.short_name;
+        break;
+      }
 
-    case 'postal_code': {
-      postcode = `${component.long_name}${postcode}`;
-      break;
-    }
+      case 'postal_code': {
+        postcode = `${component.long_name}${postcode}`;
+        break;
+      }
 
-    case 'postal_code_suffix': {
-      postcode = `${postcode}-${component.long_name}`;
-      break;
-    }
-    case 'locality':
-      document.querySelector('#locality').value = component.long_name;
-      break;
-    case 'postal_town':
-      document.querySelector('#locality').value = component.long_name;
-      break;
+      case 'postal_code_suffix': {
+        postcode = `${postcode}-${component.long_name}`;
+        break;
+      }
+      case 'locality':
+        document.querySelector('#locality').value = component.long_name;
+        break;
+      case 'postal_town':
+        document.querySelector('#locality').value = component.long_name;
+        break;
 
-    case 'country':
-      document.querySelector('#country').value = component.long_name;
-      break;
+      case 'country':
+        document.querySelector('#country').value = component.long_name;
+        break;
     }
   }
   latitude = place.geometry.location.lat();
@@ -133,7 +133,26 @@ function fillInAddress() {
 }
 
 window.initMap = initMap;
-if (window.location.pathname == '/about-property') {
+if (window.location.pathname.includes('/about-property/')) {
+  const datePicker = function () {
+    $('#startingDate').datepicker({
+      dateFormat: 'yy-mm-dd',
+      minDate: 0,
+      maxDate: 365,
+    });
+    $('#endDate').datepicker({
+      dateFormat: 'yy-mm-dd',
+      selectOtherMonths: true,
+      showWeek: true,
+      changeMonth: true,
+      changeYear: true,
+      minDate: 31,
+      maxDate: 365,
+    });
+  };
+  $(datePicker);
+  datePicker();
+
   // Query for expanding and contracting text area in description page
   var h = $('#property-description')[0].scrollHeight;
 

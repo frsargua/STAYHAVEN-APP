@@ -1,3 +1,4 @@
+// Add google maps to page
 var map;
 var service;
 var infowindow;
@@ -52,33 +53,35 @@ function initMap() {
 let address1Field;
 let address2Field;
 let postalField;
+let city;
 let autocomplete;
 let latitude;
 let longitude;
+let saver;
 // Suggest address and autocomplete form.
-function autocompleteFunc() {
-  address1Field = document.querySelector('#firstLineAddress');
-  address2Field = document.querySelector('#address-line-2');
-  postalField = document.querySelector('#postcode');
-  const input = document.getElementById('firstLineAddress');
-  const options = {
-    componentRestrictions: { country: 'uk' },
-    fields: ['address_components', 'geometry'],
-    strictBounds: false,
-    types: ['address'],
-  };
-  autocomplete = new google.maps.places.Autocomplete(input, options);
+// function autocompleteFunc() {
+//   address1Field = document.querySelector('#firstLineAddress');
+//   address2Field = document.querySelector('#address-line-2');
+//   postalField = document.querySelector('#postcode');
+//   const input = document.getElementById('firstLineAddress');
+//   const options = {
+//     componentRestrictions: { country: 'uk' },
+//     fields: ['address_components', 'geometry'],
+//     strictBounds: false,
+//     types: ['address'],
+//   };
+//   autocomplete = new google.maps.places.Autocomplete(input, options);
 
-  address1Field.focus();
-  autocomplete.addListener('place_changed', fillInAddress);
-}
+//   address1Field.focus();
+//   autocomplete.addListener('place_changed', fillInAddress);
+// }
 
 function fillInAddress() {
   // Get the place details from the autocomplete object.
   const place = autocomplete.getPlace();
   let address1 = '';
   let postcode = '';
-
+  saver = place.address_components;
   // Get each component of the address from the place details,
   // and then fill-in the corresponding field on the form.
   // place.address_components are google.maps.GeocoderAddressComponent objects
@@ -110,6 +113,9 @@ function fillInAddress() {
     case 'locality':
       document.querySelector('#locality').value = component.long_name;
       break;
+    case 'postal_town':
+      document.querySelector('#locality').value = component.long_name;
+      break;
 
     case 'country':
       document.querySelector('#country').value = component.long_name;
@@ -129,23 +135,60 @@ function fillInAddress() {
 window.initMap = initMap;
 
 // Query for expanding and contracting text area in description page
-var h = $('#property-description')[0].scrollHeight;
+// var h = $('#property-description')[0].scrollHeight;
 
-$('#more').click(function () {
-  $('#property-description').animate({
-    height: h,
-  });
-  $('#property-description').animate({
-    height: 'fit-content',
-  });
-  $('#less').css('display', 'block');
-  $('#more').css('display', 'none');
-});
+// $('#more').click(function () {
+//   $('#property-description').animate({
+//     height: h,
+//   });
+//   $('#property-description').animate({
+//     height: 'fit-content',
+//   });
+//   $('#less').css('display', 'block');
+//   $('#more').css('display', 'none');
+// });
 
-$('#less').click(function () {
-  $('#property-description').animate({
-    height: '200px',
+// $('#less').click(function () {
+//   $('#property-description').animate({
+//     height: '200px',
+//   });
+//   $('#less').css('display', 'none');
+//   $('#more').css('display', 'block');
+// });
+
+//Posting the data to the db
+const submitButton = document.getElementById('submitForm');
+
+submitButton.addEventListener('click', async (e) => {
+  e.preventDefault();
+  console.log('one');
+
+  let addressOne = document.querySelector('#firstLineAddress').value;
+  let cityOne = document.querySelector('#locality').value;
+  let numberBedrooms = document.querySelector('#numberBeds').value;
+  let numberBathrooms = document.querySelector('#numberBaths').value;
+  let price = document.querySelector('#price').value;
+  let description = document.querySelector('#textAreaProperty').value;
+  let available = true;
+  let owner = 1;
+  postalField = document.querySelector('#postcode');
+  let data = {
+    landlord_id: owner,
+    address: addressOne,
+    city: cityOne,
+    price: price,
+    bathroom_number: numberBathrooms,
+    rooms_number: numberBedrooms,
+    description: description,
+    available: available,
+  };
+  console.log(data);
+
+  const response = await fetch('/api/property/', {
+    method: 'POST',
+    body: JSON.stringify(data),
+    headers: { 'Content-Type': 'application/json' },
   });
-  $('#less').css('display', 'none');
-  $('#more').css('display', 'block');
+
+  const { description: dsc } = await response.json();
 });

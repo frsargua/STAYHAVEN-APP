@@ -6,11 +6,12 @@ const Bookmark = require('./Bookmark');
 
 // One User can have many properties
 User.hasMany(Property, {
+  foreignKey: 'landlord_id',
   onDelete: 'CASCADE',
 });
 
 // One property belongs to one user only.
-Property.belongsTo(User);
+Property.belongsTo(User, { as: 'owner', foreignKey: 'landlord_id' });
 
 // One User can have many bookmarks
 User.hasMany(Bookmark, {

@@ -52,6 +52,14 @@ Property.init(
         isNumeric: true,
       },
     },
+    reception_number: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      defaultValue: 1,
+      validate: {
+        isNumeric: true,
+      },
+    },
     description: { type: DataTypes.STRING, allowNull: false },
     available: {
       type: DataTypes.BOOLEAN,

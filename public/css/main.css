@@ -14,6 +14,10 @@ body {
   padding-bottom: 9rem;
 }
 
+.augmentate-1:hover {
+  transform: scale(1.01);
+}
+
 #navBar-logo {
   -webkit-animation: color-change 7s infinite;
   -moz-animation: color-change 7s infinite;

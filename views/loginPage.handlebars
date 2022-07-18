@@ -1,10 +1,10 @@
 <!-- Navbar -->
 {{>navbar}}
 
-    <div class="d-flex flex-row">
-        <div class="col-6">
-            <div class="offset-3 col-6">
-                <h2>Create an Account</h2>
+<div class="d-flex flex-row">
+    <div class="col-6">
+        <div class="offset-3 col-6">
+            <h2>Create an Account</h2>
             <div class="row p-2">
                 <input type="text" class="form-control" placeholder="First Name" aria-label="First name">
             </div>
@@ -18,34 +18,36 @@
                 <input type="text" class="form-control" placeholder="Password" aria-label="Password">
             </div>
             <div class="row p-2">
-                <select class="form-select form-select-m" aria-label=".form-select-lg example">
-                    <option value="2">Address</option>
-                </select>
+                <input type="text" class="form-control" placeholder="address" aria-label="address">
+
             </div>
             <div class="row p-2">
                 <input type="text" class="form-control" placeholder="City" aria-label="City">
             </div>
             <input type="submit" name="submit" value="Submit">
-</div>
+            
         </div>
+    </div>
 
         <!---second form -- -->
 
         <div class="col-6">
-            <div class="offset-3 col-6">
+            <form class="offset-3 col-6">
                 <h2>Login</h2>
-            <div class="row p-2">
-                <input type="text" class="form-control" placeholder="Email" aria-label="Email">
-            </div>
-        
-            <div class="row p-2">
-                <input type="text" class="form-control" placeholder="Password" aria-label="Password">
-            </div>
-            <input type="submit" name="submit" value="Submit">
+                <div class="row p-2">
+                    <input type="text" class="form-control" placeholder="email" aria-label="email" id="loginEmailAddress">
+                </div>
+
+                <div class="row p-2">
+                    <input type="text" class="form-control" placeholder="password" aria-label="password" id="logInPassword">
+                </div>
+
+                    <a type="submit" class="btn btn-success" id="signInButton">Submit</a>
+
+            </form>
         </div>
     </div>
-    </div>
 
 
-<!-- Footer -->
-{{>footer}}
+    <!-- Footer -->
+    {{>footer}}

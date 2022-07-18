@@ -91,35 +91,35 @@ function fillInAddress() {
     const componentType = component.types[0];
 
     switch (componentType) {
-    case 'street_number': {
-      address1 = `${component.long_name} ${address1}`;
-      break;
-    }
+      case 'street_number': {
+        address1 = `${component.long_name} ${address1}`;
+        break;
+      }
 
-    case 'route': {
-      address1 += component.short_name;
-      break;
-    }
+      case 'route': {
+        address1 += component.short_name;
+        break;
+      }
 
-    case 'postal_code': {
-      postcode = `${component.long_name}${postcode}`;
-      break;
-    }
+      case 'postal_code': {
+        postcode = `${component.long_name}${postcode}`;
+        break;
+      }
 
-    case 'postal_code_suffix': {
-      postcode = `${postcode}-${component.long_name}`;
-      break;
-    }
-    case 'locality':
-      document.querySelector('#locality').value = component.long_name;
-      break;
-    case 'postal_town':
-      document.querySelector('#locality').value = component.long_name;
-      break;
+      case 'postal_code_suffix': {
+        postcode = `${postcode}-${component.long_name}`;
+        break;
+      }
+      case 'locality':
+        document.querySelector('#locality').value = component.long_name;
+        break;
+      case 'postal_town':
+        document.querySelector('#locality').value = component.long_name;
+        break;
 
-    case 'country':
-      document.querySelector('#country').value = component.long_name;
-      break;
+      case 'country':
+        document.querySelector('#country').value = component.long_name;
+        break;
     }
   }
   latitude = place.geometry.location.lat();
@@ -158,37 +158,67 @@ window.initMap = initMap;
 
 //Posting the data to the db
 const submitButton = document.getElementById('submitForm');
+const signInButton = document.getElementById('signInButton');
 
-submitButton.addEventListener('click', async (e) => {
+// submitButton.addEventListener('click', async (e) => {
+//   e.preventDefault();
+//   console.log('one');
+
+//   let addressOne = document.querySelector('#firstLineAddress').value;
+//   let cityOne = document.querySelector('#locality').value;
+//   let numberBedrooms = document.querySelector('#numberBeds').value;
+//   let numberBathrooms = document.querySelector('#numberBaths').value;
+//   let price = document.querySelector('#price').value;
+//   let description = document.querySelector('#textAreaProperty').value;
+//   let available = true;
+//   let owner = 1;
+//   postalField = document.querySelector('#postcode');
+//   let data = {
+//     landlord_id: owner,
+//     address: addressOne,
+//     city: cityOne,
+//     price: price,
+//     bathroom_number: numberBathrooms,
+//     rooms_number: numberBedrooms,
+//     description: description,
+//     available: available,
+//   };
+//   console.log(data);
+
+//   const response = await fetch('/api/property/', {
+//     method: 'POST',
+//     body: JSON.stringify(data),
+//     headers: { 'Content-Type': 'application/json' },
+//   });
+
+//   const { description: dsc } = await response.json();
+// });
+signInButton.addEventListener('click', async (e) => {
   e.preventDefault();
-  console.log('one');
 
-  let addressOne = document.querySelector('#firstLineAddress').value;
-  let cityOne = document.querySelector('#locality').value;
-  let numberBedrooms = document.querySelector('#numberBeds').value;
-  let numberBathrooms = document.querySelector('#numberBaths').value;
-  let price = document.querySelector('#price').value;
-  let description = document.querySelector('#textAreaProperty').value;
-  let available = true;
-  let owner = 1;
+  let email = document.querySelector('#loginEmailAddress').value;
+  let password = document.querySelector('#logInPassword').value;
+
   postalField = document.querySelector('#postcode');
-  let data = {
-    landlord_id: owner,
-    address: addressOne,
-    city: cityOne,
-    price: price,
-    bathroom_number: numberBathrooms,
-    rooms_number: numberBedrooms,
-    description: description,
-    available: available,
+  let loginForm = {
+    email: email,
+    password: password,
   };
-  console.log(data);
 
-  const response = await fetch('/api/property/', {
+  // Login fetch request
+  const response = await fetch('/api/user/signIn', {
     method: 'POST',
-    body: JSON.stringify(data),
+    body: JSON.stringify(loginForm),
     headers: { 'Content-Type': 'application/json' },
-  });
-
-  const { description: dsc } = await response.json();
+  })
+    .then((res) => res.json())
+    .then((data) => {
+      console.log('Successful POST request:', data);
+      // Empty the input fields
+      loginForm();
+      return data;
+    })
+    .catch((error) => {
+      console.error('Error in POST request:', error);
+    });
 });

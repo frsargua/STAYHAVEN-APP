@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const withAuth = require('../utils/auth');
-const { Property } = require('../models');
+const { Property, User } = require('../models');
 
 router.get('/', async (req, res) => {
   let logged = req.session.logged_in;
@@ -19,6 +19,7 @@ router.get('/about-property/:id', async (req, res) => {
       where: {
         id: req.params.id,
       },
+      include: [{ model: User, as: 'owner' }],
     });
     if (!propertyData) {
       res.status(404).json({ message: 'Id does not exist' });

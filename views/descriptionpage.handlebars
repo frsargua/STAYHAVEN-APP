@@ -20,7 +20,7 @@
   </div>
   <div class='col text-center d-block align-items-center'>
     <div class='col-lg-10 col-sm-11 text-start mx-auto mb-5 fixed'>
-      <h2>Location</h2>
+      <h2>{{properties.address}},  {{properties.city}}</h2>
       <h3 class='my-sm-4'>£{{properties.price}}/moth</h3>
       <div class='d-flex justify-content-start'>
         <h5 class='px-3'>
@@ -38,10 +38,10 @@
       class='d-md-flex d-none flex-md-column align-items-center sticky-md-bottom'
     >
       <button type='button' class='btn btn-warning col-sm-8 col-md-6 mb-3'>
-        Email
+        {{properties.owner.email}}
       </button>
       <button type='button' class='btn btn-warning col-sm-8 col-md-6'>
-        Call
+        {{properties.owner.first_name}}
       </button>
     </div>
   </div>

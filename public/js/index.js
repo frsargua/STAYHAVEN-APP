@@ -91,35 +91,35 @@ function fillInAddress() {
     const componentType = component.types[0];
 
     switch (componentType) {
-    case 'street_number': {
-      address1 = `${component.long_name} ${address1}`;
-      break;
-    }
+      case 'street_number': {
+        address1 = `${component.long_name} ${address1}`;
+        break;
+      }
 
-    case 'route': {
-      address1 += component.short_name;
-      break;
-    }
+      case 'route': {
+        address1 += component.short_name;
+        break;
+      }
 
-    case 'postal_code': {
-      postcode = `${component.long_name}${postcode}`;
-      break;
-    }
+      case 'postal_code': {
+        postcode = `${component.long_name}${postcode}`;
+        break;
+      }
 
-    case 'postal_code_suffix': {
-      postcode = `${postcode}-${component.long_name}`;
-      break;
-    }
-    case 'locality':
-      document.querySelector('#locality').value = component.long_name;
-      break;
-    case 'postal_town':
-      document.querySelector('#locality').value = component.long_name;
-      break;
+      case 'postal_code_suffix': {
+        postcode = `${postcode}-${component.long_name}`;
+        break;
+      }
+      case 'locality':
+        document.querySelector('#locality').value = component.long_name;
+        break;
+      case 'postal_town':
+        document.querySelector('#locality').value = component.long_name;
+        break;
 
-    case 'country':
-      document.querySelector('#country').value = component.long_name;
-      break;
+      case 'country':
+        document.querySelector('#country').value = component.long_name;
+        break;
     }
   }
   latitude = place.geometry.location.lat();
@@ -159,6 +159,7 @@ window.initMap = initMap;
 //Posting the data to the db
 const submitButton = document.getElementById('submitForm');
 const signInButton = document.getElementById('signInButton');
+const signUpButton = document.getElementById('signUpButton');
 
 // submitButton.addEventListener('click', async (e) => {
 //   e.preventDefault();
@@ -216,6 +217,43 @@ signInButton.addEventListener('click', async (e) => {
       console.log('Successful POST request:', data);
       // Empty the input fields
       loginForm();
+      return data;
+    })
+    .catch((error) => {
+      console.error('Error in POST request:', error);
+    });
+});
+
+signUpButton.addEventListener('click', async (e) => {
+  e.preventDefault();
+
+  let firstName = document.querySelector('#firstName-su').value;
+  let lastName = document.querySelector('#lastName-su').value;
+  let email = document.querySelector('#email-su').value;
+  let password = document.querySelector('#password-su').value;
+  let address = document.querySelector('#address-su').value;
+  let city = document.querySelector('#city-su').value;
+
+  postalField = document.querySelector('#postcode');
+  let signUpForm = {
+    first_name: firstName,
+    last_name: lastName,
+    email,
+    password,
+    address,
+    city,
+  };
+
+  // Login fetch request
+  const response = await fetch('/api/user/signUp', {
+    method: 'POST',
+    body: JSON.stringify(signUpForm),
+    headers: { 'Content-Type': 'application/json' },
+  })
+    .then((res) => res.json())
+    .then((data) => {
+      console.log('Successful POST request:', data);
+      // Empty the input fields
       return data;
     })
     .catch((error) => {

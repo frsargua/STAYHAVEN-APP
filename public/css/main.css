@@ -41,15 +41,37 @@
   }
 }
 /* landing page */
+.moving {
+}
 .hero {
   background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
     url('https://cdn.wallpapersafari.com/18/72/WFCoBQ.jpeg');
   background-repeat: no-repeat;
   background-size: cover;
   background-position: 50%;
-
+  position: absolute;
   height: 450px;
-  position: relative;
+  width: 100%;
+  box-sizing: content-box;
+  padding-right: 300px;
+  z-index: -12;
+  animation: moving 40s linear infinite;
+}
+
+.hero-2 {
+  height: 450px;
+}
+
+@keyframes moving {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translatex(-300px);
+  }
+  100% {
+    transform: translatex(0px);
+  }
 }
 
 .wave {

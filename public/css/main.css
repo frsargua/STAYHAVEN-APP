@@ -11,6 +11,35 @@
 .pb-9 {
   padding-bottom: 9rem;
 }
+
+#navBar-logo {
+  -webkit-animation: color-change 7s infinite;
+  -moz-animation: color-change 7s infinite;
+  -o-animation: color-change 7s infinite;
+  -ms-animation: color-change 7s infinite;
+  animation: color-change 7s infinite;
+}
+@keyframes color-change {
+  0% {
+    color: #ed4264;
+  }
+
+  20% {
+    color: purple;
+  }
+  40% {
+    color: blue;
+  }
+  60% {
+    color: #ffc371;
+  }
+  80% {
+    color: #ffc371;
+  }
+  100% {
+    color: #ed4264;
+  }
+}
 /* landing page */
 .hero {
   background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),

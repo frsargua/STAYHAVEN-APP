@@ -68,3 +68,9 @@ a {
 .listing-img-mw {
   max-width: 200px;
 }
+
+/* User Profile Page */
+
+.update-account-btn {
+  font-size: 1.2rem;
+}

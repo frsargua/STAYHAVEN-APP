@@ -2,17 +2,26 @@
 const Booking = require('./Booking');
 const Property = require('./Property');
 const User = require('./User');
+const Bookmark = require('./Bookmark');
 
-// Categories have many Products
+// One User can have many properties
 User.hasMany(Property, {
+  foreignKey: 'landlord_id',
   onDelete: 'CASCADE',
 });
 
-// Products belongsTo Category
-Property.belongsTo(User);
+// One property belongs to one user only.
+Property.belongsTo(User, { as: 'owner', foreignKey: 'landlord_id' });
+
+// One User can have many bookmarks
+User.hasMany(Bookmark, {
+  onDelete: 'CASCADE',
+});
+// One bookmark belongs to one user only.
+Bookmark.belongsTo(User);
 
 // Products belongToMany Tags (through ProductTag)
-Property.belongsToMany(Users, { through: Booking, unique: false });
+Property.belongsToMany(User, { through: Booking, unique: false });
 // Tags belongToMany Products (through ProductTag)
 User.belongsToMany(Property, { through: Booking, unique: false });
 
@@ -20,4 +29,5 @@ module.exports = {
   Booking,
   Property,
   User,
+  Bookmark,
 };

@@ -117,7 +117,7 @@ body {
   position: relative;
 }
 
-#bookmark-icon {
+.bookmark-icon {
   position: absolute;
   color: red;
   padding: 20px;

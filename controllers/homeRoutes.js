@@ -66,6 +66,19 @@ router.get('/add-listing', withAuth, async (req, res) => {
   res.render('addListing', { logged });
 });
 
+router.get('/user-profile/:id', async (req, res) => {
+  let logged = req.session.logged_in;
+  let user = await User.findOne({
+    raw: true,
+    attributes: { exclude: ['password'] },
+    where: {
+      id: req.params.id,
+    },
+  });
+
+  res.render('profile', { logged, user });
+});
+
 router.get('/login', async (req, res) => {
   let logged = req.session.logged_in;
   res.render('loginPage', { logged });

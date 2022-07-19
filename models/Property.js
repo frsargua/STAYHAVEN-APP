@@ -70,7 +70,19 @@ Property.init(
       type: DataTypes.INTEGER,
       defaultValue: 1,
     },
-    image: {
+    image1: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    image2: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    image3: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    image4: {
       type: DataTypes.STRING,
       allowNull: false,
     },

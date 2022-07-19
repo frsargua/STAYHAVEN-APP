@@ -75,6 +75,7 @@ body {
 /* landing page */
 .moving {
 }
+
 .hero {
   background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
     url('https://cdn.wallpapersafari.com/18/72/WFCoBQ.jpeg');
@@ -110,6 +111,19 @@ body {
   position: absolute;
   bottom: 0;
   fill: white;
+}
+
+.property-card {
+  position: relative;
+}
+
+#bookmark-icon {
+  position: absolute;
+  color: red;
+  padding: 20px;
+  font-size: 2rem;
+  left: -30px;
+  top: -30px;
 }
 
 /* Description page */

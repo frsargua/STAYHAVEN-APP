@@ -28,7 +28,7 @@ router.get('/:location', async (req, res) => {
     res.status(500).json(error);
   }
 });
-router.get('/:id', async (req, res) => {
+router.get('/by-id/:id', async (req, res) => {
   // find one property by its `id` value
   // be sure to include its associated Users
   //TO DO: We will have to pair a property to a table containing its images

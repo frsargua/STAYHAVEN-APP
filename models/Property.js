@@ -70,6 +70,10 @@ Property.init(
       type: DataTypes.INTEGER,
       defaultValue: 1,
     },
+    image: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
   },
   {
     sequelize,

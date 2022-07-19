@@ -91,35 +91,35 @@ function fillInAddress() {
     const componentType = component.types[0];
 
     switch (componentType) {
-    case 'street_number': {
-      address1 = `${component.long_name} ${address1}`;
-      break;
-    }
+      case 'street_number': {
+        address1 = `${component.long_name} ${address1}`;
+        break;
+      }
 
-    case 'route': {
-      address1 += component.short_name;
-      break;
-    }
+      case 'route': {
+        address1 += component.short_name;
+        break;
+      }
 
-    case 'postal_code': {
-      postcode = `${component.long_name}${postcode}`;
-      break;
-    }
+      case 'postal_code': {
+        postcode = `${component.long_name}${postcode}`;
+        break;
+      }
 
-    case 'postal_code_suffix': {
-      postcode = `${postcode}-${component.long_name}`;
-      break;
-    }
-    case 'locality':
-      document.querySelector('#locality').value = component.long_name;
-      break;
-    case 'postal_town':
-      document.querySelector('#locality').value = component.long_name;
-      break;
+      case 'postal_code_suffix': {
+        postcode = `${postcode}-${component.long_name}`;
+        break;
+      }
+      case 'locality':
+        document.querySelector('#locality').value = component.long_name;
+        break;
+      case 'postal_town':
+        document.querySelector('#locality').value = component.long_name;
+        break;
 
-    case 'country':
-      document.querySelector('#country').value = component.long_name;
-      break;
+      case 'country':
+        document.querySelector('#country').value = component.long_name;
+        break;
     }
   }
   latitude = place.geometry.location.lat();
@@ -194,6 +194,11 @@ if (window.location.pathname == '/add-listing') {
     let description = document.querySelector('#textAreaProperty').value;
     let available = true;
     let owner = 1;
+    let image = [];
+    image.push(document.querySelector('#image1').value);
+    image.push(document.querySelector('#image2').value);
+    image.push(document.querySelector('#image3').value);
+    image.push(document.querySelector('#image4').value);
     postalField = document.querySelector('#postcode');
     let data = {
       landlord_id: owner,
@@ -204,6 +209,7 @@ if (window.location.pathname == '/add-listing') {
       rooms_number: numberBedrooms,
       description: description,
       available: available,
+      image: image,
     };
     console.log(data);
 

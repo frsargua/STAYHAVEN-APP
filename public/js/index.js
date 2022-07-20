@@ -91,35 +91,35 @@ function fillInAddress() {
     const componentType = component.types[0];
 
     switch (componentType) {
-    case 'street_number': {
-      address1 = `${component.long_name} ${address1}`;
-      break;
-    }
+      case 'street_number': {
+        address1 = `${component.long_name} ${address1}`;
+        break;
+      }
 
-    case 'route': {
-      address1 += component.short_name;
-      break;
-    }
+      case 'route': {
+        address1 += component.short_name;
+        break;
+      }
 
-    case 'postal_code': {
-      postcode = `${component.long_name}${postcode}`;
-      break;
-    }
+      case 'postal_code': {
+        postcode = `${component.long_name}${postcode}`;
+        break;
+      }
 
-    case 'postal_code_suffix': {
-      postcode = `${postcode}-${component.long_name}`;
-      break;
-    }
-    case 'locality':
-      document.querySelector('#locality').value = component.long_name;
-      break;
-    case 'postal_town':
-      document.querySelector('#locality').value = component.long_name;
-      break;
+      case 'postal_code_suffix': {
+        postcode = `${postcode}-${component.long_name}`;
+        break;
+      }
+      case 'locality':
+        document.querySelector('#locality').value = component.long_name;
+        break;
+      case 'postal_town':
+        document.querySelector('#locality').value = component.long_name;
+        break;
 
-    case 'country':
-      document.querySelector('#country').value = component.long_name;
-      break;
+      case 'country':
+        document.querySelector('#country').value = component.long_name;
+        break;
     }
   }
   latitude = place.geometry.location.lat();
@@ -173,6 +173,23 @@ if (window.location.pathname.includes('/about-property/')) {
     });
     $('#less').css('display', 'none');
     $('#more').css('display', 'block');
+  });
+
+  let bookingForm = document.getElementById('bookingCalender');
+  bookingForm.addEventListener('submit', async function (e) {
+    e.preventDefault();
+    const dates = new FormData(bookingForm);
+    const formProps = Object.fromEntries(dates);
+
+    var baseUrl = window.location.href;
+    var propertyId = baseUrl.substring(baseUrl.lastIndexOf('/') + 1);
+
+    console.log(formProps);
+    const response = await fetch(`/api/bookings/${propertyId}`, {
+      method: 'POST',
+      body: JSON.stringify(formProps),
+      headers: { 'Content-Type': 'application/json' },
+    });
   });
 }
 
@@ -309,3 +326,12 @@ if (signOutButton) {
       });
   });
 }
+
+$('.bookmark-icon').click(async function () {
+  let value = $(this).parent().attr('property-id');
+  const bookmark = await fetch('/api/bookmark', {
+    method: 'POST',
+    body: JSON.stringify({ property_id: value }),
+    headers: { 'Content-Type': 'application/json' },
+  });
+});

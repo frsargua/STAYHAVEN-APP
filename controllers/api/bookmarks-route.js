@@ -24,7 +24,11 @@ router.get('/', async (req, res) => {
 
 router.post('/', async (req, res) => {
   try {
-    const newBookmark = await Bookmark.create(req.body);
+    const newBookmark = await Bookmark.create({
+      property_id: req.body.property_id,
+      user_id: req.session.user_id,
+    });
+    console.log(newBookmark);
     res.status(200).json(newBookmark);
   } catch (error) {
     res.status(400).json(error);

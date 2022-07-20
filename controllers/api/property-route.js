@@ -28,24 +28,6 @@ router.get('/:location', async (req, res) => {
     res.status(500).json(error);
   }
 });
-
-router.get('/by/cities', async (req, res) => {
-  try {
-    const cities = await Property.findAll({
-      raw: true,
-      attributes: ['city'],
-      group: ['city'],
-    });
-    if (!cities) {
-      res.status(404).json({ message: 'Location not present in the database' });
-      return;
-    }
-    res.status(200).json(cities);
-  } catch (error) {
-    res.status(500).json(error);
-  }
-});
-
 router.get('/by-id/:id', async (req, res) => {
   // find one property by its `id` value
   // be sure to include its associated Users

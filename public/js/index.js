@@ -327,39 +327,11 @@ if (signOutButton) {
   });
 }
 
-// const fetcher = async () => {
-//   console.log('fetcher');
-//   const response = await fetch('/api/property/by/cities', {
-//     method: 'GET', // or 'PUT'
-//     headers: {
-//       'Content-Type': 'application/json',
-//     },
-//   });
-//   return response;
-// };
-
-const fetchCities = async () => {
-  const response = await fetch('/api/property/by/cities', {
-    method: 'GET', // or 'PUT'
-    headers: {
-      'Content-Type': 'application/json',
-    },
-  });
-  let data = await response.json();
-  let result = data.map((a) => a.city);
-  return result;
-};
-
-$(async function () {
-  let cities = await fetchCities();
-  console.log(cities);
-  var availableTags = cities;
-  console.log(availableTags);
-  $('#tags').autocomplete({
-    source: availableTags,
-  });
-  $('#suggestionBox').click(function () {
-    let valueCity = $('#tags').val();
-    window.location.href = `/search-${valueCity}`;
+$('.bookmark-icon').click(async function () {
+  let value = $(this).parent().attr('property-id');
+  const bookmark = await fetch('/api/bookmark', {
+    method: 'POST',
+    body: JSON.stringify({ property_id: value }),
+    headers: { 'Content-Type': 'application/json' },
   });
 });

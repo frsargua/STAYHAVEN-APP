@@ -363,3 +363,13 @@ $(async function () {
     window.location.href = `/search-${valueCity}`;
   });
 });
+
+// Updating
+$('.bookmark-icon').click(async function () {
+  let value = $(this).parent().attr('property-id');
+  const bookmark = await fetch('/api/bookmark', {
+    method: 'POST',
+    body: JSON.stringify({ property_id: value }),
+    headers: { 'Content-Type': 'application/json' },
+  });
+});

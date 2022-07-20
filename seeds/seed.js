@@ -9,6 +9,7 @@ const userSeedData = require('./userSeedData.json');
 const bookingSeedData = require('./bookingSeedData.json');
 
 // TODO Use async / await to Refactor the seedDatabase function below
+
 const seedDatabase = async () => {
   await sequelize.sync({ force: false });
   await User.bulkCreate(userSeedData);

@@ -12,7 +12,7 @@ const bookingSeedData = require('./bookingSeedData.json');
 
 const seedDatabase = async () => {
   await sequelize.sync({ force: false });
-  await User.bulkCreate(userSeedData);
+  await User.bulkCreate(userSeedData, { individualHooks: true });
   await Property.bulkCreate(propertySeedData);
   await Booking.bulkCreate(bookingSeedData);
   console.log('All Seeds Planted');

@@ -23,10 +23,16 @@ router.get('/', async (req, res) => {
   }
 });
 
-router.post('/', async (req, res) => {
+router.post('/:id', async (req, res) => {
+  console.log(req.body);
   // create a new User
   try {
-    const newBooking = await Booking.create(req.body);
+    const newBooking = await Booking.create({
+      property_id: req.params.id,
+      user_id: req.session.user_id,
+      starting_date: req.body.starting_date,
+      end_date: req.body.end_date,
+    });
     res.status(200).json(newBooking);
   } catch (error) {
     res.status(400).json(error);

@@ -39,18 +39,21 @@
     >
     {{#if logged}}
   
-    <form class="d-flex flex-column flex-lg-row align-items-center">
+    <form class="d-flex flex-column flex-lg-row align-items-center" id="bookingCalender">
      <input
         type="text"
         class="form-control m-2"
         id="startingDate"
         placeholder="Start Date"
+        name="starting_date"
       />
       <input
         type="text"
         class="form-control  m-2"
         id="endDate"
         placeholder="End Date"
+                name="end_date"
+
       />
       <button type="submit" class="btn btn-danger col-6 col-lg-2 " id="bookButton" value="bookButton">Send</button>
 

@@ -174,6 +174,23 @@ if (window.location.pathname.includes('/about-property/')) {
     $('#less').css('display', 'none');
     $('#more').css('display', 'block');
   });
+
+  let bookingForm = document.getElementById('bookingCalender');
+  bookingForm.addEventListener('submit', async function (e) {
+    e.preventDefault();
+    const dates = new FormData(bookingForm);
+    const formProps = Object.fromEntries(dates);
+
+    var baseUrl = window.location.href;
+    var propertyId = baseUrl.substring(baseUrl.lastIndexOf('/') + 1);
+
+    console.log(formProps);
+    const response = await fetch(`/api/bookings/${propertyId}`, {
+      method: 'POST',
+      body: JSON.stringify(formProps),
+      headers: { 'Content-Type': 'application/json' },
+    });
+  });
 }
 
 //Posting the data to the db

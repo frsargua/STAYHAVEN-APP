@@ -30,7 +30,7 @@
           <i class='fa-solid fa-toilet'><span class='px-3'>{{properties.rooms_number}}</span></i>Bath
         </h5>
         <h5 class='px-3'>
-          <i class='fa-solid fa-couch'><span class='px-3'>{{properties.rooms_number}}</span></i>reception
+          <i class='fa-solid fa-couch'><span class='px-3'>{{properties.reception_number}}</span></i>reception
         </h5>
       </div>
     </div>
@@ -38,14 +38,7 @@
       class='d-md-flex d-none flex-md-column align-items-center sticky-md-bottom'
     >
     {{#if logged}}
-     <button type='button' class='btn btn-warning col-sm-8 col-md-6 mb-3'>
-        {{properties.owner.email}}
-      </button>
-      <button type='button' class='btn btn-warning col-sm-8 col-md-6'>
-        {{properties.owner.first_name}}
-      </button>
-
-        {{else}}
+  
     <form class="d-flex flex-column flex-lg-row align-items-center">
      <input
         type="text"
@@ -62,6 +55,10 @@
       <button type="submit" class="btn btn-danger col-6 col-lg-2 " id="bookButton" value="bookButton">Send</button>
 
     </form>
+            {{else}}
+   <button type='button' class='btn btn-warning col-sm-8 col-md-6 mb-3'>
+        {{properties.owner.email}}
+      </button>
           {{/if}}
 
     </div>

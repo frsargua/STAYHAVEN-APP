@@ -360,7 +360,7 @@ $(async function () {
   });
   $('#suggestionBox').click(function () {
     let valueCity = $('#tags').val();
-    window.location.href = `/search-${valueCity}`;
+    window.location.href = `/search-page/${valueCity}`;
   });
 });
 

@@ -79,6 +79,11 @@ router.get('/user-profile', async (req, res) => {
   res.render('profile', { logged, user });
 });
 
+router.get('/search-page/:city', async (req, res) => {
+  let logged = req.session.logged_in;
+  res.render('searchResultsPage', { logged });
+});
+
 router.get('/login', async (req, res) => {
   let logged = req.session.logged_in;
   res.render('loginPage', { logged });

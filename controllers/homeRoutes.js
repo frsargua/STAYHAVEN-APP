@@ -81,7 +81,16 @@ router.get('/user-profile', async (req, res) => {
 
 router.get('/search-page/:city', async (req, res) => {
   let logged = req.session.logged_in;
-  res.render('searchResultsPage', { logged });
+  let city = req.params.city;
+  const searchPropertyBy = await Property.findAll({
+    raw: true,
+    where: {
+      city: city,
+    },
+  });
+  console.log(searchPropertyBy);
+
+  res.render('searchResultsPage', { logged, searchPropertyBy, city });
 });
 
 router.get('/login', async (req, res) => {

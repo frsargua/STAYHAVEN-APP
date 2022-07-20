@@ -373,3 +373,17 @@ $('.bookmark-icon').click(async function () {
     headers: { 'Content-Type': 'application/json' },
   });
 });
+
+// Search page
+
+let filterButton = $('.search-filter');
+
+if (filterButton) {
+  filterButton.on('click', function (e) {
+    let sortByOption = e.target.getAttribute('option');
+
+    let location = window.location.pathname;
+    console.log(sortByOption);
+    window.location.href = location + '?sortBy=' + sortByOption;
+  });
+}

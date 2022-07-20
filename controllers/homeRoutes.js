@@ -82,13 +82,18 @@ router.get('/user-profile', async (req, res) => {
 router.get('/search-page/:city', async (req, res) => {
   let logged = req.session.logged_in;
   let city = req.params.city;
+  let queryParam = 'price';
+  if (req.query.sortBy) {
+    queryParam = req.query.sortBy.toString();
+  }
+  console.log(queryParam);
   const searchPropertyBy = await Property.findAll({
     raw: true,
     where: {
       city: city,
     },
+    order: [[queryParam, 'ASC']],
   });
-  console.log(searchPropertyBy);
 
   res.render('searchResultsPage', { logged, searchPropertyBy, city });
 });

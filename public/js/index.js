@@ -251,43 +251,21 @@ if (window.location.pathname == '/login') {
     }
   });
 
-  signUpButton.addEventListener('click', async (e) => {
+  const signUpForm = document.getElementById('signUpForm');
+  signUpForm.addEventListener('submit', async (e) => {
     e.preventDefault();
 
-    let firstName = document.querySelector('#firstName-su').value;
-    let lastName = document.querySelector('#lastName-su').value;
-    let email = document.querySelector('#email-su').value;
-    let password = document.querySelector('#password-su').value;
-    let address = document.querySelector('#address-su').value;
-    let city = document.querySelector('#city-su').value;
-
-    postalField = document.querySelector('#postcode');
-    let signUpForm = {
-      first_name: firstName,
-      last_name: lastName,
-      email,
-      password,
-      address,
-      city,
-    };
+    const signUpData = new FormData(signUpForm);
+    let signUpFormProps = Object.fromEntries(signUpData);
+    console.log(signUpFormProps);
 
     // Login fetch request
     const response = await fetch('/api/user/signUp', {
       method: 'POST',
-      body: JSON.stringify(signUpForm),
+      body: JSON.stringify(signUpFormProps),
       headers: { 'Content-Type': 'application/json' },
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        console.log('Successful POST request:', data);
-        // Empty the input fields
-        // Simulate an HTTP redirect:
-        return data;
-      })
-      .catch((error) => {
-        console.error('Error in POST request:', error);
-      });
-    if (response) {
+    });
+    if (response.ok) {
       window.location.href = '/';
     }
   });

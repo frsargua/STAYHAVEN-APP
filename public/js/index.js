@@ -199,6 +199,7 @@ if (window.location.pathname == '/add-listing') {
   newPropertyForm.addEventListener('submit', async (e) => {
     e.preventDefault();
 
+
     const newPropertyFormFields = new FormData(newPropertyForm);
     const formProps = Object.fromEntries(newPropertyFormFields);
     let propertyAvailability = $('#flexSwitchCheckChecked').prop('checked');

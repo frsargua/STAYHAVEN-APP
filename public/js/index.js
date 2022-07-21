@@ -53,35 +53,17 @@ function initMap() {
 let address1Field;
 let address2Field;
 let postalField;
-let city;
+// let city;
 let autocomplete;
-let latitude;
-let longitude;
-let saver;
-// Suggest address and autocomplete form.
-// function autocompleteFunc() {
-//   address1Field = document.querySelector('#firstLineAddress');
-//   address2Field = document.querySelector('#address-line-2');
-//   postalField = document.querySelector('#postcode');
-//   const input = document.getElementById('firstLineAddress');
-//   const options = {
-//     componentRestrictions: { country: 'uk' },
-//     fields: ['address_components', 'geometry'],
-//     strictBounds: false,
-//     types: ['address'],
-//   };
-//   autocomplete = new google.maps.places.Autocomplete(input, options);
-
-//   address1Field.focus();
-//   autocomplete.addListener('place_changed', fillInAddress);
-// }
+// let latitude;
+// let longitude;
 
 function fillInAddress() {
   // Get the place details from the autocomplete object.
   const place = autocomplete.getPlace();
   let address1 = '';
   let postcode = '';
-  saver = place.address_components;
+
   // Get each component of the address from the place details,
   // and then fill-in the corresponding field on the form.
   // place.address_components are google.maps.GeocoderAddressComponent objects
@@ -91,39 +73,41 @@ function fillInAddress() {
     const componentType = component.types[0];
 
     switch (componentType) {
-      case 'street_number': {
-        address1 = `${component.long_name} ${address1}`;
-        break;
-      }
+    case 'street_number': {
+      address1 = `${component.long_name} ${address1}`;
+      break;
+    }
 
-      case 'route': {
-        address1 += component.short_name;
-        break;
-      }
+    case 'route': {
+      address1 += component.short_name;
+      break;
+    }
 
-      case 'postal_code': {
-        postcode = `${component.long_name}${postcode}`;
-        break;
-      }
+    case 'postal_code': {
+      postcode = `${component.long_name}${postcode}`;
+      break;
+    }
 
-      case 'postal_code_suffix': {
-        postcode = `${postcode}-${component.long_name}`;
-        break;
-      }
-      case 'locality':
-        document.querySelector('#locality').value = component.long_name;
-        break;
-      case 'postal_town':
-        document.querySelector('#locality').value = component.long_name;
-        break;
+    case 'postal_code_suffix': {
+      postcode = `${postcode}-${component.long_name}`;
+      break;
+    }
+    case 'locality':
+      document.querySelector('#locality').value = component.long_name;
+      break;
+    case 'postal_town':
+      document.querySelector('#locality').value = component.long_name;
+      break;
 
-      case 'country':
-        document.querySelector('#country').value = component.long_name;
-        break;
+    case 'country':
+      document.querySelector('#country').value = component.long_name;
+      break;
+    default:
+      break;
     }
   }
-  latitude = place.geometry.location.lat();
-  longitude = place.geometry.location.lng();
+  // latitude = place.geometry.location.lat();
+  // longitude = place.geometry.location.lng();
   address1Field.value = address1;
   postalField.value = postcode;
   // After filling the form with address components from the Autocomplete
@@ -132,7 +116,28 @@ function fillInAddress() {
   address2Field.focus();
 }
 
+// Suggest address and autocomplete form.
+function autocompleteFunc() {
+  address1Field = document.querySelector('#firstLineAddress');
+  address2Field = document.querySelector('#address-line-2');
+  postalField = document.querySelector('#postcode');
+  const input = document.getElementById('firstLineAddress');
+  const options = {
+    componentRestrictions: { country: 'uk' },
+    fields: ['address_components', 'geometry'],
+    strictBounds: false,
+    types: ['address'],
+  };
+  autocomplete = new google.maps.places.Autocomplete(input, options);
+
+  address1Field.focus();
+  autocomplete.addListener('place_changed', fillInAddress);
+}
+
 window.initMap = initMap;
+window.autocompleteFunc = autocompleteFunc;
+window.fillInAddress = fillInAddress;
+
 if (window.location.pathname.includes('/about-property/')) {
   const datePicker = function () {
     $('#startingDate').datepicker({
@@ -185,20 +190,21 @@ if (window.location.pathname.includes('/about-property/')) {
     var propertyId = baseUrl.substring(baseUrl.lastIndexOf('/') + 1);
 
     console.log(formProps);
+
     const response = await fetch(`/api/bookings/${propertyId}`, {
       method: 'POST',
       body: JSON.stringify(formProps),
       headers: { 'Content-Type': 'application/json' },
     });
+    console.log(response);
   });
 }
 
 //Posting the data to the db
-if (window.location.pathname == '/add-listing') {
+if (window.location.pathname === '/add-listing') {
   const newPropertyForm = document.getElementById('newProperty');
   newPropertyForm.addEventListener('submit', async (e) => {
     e.preventDefault();
-
 
     const newPropertyFormFields = new FormData(newPropertyForm);
     const formProps = Object.fromEntries(newPropertyFormFields);
@@ -216,7 +222,7 @@ if (window.location.pathname == '/add-listing') {
     }
   });
 }
-if (window.location.pathname == '/login') {
+if (window.location.pathname === '/login') {
   // Sign in button
   const signInForm = document.getElementById('signInForm');
   signInForm.addEventListener('click', async (e) => {
@@ -300,25 +306,30 @@ $(async function () {
 });
 
 // Updating
-$('.bookmark-icon').click(async function () {
-  let value = $(this).parent().attr('property-id');
-  const bookmark = await fetch('/api/bookmark', {
-    method: 'POST',
-    body: JSON.stringify({ property_id: value }),
-    headers: { 'Content-Type': 'application/json' },
+let bookmarkIcon = $('.bookmark-icon');
+if (bookmarkIcon) {
+  bookmarkIcon.click(async function () {
+    let value = $(this).parent().attr('property-id');
+    const bookmark = await fetch('/api/bookmark', {
+      method: 'POST',
+      body: JSON.stringify({ property_id: value }),
+      headers: { 'Content-Type': 'application/json' },
+    });
+    console.log(bookmark);
   });
-});
+}
 
 // Search page
+if (window.location.pathname.includes('/search-page')) {
+  let filterButton = $('.search-filter');
 
-let filterButton = $('.search-filter');
+  if (filterButton) {
+    filterButton.on('click', function (e) {
+      let sortByOption = e.target.getAttribute('option');
 
-if (filterButton) {
-  filterButton.on('click', function (e) {
-    let sortByOption = e.target.getAttribute('option');
-
-    let location = window.location.pathname;
-    console.log(sortByOption);
-    window.location.href = location + '?sortBy=' + sortByOption;
-  });
+      let location = window.location.pathname;
+      console.log(sortByOption);
+      window.location.href = location + '?sortBy=' + sortByOption;
+    });
+  }
 }

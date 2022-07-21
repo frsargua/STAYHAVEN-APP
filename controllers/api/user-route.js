@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { User, Property } = require('../../models');
+const { User } = require('../../models');
 
 // router.get('/booked', (req, res) => {
 //   // query db and return all bookings where user_id == logged in user ID
@@ -28,7 +28,6 @@ router.get('/:id', async (req, res) => {
 });
 
 router.post('/signUp', async (req, res) => {
-  console.log(Property);
   try {
     const userData = await User.create(req.body);
     req.session.save(() => {

@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Property, User } = require('../../models');
+const { Property } = require('../../models');
 
 // router.get('/', (req, res) => {
 //   // find all properties in the data base

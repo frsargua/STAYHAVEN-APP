@@ -194,7 +194,6 @@ if (window.location.pathname.includes('/about-property/')) {
 }
 
 //Posting the data to the db
-const signOutButton = document.getElementById('singOutButton');
 if (window.location.pathname == '/add-listing') {
   const newPropertyForm = document.getElementById('newProperty');
   newPropertyForm.addEventListener('submit', async (e) => {
@@ -219,7 +218,7 @@ if (window.location.pathname == '/add-listing') {
 if (window.location.pathname == '/login') {
   // Sign in button
   const signInForm = document.getElementById('signInForm');
-  signInForm.addEventListener('submit', async (e) => {
+  signInForm.addEventListener('click', async (e) => {
     e.preventDefault();
     const signInData = new FormData(signInForm);
     let signInFormProps = Object.fromEntries(signInData);
@@ -256,35 +255,22 @@ if (window.location.pathname == '/login') {
 }
 
 // Sign Out
+const signOutButton = document.getElementById('singOutButton');
 if (signOutButton) {
-  signOutButton.addEventListener('click', async (e) => {
-    // e.preventDefault();
-    // Login fetch request
-    const response = await fetch('/api/user/signOut', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-    })
-      .then((data) => {
-        console.log('Successful SignOut:');
-        // Empty the input fields
-        location.reload();
-      })
-      .catch((error) => {
-        console.error('Error in POST request:', error);
+  signOutButton.addEventListener('click', async () => {
+    try {
+      const response = await fetch('/api/user/signOut', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
       });
+      if (response.ok) {
+        window.location.href = '/';
+      }
+    } catch (error) {
+      console.error('Error in POST request:', error);
+    }
   });
 }
-
-// const fetcher = async () => {
-//   console.log('fetcher');
-//   const response = await fetch('/api/property/by/cities', {
-//     method: 'GET', // or 'PUT'
-//     headers: {
-//       'Content-Type': 'application/json',
-//     },
-//   });
-//   return response;
-// };
 
 const fetchCities = async () => {
   const response = await fetch('/api/property/by/cities', {

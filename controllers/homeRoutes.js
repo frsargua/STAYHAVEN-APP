@@ -24,7 +24,6 @@ router.get('/', async (req, res) => {
   } catch (error) {
     res.status(500).json(error);
   }
-  // res.render('homepage', { logged });
 });
 router.get('/about-property/:id', async (req, res) => {
   let logged = req.session.logged_in;

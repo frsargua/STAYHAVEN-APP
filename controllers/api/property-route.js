@@ -28,6 +28,24 @@ router.get('/:location', async (req, res) => {
     res.status(500).json(error);
   }
 });
+
+router.get('/by/cities', async (req, res) => {
+  try {
+    const cities = await Property.findAll({
+      raw: true,
+      attributes: ['city'],
+      group: ['city'],
+    });
+    if (!cities) {
+      res.status(404).json({ message: 'Location not present in the database' });
+      return;
+    }
+    res.status(200).json(cities);
+  } catch (error) {
+    res.status(500).json(error);
+  }
+});
+
 router.get('/by-id/:id', async (req, res) => {
   // find one property by its `id` value
   // be sure to include its associated Users
@@ -50,8 +68,9 @@ router.get('/by-id/:id', async (req, res) => {
 
 router.post('/', async (req, res) => {
   // create a new property
-  console.log(User);
+  let landlord_id = req.session.user_id;
   try {
+    req.body.landlord_id = landlord_id;
     const newProperty = await Property.create(req.body);
     res.status(200).json(newProperty);
   } catch (error) {

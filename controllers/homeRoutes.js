@@ -24,7 +24,6 @@ router.get('/', async (req, res) => {
   } catch (error) {
     res.status(500).json(error);
   }
-  // res.render('homepage', { logged });
 });
 router.get('/about-property/:id', async (req, res) => {
   let logged = req.session.logged_in;
@@ -53,7 +52,6 @@ router.get('/about-property/:id', async (req, res) => {
     }
     const properties = propertyData.get({ plain: true });
 
-    console.log(properties);
     res.render('descriptionpage', { logged, images, properties });
   } catch (error) {
     res.status(500).json(error);
@@ -62,21 +60,57 @@ router.get('/about-property/:id', async (req, res) => {
 
 router.get('/add-listing', withAuth, async (req, res) => {
   let logged = req.session.logged_in;
-  console.log(logged);
   res.render('addListing', { logged });
 });
 
 router.get('/user-profile', async (req, res) => {
   let logged = req.session.logged_in;
-  let user = await User.findOne({
-    raw: true,
-    attributes: { exclude: ['password'] },
-    where: {
-      id: req.session.user_id,
-    },
-  });
+  try {
+    let userProfileData = await User.findOne({
+      raw: true,
+      attributes: { exclude: ['password'] },
+      where: {
+        id: req.session.user_id,
+      },
+    });
+    if (!userProfileData) {
+      res.status(404).json({ message: 'No cities available in that region' });
+      return;
+    }
+    res.render('profile', { logged, userProfileData });
+  } catch (error) {
+    res.status(500).json(error);
+  }
+});
 
-  res.render('profile', { logged, user });
+router.get('/search-page/:city', async (req, res) => {
+  let logged = req.session.logged_in;
+  let city = req.params.city;
+
+  // By default we sort by price
+  let queryParam = 'price';
+  if (req.query.sortBy) {
+    queryParam = req.query.sortBy.toString();
+  }
+
+  try {
+    const searchPropertyBy = await Property.findAll({
+      raw: true,
+      where: {
+        city: city,
+      },
+      order: [[queryParam, 'ASC']],
+    });
+
+    if (!searchPropertyBy) {
+      res.status(404).json({ message: 'No cities available in that region' });
+      return;
+    }
+
+    res.render('searchResultsPage', { logged, searchPropertyBy, city });
+  } catch (error) {
+    res.status(500).json(error);
+  }
 });
 
 router.get('/login', async (req, res) => {

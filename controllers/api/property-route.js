@@ -68,8 +68,9 @@ router.get('/by-id/:id', async (req, res) => {
 
 router.post('/', async (req, res) => {
   // create a new property
-  console.log(User);
+  let landlord_id = req.session.user_id;
   try {
+    req.body.landlord_id = landlord_id;
     const newProperty = await Property.create(req.body);
     res.status(200).json(newProperty);
   } catch (error) {

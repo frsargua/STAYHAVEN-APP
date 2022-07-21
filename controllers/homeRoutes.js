@@ -28,6 +28,7 @@ router.get('/', async (req, res) => {
 });
 router.get('/about-property/:id', async (req, res) => {
   let logged = req.session.logged_in;
+  let isPropertyOwner;
   let images = [
     'https://res.cloudinary.com/dooyigunm/image/upload/v1657650966/StayHaven/selly-oak-3/walsall_1_drnd00.jpg',
     'https://res.cloudinary.com/dooyigunm/image/upload/v1657650966/StayHaven/selly-oak-3/2_xy39ye.jpg',
@@ -53,8 +54,25 @@ router.get('/about-property/:id', async (req, res) => {
     }
     const properties = propertyData.get({ plain: true });
 
+    const checkPropertyOwner = () => {
+      if (properties.owner.id == req.session.user_id) {
+        isPropertyOwner = true;
+      } else {
+        isPropertyOwner = false;
+      }
+    };
+
+    checkPropertyOwner();
+
     console.log(properties);
-    res.render('descriptionpage', { logged, images, properties });
+    console.log(isPropertyOwner);
+
+    res.render('descriptionpage', {
+      logged,
+      images,
+      properties,
+      isPropertyOwner,
+    });
   } catch (error) {
     res.status(500).json(error);
   }

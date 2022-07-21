@@ -194,149 +194,83 @@ if (window.location.pathname.includes('/about-property/')) {
 }
 
 //Posting the data to the db
-const submitButton = document.getElementById('submitForm');
-const signInButton = document.getElementById('signInButton');
-const signOutButton = document.getElementById('singOutButton');
-const signUpButton = document.getElementById('signUpButton');
 if (window.location.pathname == '/add-listing') {
-  submitButton.addEventListener('click', async (e) => {
+  const newPropertyForm = document.getElementById('newProperty');
+  newPropertyForm.addEventListener('submit', async (e) => {
     e.preventDefault();
-    console.log('one');
 
-    let addressOne = document.querySelector('#firstLineAddress').value;
-    let cityOne = document.querySelector('#locality').value;
-    let numberBedrooms = document.querySelector('#numberBeds').value;
-    let numberBathrooms = document.querySelector('#numberBaths').value;
-    let price = document.querySelector('#price').value;
-    let description = document.querySelector('#textAreaProperty').value;
-    let available = true;
-    let owner = 1;
-    postalField = document.querySelector('#postcode');
-    let data = {
-      landlord_id: owner,
-      address: addressOne,
-      city: cityOne,
-      price: price,
-      bathroom_number: numberBathrooms,
-      rooms_number: numberBedrooms,
-      description: description,
-      available: available,
-    };
-    console.log(data);
+    const newPropertyFormFields = new FormData(newPropertyForm);
+    const formProps = Object.fromEntries(newPropertyFormFields);
+    let propertyAvailability = $('#flexSwitchCheckChecked').prop('checked');
+    formProps.available = propertyAvailability;
+    console.log(formProps);
 
     const response = await fetch('/api/property/', {
       method: 'POST',
-      body: JSON.stringify(data),
+      body: JSON.stringify(formProps),
       headers: { 'Content-Type': 'application/json' },
     });
-
-    const { description: dsc } = await response.json();
+    if (response.ok) {
+      window.location.href = '/';
+    }
   });
 }
 if (window.location.pathname == '/login') {
-  signInButton.addEventListener('click', async (e) => {
+  // Sign in button
+  const signInForm = document.getElementById('signInForm');
+  signInForm.addEventListener('click', async (e) => {
     e.preventDefault();
-
-    let email = document.querySelector('#loginEmailAddress').value;
-    let password = document.querySelector('#logInPassword').value;
-
-    postalField = document.querySelector('#postcode');
-    let loginForm = {
-      email: email,
-      password: password,
-    };
+    const signInData = new FormData(signInForm);
+    let signInFormProps = Object.fromEntries(signInData);
 
     // Login fetch request
     const response = await fetch('/api/user/signIn', {
       method: 'POST',
-      body: JSON.stringify(loginForm),
+      body: JSON.stringify(signInFormProps),
       headers: { 'Content-Type': 'application/json' },
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        console.log('Successful POST request:', data);
-        // Empty the input fields
-        window.location.href = '/';
-
-        return data;
-      })
-      .catch((error) => {
-        console.error('Error in POST request:', error);
-      });
+    });
+    if (response.ok) {
+      window.location.href = '/';
+    }
   });
 
-  signUpButton.addEventListener('click', async (e) => {
+  const signUpForm = document.getElementById('signUpForm');
+  signUpForm.addEventListener('submit', async (e) => {
     e.preventDefault();
 
-    let firstName = document.querySelector('#firstName-su').value;
-    let lastName = document.querySelector('#lastName-su').value;
-    let email = document.querySelector('#email-su').value;
-    let password = document.querySelector('#password-su').value;
-    let address = document.querySelector('#address-su').value;
-    let city = document.querySelector('#city-su').value;
-
-    postalField = document.querySelector('#postcode');
-    let signUpForm = {
-      first_name: firstName,
-      last_name: lastName,
-      email,
-      password,
-      address,
-      city,
-    };
+    const signUpData = new FormData(signUpForm);
+    let signUpFormProps = Object.fromEntries(signUpData);
+    console.log(signUpFormProps);
 
     // Login fetch request
     const response = await fetch('/api/user/signUp', {
       method: 'POST',
-      body: JSON.stringify(signUpForm),
+      body: JSON.stringify(signUpFormProps),
       headers: { 'Content-Type': 'application/json' },
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        console.log('Successful POST request:', data);
-        // Empty the input fields
-        // Simulate an HTTP redirect:
-        return data;
-      })
-      .catch((error) => {
-        console.error('Error in POST request:', error);
-      });
-    if (response) {
+    });
+    if (response.ok) {
       window.location.href = '/';
     }
   });
 }
 
 // Sign Out
+const signOutButton = document.getElementById('singOutButton');
 if (signOutButton) {
-  signOutButton.addEventListener('click', async (e) => {
-    // e.preventDefault();
-    // Login fetch request
-    const response = await fetch('/api/user/signOut', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-    })
-      .then((data) => {
-        console.log('Successful SignOut:');
-        // Empty the input fields
-        location.reload();
-      })
-      .catch((error) => {
-        console.error('Error in POST request:', error);
+  signOutButton.addEventListener('click', async () => {
+    try {
+      const response = await fetch('/api/user/signOut', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
       });
+      if (response.ok) {
+        window.location.href = '/';
+      }
+    } catch (error) {
+      console.error('Error in POST request:', error);
+    }
   });
 }
-
-// const fetcher = async () => {
-//   console.log('fetcher');
-//   const response = await fetch('/api/property/by/cities', {
-//     method: 'GET', // or 'PUT'
-//     headers: {
-//       'Content-Type': 'application/json',
-//     },
-//   });
-//   return response;
-// };
 
 const fetchCities = async () => {
   const response = await fetch('/api/property/by/cities', {
@@ -360,7 +294,7 @@ $(async function () {
   });
   $('#suggestionBox').click(function () {
     let valueCity = $('#tags').val();
-    window.location.href = `/search-${valueCity}`;
+    window.location.href = `/search-page/${valueCity}`;
   });
 });
 
@@ -373,3 +307,17 @@ $('.bookmark-icon').click(async function () {
     headers: { 'Content-Type': 'application/json' },
   });
 });
+
+// Search page
+
+let filterButton = $('.search-filter');
+
+if (filterButton) {
+  filterButton.on('click', function (e) {
+    let sortByOption = e.target.getAttribute('option');
+
+    let location = window.location.pathname;
+    console.log(sortByOption);
+    window.location.href = location + '?sortBy=' + sortByOption;
+  });
+}

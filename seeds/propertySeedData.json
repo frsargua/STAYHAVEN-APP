@@ -9,6 +9,11 @@
     "reception": 1,
     "description": "Beautiful exterior and close to public services",
     "available": 1
+,
+"image1":,
+"image2":,
+"image3":,
+"image4":,
   },
   {
     "landlord_id": 1,
@@ -20,6 +25,12 @@
     "reception": 1,
     "description": "Comfortable interior witha a big garden",
     "available": 1
+,
+"image1":,
+"image2":,
+"image3":,
+"image4":,
+    
   },
   {
     "landlord_id": 2,
@@ -31,6 +42,11 @@
     "reception": 1,
     "description": "Cosy space for a small family",
     "available": 1
+,
+"image1":,
+"image2":,
+"image3":,
+"image4":,
   },
   {
     "landlord_id": 2,
@@ -42,6 +58,11 @@
     "reception": 2,
     "description": "Luxurious space and well sized rooms_number",
     "available": 1
+,
+"image1":,
+"image2":,
+"image3":,
+"image4":,
   },
   {
     "landlord_id": 3,
@@ -53,6 +74,11 @@
     "reception": 1,
     "description": "wide open spaces with a great view",
     "available": 1
+,
+"image1":,
+"image2":,
+"image3":,
+"image4":,
   },
   {
     "landlord_id": 4,
@@ -64,6 +90,11 @@
     "reception": 2,
     "description": "many well sized rooms_number fit for a big family",
     "available": 1
+,
+"image1":,
+"image2":,
+"image3":,
+"image4":,
   },
   {
     "landlord_id": 5,
@@ -75,6 +106,11 @@
     "reception": 2,
     "description": "strong, vintage structure with a big garden",
     "available": 1
+,
+"image1":,
+"image2":,
+"image3":,
+"image4":,
   },
   {
     "landlord_id": 6,
@@ -86,6 +122,11 @@
     "reception": 2,
     "description": "cosy living space with many well sized bathrooms",
     "available": 1
+,
+"image1":,
+"image2":,
+"image3":,
+"image4":,
   },
   {
     "landlord_id": 7,
@@ -97,6 +138,11 @@
     "reception": 2,
     "description": "wide, open living space with great views and accessibility",
     "available": 1
+,
+"image1":,
+"image2":,
+"image3":,
+"image4":,
   },
   {
     "landlord_id": 1,
@@ -108,6 +154,11 @@
     "reception": 1,
     "description": "Beautiful exterior and close to public services",
     "available": 1
+,
+"image1":,
+"image2":,
+"image3":,
+"image4":,
   },
   {
     "landlord_id": 1,
@@ -119,6 +170,11 @@
     "reception": 1,
     "description": "Comfortable interior witha a big garden",
     "available": 1
+,
+"image1":,
+"image2":,
+"image3":,
+"image4":,
   },
   {
     "landlord_id": 2,
@@ -130,6 +186,11 @@
     "reception": 1,
     "description": "Cosy space for a small family",
     "available": 1
+,
+"image1":,
+"image2":,
+"image3":,
+"image4":,
   },
   {
     "landlord_id": 2,
@@ -141,6 +202,11 @@
     "reception": 2,
     "description": "Luxurious space and well sized rooms_number",
     "available": 1
+,
+"image1":,
+"image2":,
+"image3":,
+"image4":,
   },
   {
     "landlord_id": 3,
@@ -152,6 +218,11 @@
     "reception": 1,
     "description": "wide open spaces with a great view",
     "available": 1
+,
+"image1":,
+"image2":,
+"image3":,
+"image4":,
   },
   {
     "landlord_id": 4,
@@ -163,6 +234,11 @@
     "reception": 2,
     "description": "many well sized rooms_number fit for a big family",
     "available": 1
+,
+"image1":,
+"image2":,
+"image3":,
+"image4":,
   },
   {
     "landlord_id": 5,
@@ -174,6 +250,11 @@
     "reception": 2,
     "description": "strong, vintage structure with a big garden",
     "available": 1
+,
+"image1":,
+"image2":,
+"image3":,
+"image4":,
   },
   {
     "landlord_id": 6,
@@ -185,6 +266,11 @@
     "reception": 2,
     "description": "cosy living space with many well sized bathrooms",
     "available": 1
+,
+"image1":,
+"image2":,
+"image3":,
+"image4":,
   },
   {
     "landlord_id": 7,
@@ -196,6 +282,11 @@
     "reception": 2,
     "description": "wide, open living space with great views and accessibility",
     "available": 1
+,
+"image1":,
+"image2":,
+"image3":,
+"image4":,
   },
   {
     "landlord_id": 1,
@@ -207,6 +298,11 @@
     "reception": 1,
     "description": "Beautiful exterior and close to public services",
     "available": 1
+,
+"image1":,
+"image2":,
+"image3":,
+"image4":,
   },
   {
     "landlord_id": 1,
@@ -218,6 +314,11 @@
     "reception": 1,
     "description": "Comfortable interior witha a big garden",
     "available": 1
+,
+"image1":,
+"image2":,
+"image3":,
+"image4":,
   },
   {
     "landlord_id": 2,
@@ -229,6 +330,11 @@
     "reception": 1,
     "description": "Cosy space for a small family",
     "available": 1
+,
+"image1":,
+"image2":,
+"image3":,
+"image4":,
   },
   {
     "landlord_id": 2,
@@ -240,6 +346,11 @@
     "reception": 2,
     "description": "Luxurious space and well sized rooms_number",
     "available": 1
+,
+"image1":,
+"image2":,
+"image3":,
+"image4":,
   },
   {
     "landlord_id": 3,
@@ -251,6 +362,11 @@
     "reception": 1,
     "description": "wide open spaces with a great view",
     "available": 1
+,
+"image1":,
+"image2":,
+"image3":,
+"image4":,
   },
   {
     "landlord_id": 4,
@@ -262,6 +378,11 @@
     "reception": 2,
     "description": "many well sized rooms_number fit for a big family",
     "available": 1
+,
+"image1":,
+"image2":,
+"image3":,
+"image4":,
   },
   {
     "landlord_id": 5,
@@ -273,6 +394,11 @@
     "reception": 2,
     "description": "strong, vintage structure with a big garden",
     "available": 1
+,
+"image1":,
+"image2":,
+"image3":,
+"image4":,
   },
   {
     "landlord_id": 6,
@@ -284,6 +410,11 @@
     "reception": 2,
     "description": "cosy living space with many well sized bathrooms",
     "available": 1
+,
+"image1":,
+"image2":,
+"image3":,
+"image4":,
   },
   {
     "landlord_id": 7,
@@ -295,5 +426,10 @@
     "reception": 2,
     "description": "wide, open living space with great views and accessibility",
     "available": 1
+,
+"image1":,
+"image2":,
+"image3":,
+"image4":,
   }
 ]

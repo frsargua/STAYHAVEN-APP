@@ -44,48 +44,6 @@
         Update Haven Details
         </button>
 
-            <!-- Update Property Info Modal -->
-            <div class="modal fade" id="updateHavenInfo" tabindex="-1">
-              <div class="modal-dialog">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h5 class="modal-title">Update Haven Details</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                  </div>
-                  <div class="modal-body">
-                    <form>
-                      <label for="fname">Address:</label><br />
-                      <input type="text" id="address" name="address" /><br />
-                      <label for="lname">City:</label><br />
-                      <input type="text" id="city" name="city" /><br />
-                      <label for="email">Price:</label><br />
-                      <input type="text" id="price" name="price" /><br />
-                      <label for="address">Bedrooms:</label><br />
-                      <input type="text" id="bedrooms" name="bedrooms" /><br />
-                      <label for="address">Bathrooms:</label><br />
-                      <input type="text" id="bathrooms" name="bathrooms" /><br />
-                      <label for="city">Reception rooms:</label><br />
-                      <input type="text" id="reception" name="reception" /><br />
-                      <label for="password">Description:</label><br />
-                      <input type="text" id="description" name="description" /><br />
-                      <label for="password">Available?:</label><br />
-                      <input type="text" id="available" name="available" /><br />
-                    </form>
-                  </div>
-                  <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
-                      Close
-                    </button>
-                    <button type="button" class="btn btn-primary">
-                      Save changes
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <!-- End of Update Property Info Modal -->
-  
-
         {{else}}
         <form class="d-flex flex-column flex-lg-row align-items-center" id="bookingCalender">
         <input
@@ -126,6 +84,47 @@
   <button type='button' class='btn btn-warning col-11 mb-2'>Email</button>
   <button type='button' class='btn btn-warning col-11'>Call</button>
 </div>
+
+            <!-- Update Property Info Modal -->
+            <div class="modal fade" id="updateHavenInfo" tabindex="-1">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title">Update Haven Details</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                    <form>
+                      <label for="fname">Address:</label><br />
+                      <input type="text" id="address" name="address" /><br />
+                      <label for="lname">City:</label><br />
+                      <input type="text" id="city" name="city" /><br />
+                      <label for="email">Price:</label><br />
+                      <input type="text" id="price" name="price" /><br />
+                      <label for="address">Bedrooms:</label><br />
+                      <input type="text" id="bedrooms" name="bedrooms" /><br />
+                      <label for="address">Bathrooms:</label><br />
+                      <input type="text" id="bathrooms" name="bathrooms" /><br />
+                      <label for="city">Reception rooms:</label><br />
+                      <input type="text" id="reception" name="reception" /><br />
+                      <label for="password">Description:</label><br />
+                      <input type="text" id="description" name="description" /><br />
+                      <label for="password">Available?:</label><br />
+                      <input type="text" id="available" name="available" /><br />
+                    </form>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                      Close
+                    </button>
+                    <button type="button" class="btn btn-primary">
+                      Save changes
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- End of Update Property Info Modal -->
 
 <!-- Description -->
 <div class='container-md text-center block-section'>

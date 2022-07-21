@@ -194,42 +194,26 @@ if (window.location.pathname.includes('/about-property/')) {
 }
 
 //Posting the data to the db
-const submitButton = document.getElementById('submitForm');
 const signOutButton = document.getElementById('singOutButton');
-const signUpButton = document.getElementById('signUpButton');
 if (window.location.pathname == '/add-listing') {
-  submitButton.addEventListener('click', async (e) => {
+  const newPropertyForm = document.getElementById('newProperty');
+  newPropertyForm.addEventListener('submit', async (e) => {
     e.preventDefault();
-    console.log('one');
 
-    let addressOne = document.querySelector('#firstLineAddress').value;
-    let cityOne = document.querySelector('#locality').value;
-    let numberBedrooms = document.querySelector('#numberBeds').value;
-    let numberBathrooms = document.querySelector('#numberBaths').value;
-    let price = document.querySelector('#price').value;
-    let description = document.querySelector('#textAreaProperty').value;
-    let available = true;
-    let owner = 1;
-    postalField = document.querySelector('#postcode');
-    let data = {
-      landlord_id: owner,
-      address: addressOne,
-      city: cityOne,
-      price: price,
-      bathroom_number: numberBathrooms,
-      rooms_number: numberBedrooms,
-      description: description,
-      available: available,
-    };
-    console.log(data);
+    const newPropertyFormFields = new FormData(newPropertyForm);
+    const formProps = Object.fromEntries(newPropertyFormFields);
+    let propertyAvailability = $('#flexSwitchCheckChecked').prop('checked');
+    formProps.available = propertyAvailability;
+    console.log(formProps);
 
     const response = await fetch('/api/property/', {
       method: 'POST',
-      body: JSON.stringify(data),
+      body: JSON.stringify(formProps),
       headers: { 'Content-Type': 'application/json' },
     });
-
-    const { description: dsc } = await response.json();
+    if (response.ok) {
+      window.location.href = '/';
+    }
   });
 }
 if (window.location.pathname == '/login') {

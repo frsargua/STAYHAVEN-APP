@@ -1,9 +1,16 @@
 <!-- Navbar -->
 {{>navbar}}
 
-<div class="d-flex flex-row">
-    <div class="col-6">
-        <form class="offset-3 col-6">
+<div class="d-flex flex-row justify-content-center align-items-evenly mt-5" style="">
+    <div class="fullscreen-bg">
+      <video loop muted autoplay class="fullscreen-bg_video">
+        <source src="/css/backgroundvideo.mp4" type="video/mp4" />
+      </video>
+      <div class="shadow-video"></div>
+    </div>
+
+    <div class="card bg-light bg-opacity-75 p-4 mx-5 col-3">
+        <form class=" col-9 mx-auto">
             <h2>Create an Account</h2>
             <div class="row p-2">
                 <input type="text" class="form-control" placeholder="First Name" aria-label="First name"
@@ -33,9 +40,8 @@
     </div>
 
     <!---second form  -->
-
-    <div class="col-6">
-        <form class="offset-3 col-6">
+    <div class="card p-4 col-3">
+        <form class=" col-9 mx-auto">
             <h2>Login</h2>
             <div class="row p-2">
                 <input type="text" class="form-control" placeholder="email" aria-label="email" id="loginEmailAddress"

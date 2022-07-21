@@ -15,6 +15,7 @@ Booking.init(
     property_id: {
       type: DataTypes.INTEGER,
       allowNull: false,
+      unique: false,
       references: {
         model: 'property',
         key: 'id',
@@ -23,6 +24,7 @@ Booking.init(
     user_id: {
       type: DataTypes.INTEGER,
       allowNull: false,
+      unique: false,
       references: {
         model: 'user',
         key: 'id',

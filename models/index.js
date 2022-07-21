@@ -20,6 +20,24 @@ User.hasMany(Bookmark, {
 // One bookmark belongs to one user only.
 Bookmark.belongsTo(User);
 
+// One user has many bookings
+User.hasMany(Booking, {
+  foreignKey: 'user_id',
+  onDelete: 'CASCADE',
+});
+
+// One booking belongs to one user only.
+Booking.belongsTo(User, { as: 'tenant', foreignKey: 'user_id' });
+
+// Property has many bookings
+Property.hasMany(Booking, {
+  foreignKey: 'property_id',
+  onDelete: 'CASCADE',
+});
+
+// One booking belongs to one property only.
+Booking.belongsTo(Property, { as: 'rental', foreignKey: 'property_id' });
+
 // Products belongToMany Tags (through ProductTag)
 Property.belongsToMany(User, { through: Booking, unique: false });
 // Tags belongToMany Products (through ProductTag)

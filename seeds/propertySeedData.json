@@ -12,7 +12,7 @@
     "image1":"https://res.cloudinary.com/dooyigunm/image/upload/v1658430544/StayHaven/Alton%20road/ezgif.com-gif-maker_21_w1crtp.jpg",
     "image2":"https://res.cloudinary.com/dooyigunm/image/upload/v1658430548/StayHaven/Alton%20road/ezgif.com-gif-maker_24_hu4n6y.jpg",
     "image3": "https://res.cloudinary.com/dooyigunm/image/upload/v1658430550/StayHaven/Alton%20road/ezgif.com-gif-maker_22_nlyom4.jpg",
-    "image4":"https://res.cloudinary.com/dooyigunm/image/upload/v1658430551/StayHaven/Alton%20road/ezgif.com-gif-maker_23_pcmzew.jpg" ,
+    "image4":"https://res.cloudinary.com/dooyigunm/image/upload/v1658430551/StayHaven/Alton%20road/ezgif.com-gif-maker_23_pcmzew.jpg" 
     
   },
   {
@@ -28,7 +28,7 @@
     "image1": "https://res.cloudinary.com/dooyigunm/image/upload/v1658430549/StayHaven/Beetham%20Tower/ezgif.com-gif-maker_62_httadg.jpg",
     "image2": "https://res.cloudinary.com/dooyigunm/image/upload/v1658430547/StayHaven/Beetham%20Tower/ezgif.com-gif-maker_63_ybxs3z.jpg" ,
     "image3": "https://res.cloudinary.com/dooyigunm/image/upload/v1658430551/StayHaven/Beetham%20Tower/ezgif.com-gif-maker_65_aoazvj.jpg",
-    "image4": "https://res.cloudinary.com/dooyigunm/image/upload/v1658430551/StayHaven/Beetham%20Tower/ezgif.com-gif-maker_64_rirgjy.jpg",
+    "image4": "https://res.cloudinary.com/dooyigunm/image/upload/v1658430551/StayHaven/Beetham%20Tower/ezgif.com-gif-maker_64_rirgjy.jpg"
   },
   {
     "landlord_id": 2,
@@ -41,9 +41,9 @@
     "description": "Cosy space for a small family",
     "available": 1,
     "image1": "",
-    "image2": ,
-    "image3": ,
-    "image4": ,
+    "image2": "",
+    "image3": "",
+    "image4": ""
   },
   {
     "landlord_id": 2,
@@ -55,10 +55,10 @@
     "reception": 2,
     "description": "Luxurious space and well sized rooms_number",
     "available": 1,
-    "image1": ,
-    "image2": ,
-    "image3": ,
-    "image4": ,
+    "image1": "",
+    "image2": "",
+    "image3": "",
+    "image4": ""
   },
   {
     "landlord_id": 3,
@@ -70,10 +70,10 @@
     "reception": 1,
     "description": "wide open spaces with a great view",
     "available": 1,
-    "image1": ,
-    "image2": ,
-    "image3": ,
-    "image4": ,
+    "image1":"" ,
+    "image2": "",
+    "image3": "",
+    "image4": ""
   },
   {
     "landlord_id": 4,
@@ -85,10 +85,10 @@
     "reception": 2,
     "description": "many well sized rooms_number fit for a big family",
     "available": 1,
-    "image1": ,
-    "image2": ,
-    "image3": ,
-    "image4": ,
+    "image1": "",
+    "image2": "",
+    "image3": "",
+    "image4": ""
   },
   {
     "landlord_id": 5,
@@ -100,10 +100,10 @@
     "reception": 2,
     "description": "strong, vintage structure with a big garden",
     "available": 1,
-    "image1": ,
-    "image2": ,
-    "image3": ,
-    "image4": ,
+    "image1": "",
+    "image2": "",
+    "image3": "",
+    "image4": ""
   },
   {
     "landlord_id": 6,
@@ -115,10 +115,10 @@
     "reception": 2,
     "description": "cosy living space with many well sized bathrooms",
     "available": 1,
-    "image1": ,
-    "image2": ,
-    "image3": ,
-    "image4": ,
+    "image1": "",
+    "image2":"",
+    "image3": "",
+    "image4": ""
   },
   {
     "landlord_id": 7,
@@ -130,10 +130,10 @@
     "reception": 2,
     "description": "wide, open living space with great views and accessibility",
     "available": 1,
-    "image1": ,
-    "image2": ,
-    "image3": ,
-    "image4": ,
+    "image1": "",
+    "image2": "",
+    "image3": "",
+    "image4": ""
   },
   {
     "landlord_id": 1,
@@ -145,10 +145,10 @@
     "reception": 1,
     "description": "Beautiful exterior and close to public services",
     "available": 1,
-    "image1": ,
-    "image2": ,
-    "image3": ,
-    "image4": ,
+    "image1": "",
+    "image2": "",
+    "image3": "",
+    "image4": ""
   },
   {
     "landlord_id": 1,
@@ -160,10 +160,10 @@
     "reception": 1,
     "description": "Comfortable interior witha a big garden",
     "available": 1,
-    "image1": ,
-    "image2": ,
-    "image3": ,
-    "image4": ,
+    "image1": "",
+    "image2": "",
+    "image3": "",
+    "image4": ""
   },
   {
     "landlord_id": 2,
@@ -175,10 +175,10 @@
     "reception": 1,
     "description": "Cosy space for a small family",
     "available": 1,
-    "image1": ,
-    "image2": ,
-    "image3": ,
-    "image4": ,
+    "image1": "",
+    "image2": "",
+    "image3": "",
+    "image4": ""
   },
   {
     "landlord_id": 2,
@@ -190,10 +190,10 @@
     "reception": 2,
     "description": "Luxurious space and well sized rooms_number",
     "available": 1,
-    "image1": ,
-    "image2": ,
-    "image3": ,
-    "image4": ,
+    "image1": "",
+    "image2": "",
+    "image3": "",
+    "image4": ""
   },
   {
     "landlord_id": 3,
@@ -205,10 +205,10 @@
     "reception": 1,
     "description": "wide open spaces with a great view",
     "available": 1,
-    "image1": ,
-    "image2": ,
-    "image3": ,
-    "image4": ,
+    "image1": "",
+    "image2":"" ,
+    "image3": "",
+    "image4":"" 
   },
   {
     "landlord_id": 4,
@@ -220,10 +220,10 @@
     "reception": 2,
     "description": "many well sized rooms_number fit for a big family",
     "available": 1,
-    "image1": ,
-    "image2": ,
-    "image3": ,
-    "image4": ,
+    "image1": "",
+    "image2": "",
+    "image3": "",
+    "image4": ""
   },
   {
     "landlord_id": 5,
@@ -235,10 +235,10 @@
     "reception": 2,
     "description": "strong, vintage structure with a big garden",
     "available": 1,
-    "image1": ,
-    "image2": ,
-    "image3": ,
-    "image4": ,
+    "image1":"" ,
+    "image2": "",
+    "image3": "",
+    "image4": ""
   },
   {
     "landlord_id": 6,
@@ -250,14 +250,14 @@
     "reception": 2,
     "description": "cosy living space with many well sized bathrooms",
     "available": 1,
-    "image1": ,
-    "image2": ,
-    "image3": ,
-    "image4": ,
+    "image1": "",
+    "image2": "",
+    "image3": "",
+    "image4": ""
   },
   {
     "landlord_id": 7,
-    "address": "9 wishful lane",
+    "address": "Four Oaks Road",
     "city": "Birmingham",
     "price": "500",
     "bathroom_number": 4,
@@ -265,10 +265,11 @@
     "reception": 2,
     "description": "wide, open living space with great views and accessibility",
     "available": 1,
-    "image1": ,
-    "image2": ,
-    "image3": ,
-    "image4": ,
+    "image1": "https://res.cloudinary.com/dooyigunm/image/upload/v1658430558/StayHaven/Four%20Oaks%20Road%20/four_oaks_road_ea13nf.jpg",
+    "image2": "https://res.cloudinary.com/dooyigunm/image/upload/v1658430557/StayHaven/Four%20Oaks%20Road%20/four_oaks_road_4_brsqad.jpg",
+    "image3": "https://res.cloudinary.com/dooyigunm/image/upload/v1658430557/StayHaven/Four%20Oaks%20Road%20/four_oaks_road_5_oaqvcv.jpg",
+    "image4": "https://res.cloudinary.com/dooyigunm/image/upload/v1658430557/StayHaven/Four%20Oaks%20Road%20/four_oaks_road_2_q5giry.jpg",
+    "image5": "https://res.cloudinary.com/dooyigunm/image/upload/v1658430557/StayHaven/Four%20Oaks%20Road%20/four_oaks_road_2_q5giry.jpg"
   },
   {
     "landlord_id": 1,
@@ -280,10 +281,10 @@
     "reception": 1,
     "description": "Beautiful exterior and close to public services",
     "available": 1,
-    "image1": ,
-    "image2": ,
-    "image3": ,
-    "image4": ,
+    "image1": "",
+    "image2": "",
+    "image3":"" ,
+    "image4": ""
   },
   {
     "landlord_id": 1,
@@ -295,10 +296,10 @@
     "reception": 1,
     "description": "Comfortable interior witha a big garden",
     "available": 1,
-    "image1": ,
-    "image2": ,
-    "image3": ,
-    "image4": ,
+    "image1": "",
+    "image2":"" ,
+    "image3": "",
+    "image4": "https://res.cloudinary.com/dooyigunm/image/upload/v1658430551/StayHaven/Alton%20road/ezgif.com-gif-maker_23_pcmzew.jpg"
   },
   {
     "landlord_id": 2,
@@ -310,10 +311,10 @@
     "reception": 1,
     "description": "Cosy space for a small family",
     "available": 1,
-    "image1": ,
-    "image2": ,
-    "image3": ,
-    "image4": ,
+    "image1": "",
+    "image2": "",
+    "image3": "",
+    "image4": ""
   },
   {
     "landlord_id": 2,
@@ -325,10 +326,10 @@
     "reception": 2,
     "description": "Luxurious space and well sized rooms_number",
     "available": 1,
-    "image1": ,
-    "image2": ,
-    "image3": ,
-    "image4": ,
+    "image1": "" ,
+    "image2": "",
+    "image3": "",
+    "image4": ""
   },
   {
     "landlord_id": 3,
@@ -340,10 +341,10 @@
     "reception": 1,
     "description": "wide open spaces with a great view",
     "available": 1,
-    "image1": ,
-    "image2": ,
-    "image3": ,
-    "image4": ,
+    "image1": "",
+    "image2":"",
+    "image3": "",
+    "image4": ""
   },
   {
     "landlord_id": 4,
@@ -355,14 +356,14 @@
     "reception": 2,
     "description": "many well sized rooms_number fit for a big family",
     "available": 1,
-    "image1": ,
-    "image2": ,
-    "image3": ,
-    "image4": ,
+    "image1": "",
+    "image2": "",
+    "image3": "",
+    "image4": ""
   },
   {
     "landlord_id": 5,
-    "address": "7 Hopeful lane",
+    "address": "Walsall House",
     "city": "Manchester",
     "price": "360",
     "bathroom_number": 2,
@@ -370,14 +371,14 @@
     "reception": 2,
     "description": "strong, vintage structure with a big garden",
     "available": 1,
-    "image1": ,
-    "image2": ,
-    "image3": ,
-    "image4": ,
+    "image1": "https://res.cloudinary.com/dooyigunm/image/upload/v1658430552/StayHaven/Walsall%20house/walsall_1_dm0pw4.jpg",
+    "image2": "https://res.cloudinary.com/dooyigunm/image/upload/v1658430552/StayHaven/Walsall%20house/3_bzrdwy.jpg",
+    "image3": "https://res.cloudinary.com/dooyigunm/image/upload/v1658430552/StayHaven/Walsall%20house/5_czygzz.jpg",
+    "image4": "https://res.cloudinary.com/dooyigunm/image/upload/v1658430552/StayHaven/Walsall%20house/4_gme6wg.jpg"
   },
   {
     "landlord_id": 6,
-    "address": "8 Hopeful lane",
+    "address": "WestPark Avenue",
     "city": "Manchester",
     "price": "599",
     "bathroom_number": 3,
@@ -385,14 +386,14 @@
     "reception": 2,
     "description": "cosy living space with many well sized bathrooms",
     "available": 1,
-    "image1": ,
-    "image2": ,
-    "image3": ,
-    "image4": ,
+    "image1": "https://res.cloudinary.com/dooyigunm/image/upload/v1658430553/StayHaven/West%20Park%20Avenue/ezgif.com-gif-maker_lkn3rq.jpg",
+    "image2": "https://res.cloudinary.com/dooyigunm/image/upload/v1658430553/StayHaven/West%20Park%20Avenue/ezgif.com-gif-maker_1_zst7gn.jpg",
+    "image3": "https://res.cloudinary.com/dooyigunm/image/upload/v1658430553/StayHaven/West%20Park%20Avenue/ezgif.com-gif-maker_2_mrxpac.jpg",
+    "image4": "https://res.cloudinary.com/dooyigunm/image/upload/v1658430553/StayHaven/West%20Park%20Avenue/ezgif.com-gif-maker_3_cwr1i9.jpg"
   },
   {
     "landlord_id": 7,
-    "address": "9 Hopeful lane",
+    "address": "Woodview drive",
     "city": "Manchester",
     "price": "500",
     "bathroom_number": 4,
@@ -400,9 +401,9 @@
     "reception": 2,
     "description": "wide, open living space with great views and accessibility",
     "available": 1,
-    "image1": ,
-    "image2": ,
-    "image3": ,
-    "image4": ,
+    "image1":"https://res.cloudinary.com/dooyigunm/image/upload/v1658430553/StayHaven/Woodview%20drive/ezgif.com-gif-maker_51_bmxgy1.jpg" ,
+    "image2":"https://res.cloudinary.com/dooyigunm/image/upload/v1658430554/StayHaven/Woodview%20drive/ezgif.com-gif-maker_54_vgxecz.jpg",
+    "image3": "https://res.cloudinary.com/dooyigunm/image/upload/v1658430554/StayHaven/Woodview%20drive/ezgif.com-gif-maker_55_ldjc52.jpg",
+    "image4": "https://res.cloudinary.com/dooyigunm/image/upload/v1658430553/StayHaven/Woodview%20drive/ezgif.com-gif-maker_56_obxhhi.jpg"
   }
 ]

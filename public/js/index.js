@@ -195,7 +195,6 @@ if (window.location.pathname.includes('/about-property/')) {
 
 //Posting the data to the db
 const submitButton = document.getElementById('submitForm');
-const signInButton = document.getElementById('signInButton');
 const signOutButton = document.getElementById('singOutButton');
 const signUpButton = document.getElementById('signUpButton');
 if (window.location.pathname == '/add-listing') {
@@ -234,35 +233,22 @@ if (window.location.pathname == '/add-listing') {
   });
 }
 if (window.location.pathname == '/login') {
-  signInButton.addEventListener('click', async (e) => {
+  // Sign in button
+  const signInForm = document.getElementById('signInForm');
+  signInForm.addEventListener('submit', async (e) => {
     e.preventDefault();
-
-    let email = document.querySelector('#loginEmailAddress').value;
-    let password = document.querySelector('#logInPassword').value;
-
-    postalField = document.querySelector('#postcode');
-    let loginForm = {
-      email: email,
-      password: password,
-    };
+    const signInData = new FormData(signInForm);
+    let signInFormProps = Object.fromEntries(signInData);
 
     // Login fetch request
     const response = await fetch('/api/user/signIn', {
       method: 'POST',
-      body: JSON.stringify(loginForm),
+      body: JSON.stringify(signInFormProps),
       headers: { 'Content-Type': 'application/json' },
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        console.log('Successful POST request:', data);
-        // Empty the input fields
-        window.location.href = '/';
-
-        return data;
-      })
-      .catch((error) => {
-        console.error('Error in POST request:', error);
-      });
+    });
+    if (response.ok) {
+      window.location.href = '/';
+    }
   });
 
   signUpButton.addEventListener('click', async (e) => {

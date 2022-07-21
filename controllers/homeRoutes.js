@@ -27,12 +27,12 @@ router.get('/', async (req, res) => {
 });
 router.get('/about-property/:id', async (req, res) => {
   let logged = req.session.logged_in;
-  let images = [
-    'https://res.cloudinary.com/dooyigunm/image/upload/v1657650966/StayHaven/selly-oak-3/walsall_1_drnd00.jpg',
-    'https://res.cloudinary.com/dooyigunm/image/upload/v1657650966/StayHaven/selly-oak-3/2_xy39ye.jpg',
-    'https://res.cloudinary.com/dooyigunm/image/upload/v1657650965/StayHaven/selly-oak-3/3_quh3js.jpg',
-    'https://res.cloudinary.com/dooyigunm/image/upload/v1657650965/StayHaven/selly-oak-3/5_j2nyk4.jpg',
-  ];
+  // let images = [
+  //   'https://res.cloudinary.com/dooyigunm/image/upload/v1657650966/StayHaven/selly-oak-3/walsall_1_drnd00.jpg',
+  //   'https://res.cloudinary.com/dooyigunm/image/upload/v1657650966/StayHaven/selly-oak-3/2_xy39ye.jpg',
+  //   'https://res.cloudinary.com/dooyigunm/image/upload/v1657650965/StayHaven/selly-oak-3/3_quh3js.jpg',
+  //   'https://res.cloudinary.com/dooyigunm/image/upload/v1657650965/StayHaven/selly-oak-3/5_j2nyk4.jpg',
+  // ];
   try {
     const propertyData = await Property.findOne({
       where: {
@@ -51,8 +51,8 @@ router.get('/about-property/:id', async (req, res) => {
       return;
     }
     const properties = propertyData.get({ plain: true });
-
-    res.render('descriptionpage', { logged, images, properties });
+    console.log(properties);
+    res.render('descriptionpage', { logged, properties });
   } catch (error) {
     res.status(500).json(error);
   }

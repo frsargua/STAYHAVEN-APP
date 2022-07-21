@@ -2,23 +2,26 @@
 {{>navbar}}
 
 <div class="moving">
-  
-  <div class="hero ">          <source src="/css/backgroundvideo.mp4" type="video/mp4" />
-  <svg viewBox='0 0 1440 120' class='wave'>
-      <path
-        d='M1440,21.2101911 L1440,120 L0,120 L0,21.2101911 C120,35.0700637 240,42 360,42 C480,42 600,35.0700637 720,21.2101911 C808.32779,12.416393 874.573633,6.87702029 918.737528,4.59207306 C972.491685,1.8109458 1026.24584,0.420382166 1080,0.420382166 C1200,0.420382166 1320,7.35031847 1440,21.2101911 Z'
-      ></path>
-    </svg></div>
 
-    <div class="hero">
-        <video loop muted autoplay class="hero-video">
-  <source src="/css/backgroundvideo.mp4" type="video/mp4" />        </video>
+  <div class="hero ">
+    <source src="/css/backgroundvideo.mp4" type="video/mp4" />
     <svg viewBox='0 0 1440 120' class='wave'>
       <path
-        d='M1440,21.2101911 L1440,120 L0,120 L0,21.2101911 C120,35.0700637 240,42 360,42 C480,42 600,35.0700637 720,21.2101911 C808.32779,12.416393 874.573633,6.87702029 918.737528,4.59207306 C972.491685,1.8109458 1026.24584,0.420382166 1080,0.420382166 C1200,0.420382166 1320,7.35031847 1440,21.2101911 Z'
-      ></path>
+        d='M1440,21.2101911 L1440,120 L0,120 L0,21.2101911 C120,35.0700637 240,42 360,42 C480,42 600,35.0700637 720,21.2101911 C808.32779,12.416393 874.573633,6.87702029 918.737528,4.59207306 C972.491685,1.8109458 1026.24584,0.420382166 1080,0.420382166 C1200,0.420382166 1320,7.35031847 1440,21.2101911 Z'>
+      </path>
     </svg>
-      </div>
+  </div>
+
+  <div class="hero">
+    <video loop muted autoplay class="hero-video">
+      <source src="/css/backgroundvideo.mp4" type="video/mp4" />
+    </video>
+    <svg viewBox='0 0 1440 120' class='wave'>
+      <path
+        d='M1440,21.2101911 L1440,120 L0,120 L0,21.2101911 C120,35.0700637 240,42 360,42 C480,42 600,35.0700637 720,21.2101911 C808.32779,12.416393 874.573633,6.87702029 918.737528,4.59207306 C972.491685,1.8109458 1026.24584,0.420382166 1080,0.420382166 C1200,0.420382166 1320,7.35031847 1440,21.2101911 Z'>
+      </path>
+    </svg>
+  </div>
 
   <div class=' hero-2 d-flex flex-column justify-content-center .moving'>
     <h1 class='text-center text-white fw-semibold'>Your Next Place...</h1>
@@ -32,7 +35,7 @@
         </div>
       </div>
     </div>
-<!--    <svg viewBox='0 0 1440 120' class='wave'>
+    <!--    <svg viewBox='0 0 1440 120' class='wave'>
       <path
         d='M1440,21.2101911 L1440,120 L0,120 L0,21.2101911 C120,35.0700637 240,42 360,42 C480,42 600,35.0700637 720,21.2101911 C808.32779,12.416393 874.573633,6.87702029 918.737528,4.59207306 C972.491685,1.8109458 1026.24584,0.420382166 1080,0.420382166 C1200,0.420382166 1320,7.35031847 1440,21.2101911 Z'
       ></path>
@@ -42,10 +45,53 @@
 <!-- Row 1 -->
 <div class='col-11 mx-auto block-section-1'>
   <h3 class='text-center mb-2'>Trendy Places</h3>
-  <div
-    class='d-flex flex-column flex-md-row align-items-center justify-content-center flex-wrap'
-  >
-       {{>trendyPlaces}}
+  <div class='d-flex flex-column flex-md-row align-items-center justify-content-center flex-wrap'>
+{{#each propertyData}}
+    <div class='property-card card col-sm-12 col-md-5 col-lg-3 m-3 augmentate-1' href='/about-property/{{id}}'
+      property-id='{{id}}'>
+      {{#if ../logged}}
+      <div class='bookmark-icon'><i class='fa-solid fa-heart'></i></div>
+      {{/if}}
+      <!-- <a href='/about-property/{{id}}'>
+        <img class='card-img-top' src='{{image1}}' alt='Card image cap' />
+        <div class='d-flex flex-column p-2'>
+          <li class='list-unstyled'>{{city}}, {{address}} </li>
+          <li class='ms-auto list-unstyled'>£ {{price}} p/m</li>
+        </div>
+      </a> -->
+      <div id="carousel1{{@index}}" class="carousel slide" data-bs-ride="carousel" data-bs-interval="25000">
+  <div class="carousel-inner">
+
+          <div class="carousel-item active">
+            <img class="d-block w-100" src='https://source.unsplash.com/random/1080x720/?house&1' alt="First slide">
+          </div>
+          <div class="carousel-item">
+            <img class="d-block w-100" src='https://source.unsplash.com/random/1080x720/?house&2' alt="Second slide">
+          </div>
+          <div class="carousel-item">
+            <img class="d-block w-100" src='https://source.unsplash.com/random/1080x720/?house&3' alt="Third slide">
+          </div>
+          <div class="carousel-item">
+            <img class="d-block w-100" src='https://source.unsplash.com/random/1080x720/?house&4' alt="Fourth slide">
+          </div>
+        </div>
+       <button class="carousel-control-prev" type="button" data-bs-target="#carousel1{{@index}}" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carousel1{{@index}}" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+
+      </div>
+      <div class='d-flex flex-column p-2'>
+          <li class='list-unstyled'>{{city}}, {{address}} </li>
+          <li class='ms-auto list-unstyled'>£ {{price}} p/m</li>
+        </div>
+
+    </div>
+ {{/each}}
 
   </div>
 </div>
@@ -53,11 +99,24 @@
 <!-- Row 2 -->
 <div class='col-11 mx-auto block-section-1'>
   <h3 class='text-center mb-2'>Low Cost Options</h3>
-  <div
-    class='d-flex flex-column flex-md-row align-items-center justify-content-center flex-wrap'
-  >
-    {{>lowCostPlaces}}
-    
+  <div class='d-flex flex-column flex-md-row align-items-center justify-content-center flex-wrap'>
+    {{#each lowCostProperties}}
+    <div class='property-card card col-sm-12 col-md-5 col-lg-2 m-3 augmentate-1' href='/about-property/{{id}}'
+      property-id='{{id}}'>
+      {{#if ../logged}}
+      <div class='bookmark-icon'><i class='fa-solid fa-heart'></i></div>
+      {{/if}}
+      <a href='/about-property/{{id}}'>
+        <img class='card-img-top' src='{{image2}}' alt='Card image cap' />
+        <div class='d-flex flex-column p-2'>
+          <li class='list-unstyled'>{{city}}, {{address}} </li>
+          <li class='ms-auto list-unstyled'>£ {{price}} p/m</li>
+        </div>
+      </a>
+
+    </div>
+    {{/each}}
+
   </div>
 </div>
 
@@ -65,10 +124,8 @@
 
 <div class='col-11 mx-auto block-section'>
   <h3 class='text-center mb-2'>All Year Around</h3>
-  <div
-    class='d-flex flex-column flex-md-row align-items-center justify-content-center flex-wrap'
-  >
-        {{>trendyPlaces}}
+  <div class='d-flex flex-column flex-md-row align-items-center justify-content-center flex-wrap'>
+    {{>trendyPlaces}}
 
   </div>
 </div>

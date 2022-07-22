@@ -27,12 +27,6 @@ router.get('/', async (req, res) => {
 });
 router.get('/about-property/:id', async (req, res) => {
   let logged = req.session.logged_in;
-  let images = [
-    'https://res.cloudinary.com/dooyigunm/image/upload/v1657650966/StayHaven/selly-oak-3/walsall_1_drnd00.jpg',
-    'https://res.cloudinary.com/dooyigunm/image/upload/v1657650966/StayHaven/selly-oak-3/2_xy39ye.jpg',
-    'https://res.cloudinary.com/dooyigunm/image/upload/v1657650965/StayHaven/selly-oak-3/3_quh3js.jpg',
-    'https://res.cloudinary.com/dooyigunm/image/upload/v1657650965/StayHaven/selly-oak-3/5_j2nyk4.jpg',
-  ];
   try {
     const propertyData = await Property.findOne({
       where: {
@@ -63,7 +57,7 @@ router.get('/add-listing', withAuth, async (req, res) => {
   res.render('addListing', { logged });
 });
 
-router.get('/user-profile', async (req, res) => {
+router.get('/user-profile', withAuth, async (req, res) => {
   let logged = req.session.logged_in;
   try {
     let userProfileData = await User.findOne({
@@ -73,11 +67,20 @@ router.get('/user-profile', async (req, res) => {
         id: req.session.user_id,
       },
     });
+
+    let userOwnsProperties = await Property.findAll({
+      raw: true,
+      where: {
+        landlord_id: req.session.user_id,
+      },
+    });
+
+    console.log(userOwnsProperties);
     if (!userProfileData) {
       res.status(404).json({ message: 'No cities available in that region' });
       return;
     }
-    res.render('profile', { logged, userProfileData });
+    res.render('profile', { logged, userProfileData, userOwnsProperties });
   } catch (error) {
     res.status(500).json(error);
   }

@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const withAuth = require('../utils/auth');
-const { Property, User } = require('../models');
+const { Property, User, Bookmark } = require('../models');
 
 router.get('/', async (req, res) => {
   let logged = req.session.logged_in;
@@ -45,8 +45,10 @@ router.get('/about-property/:id', async (req, res) => {
       return;
     }
     const properties = propertyData.get({ plain: true });
+    console.log(properties);
+    console.log(logged);
 
-    res.render('descriptionpage', { logged, images, properties });
+    res.render('descriptionpage', { logged, properties });
   } catch (error) {
     res.status(500).json(error);
   }
@@ -75,12 +77,30 @@ router.get('/user-profile', withAuth, async (req, res) => {
       },
     });
 
-    console.log(userOwnsProperties);
+    let userBookmarks = await Bookmark.findAll({
+      raw: true,
+      nest: true,
+      where: {
+        user_id: req.session.user_id,
+      },
+      include: [{ model: Property }],
+      attributes: {
+        exclude: ['id', 'property_id', 'user_id', 'propertyId'],
+      },
+    });
+
+    console.log(userBookmarks);
     if (!userProfileData) {
       res.status(404).json({ message: 'No cities available in that region' });
       return;
     }
-    res.render('profile', { logged, userProfileData, userOwnsProperties });
+    // res.send(userBookmarks);
+    res.render('profile', {
+      logged,
+      userProfileData,
+      userOwnsProperties,
+      userBookmarks,
+    });
   } catch (error) {
     res.status(500).json(error);
   }

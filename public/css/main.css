@@ -144,11 +144,21 @@ body {
 }
 .bookmark-icon {
   position: absolute;
-  color: red;
+  color: rgb(248, 98, 98);
   padding: 20px;
   font-size: 2rem;
   left: -30px;
   top: -30px;
+}
+.removeBookmark-icon {
+  position: absolute;
+  color: rgb(0, 0, 0);
+  background-color: rgba(255, 255, 255, 0.186);
+  border-radius: 50%;
+  padding: 5px;
+  font-size: 2rem;
+  right: -20px;
+  top: -20px;
 }
 
 /* Description page */

@@ -315,6 +315,19 @@ if (bookmarkIcon) {
     console.log(bookmark);
   });
 }
+// Updating
+let removeBookmarkIcon = $('.removeBookmark-icon');
+if (removeBookmarkIcon) {
+  removeBookmarkIcon.click(async function () {
+    let value = $(this).parent().attr('property-id');
+    const bookmark = await fetch('/api/bookmark', {
+      method: 'DELETE',
+      body: JSON.stringify({ property_id: value }),
+      headers: { 'Content-Type': 'application/json' },
+    });
+    console.log(bookmark);
+  });
+}
 
 // Search page
 if (window.location.pathname.includes('/search-page')) {

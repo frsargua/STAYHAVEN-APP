@@ -330,3 +330,33 @@ if (window.location.pathname.includes('/search-page')) {
     });
   }
 }
+
+const initializeLS = () => {
+  // Calling the schedule array from the local storage
+  const currencyTypeLS = localStorage.getItem('currencyType');
+
+  // If the array is undefined, we create an empty array and push it to the local storage
+  if (!currencyTypeLS) {
+    localStorage.setItem('currencyType', 'GBP');
+  }
+};
+
+initializeLS();
+
+let currencyTypeEl = $('#currencyType');
+
+currencyTypeEl.change(async function () {
+  let newCurrency = currencyTypeEl.val();
+  localStorage.setItem('currencyType', newCurrency);
+  try {
+    const response = await fetch('/api/property/currencyType', {
+      method: 'POST',
+      body: JSON.stringify({ currency: newCurrency }),
+      headers: { 'Content-Type': 'application/json' },
+    });
+    console.log(response);
+  } catch (error) {
+    console.error('Error in POST request:', error);
+    return;
+  }
+});

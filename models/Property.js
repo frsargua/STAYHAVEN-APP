@@ -2,7 +2,19 @@ const { Model, DataTypes } = require('sequelize');
 
 const sequelize = require('../config/connection.js');
 
-class Property extends Model {}
+class Property extends Model {
+  updatePrice(currencyType, propertyObject) {
+    if (currencyType === 'EUR') {
+      let newPrice = this.price * 2;
+      console.log(newPrice);
+      propertyObject.price = newPrice;
+      console.log(propertyObject);
+      return propertyObject;
+    } else {
+      return propertyObject;
+    }
+  }
+}
 
 Property.init(
   {

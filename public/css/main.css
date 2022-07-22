@@ -242,6 +242,24 @@ nav a:hover {
   object-fit: fill;
 }
 
+@media screen and (max-width: 750px) {
+  .fullscreen-bg {
+    width: 100%;
+    position: fixed;
+    padding: 0;
+    margin: 0;
+    left: 0px;
+    top: 0px;
+    z-index: -1000;
+    overflow: hidden;
+  }
+
+  .fullscreen-bg_video {
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
 .shadow-video {
   position: absolute;
   width: 100%;

@@ -331,6 +331,29 @@ if (window.location.pathname.includes('/search-page')) {
   }
 }
 
+if (window.location.pathname.includes('/user-profile')) {
+  const updateUserDetailsForm = document.getElementById('updateUserDetails');
+  updateUserDetailsForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    const newPropertyFormFields = new FormData(updateUserDetailsForm);
+    const formProps = Object.fromEntries(newPropertyFormFields);
+    console.log(formProps);
+    try {
+      const response = await fetch('/api/user/', {
+        method: 'PUT',
+        body: JSON.stringify(formProps),
+        headers: { 'Content-Type': 'application/json' },
+      });
+      if (response.ok) {
+        location.reload();
+      }
+    } catch (error) {
+      console.error('Error in PUT request:', error);
+    }
+  });
+}
+
 const initializeLS = () => {
   // Calling the schedule array from the local storage
   const currencyTypeLS = localStorage.getItem('currencyType');

@@ -11,7 +11,7 @@
       <div class="my-5">
         <img src="../img/profilepic.jpg" class="img-fluid rounded-circle" alt="profile picture" />
       </div>
-      <h5>{{userProfileData.first_name}} {{user.last_name}} </h5>
+      <h5>{{userProfileData.first_name}} {{userProfileData.last_name}} </h5>
       <h5>{{userProfileData.email}} </h5>
       <h5>{{userProfileData.address}} </h5>
       <h5>{{userProfileData.city}}</h5>
@@ -32,28 +32,26 @@
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
-            <form>
+            <form id="updateUserDetails">
               <label for="fname">First name:</label><br />
-              <input type="text" id="fname" name="fname" /><br />
+              <input type="text" id="fname" name="first_name" placeholder="{{userProfileData.first_name}}" value="{{userProfileData.first_name}}" required/><br />
               <label for="lname">Last name:</label><br />
-              <input type="text" id="lname" name="lname" /><br />
+              <input type="text" id="lname" name="last_name" placeholder="{{userProfileData.last_name}}" value="{{userProfileData.last_name}}"required /><br />
               <label for="email">Email:</label><br />
-              <input type="text" id="email" name="email" /><br />
+              <input type="email" id="email" name="email" placeholder="{{userProfileData.email}}" value="{{userProfileData.email}}"required/><br />
               <label for="address">Address:</label><br />
-              <input type="text" id="address" name="address" /><br />
+              <input type="text" id="address" name="address" placeholder="{{userProfileData.address}}" value="{{userProfileData.address}}" required/><br />
               <label for="city">City:</label><br />
-              <input type="text" id="city" name="city" /><br /><br />
-              <label for="password">Password:</label><br />
-              <input type="text" id="password" name="password" />
-            </form>
-          </div>
+              <input type="text" id="city" name="city" placeholder="{{userProfileData.city}}" value="{{userProfileData.city}}" required/><br />
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
               Close
             </button>
-            <button type="button" class="btn btn-primary">
+            <button type="submit" class="btn btn-primary">
               Save changes
             </button>
+          </div>
+            </form>
           </div>
         </div>
       </div>

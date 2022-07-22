@@ -58,9 +58,9 @@ let autocomplete;
 // let latitude;
 // let longitude;
 
-function fillInAddress() {
+async function fillInAddress() {
   // Get the place details from the autocomplete object.
-  const place = autocomplete.getPlace();
+  const place = await autocomplete.getPlace();
   let address1 = '';
   let postcode = '';
 
@@ -134,11 +134,9 @@ function autocompleteFunc() {
   autocomplete.addListener('place_changed', fillInAddress);
 }
 
-window.initMap = initMap;
-window.autocompleteFunc = autocompleteFunc;
-window.fillInAddress = fillInAddress;
-
 if (window.location.pathname.includes('/about-property/')) {
+  initMap();
+
   const datePicker = function () {
     $('#startingDate').datepicker({
       dateFormat: 'yy-mm-dd',
@@ -202,6 +200,7 @@ if (window.location.pathname.includes('/about-property/')) {
 
 //Posting the data to the db
 if (window.location.pathname === '/add-listing') {
+  autocompleteFunc();
   const newPropertyForm = document.getElementById('newProperty');
   newPropertyForm.addEventListener('submit', async (e) => {
     e.preventDefault();
@@ -293,9 +292,7 @@ const fetchCities = async () => {
 
 $(async function () {
   let cities = await fetchCities();
-  console.log(cities);
   var availableTags = cities;
-  console.log(availableTags);
   $('#tags').autocomplete({
     source: availableTags,
   });

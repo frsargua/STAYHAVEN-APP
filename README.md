@@ -1,5 +1,14 @@
 # Stayhaven
 
+
+Stayhaven, a Full Stack application made by Team Sequelize. Essentially a quick, responsive website hosted on Heroku in which prospective tennants and landlords can use. Packages and technologies used include:
+
+* Node.js and Express.js
+* MySql
+* Sequelize ORM
+* Handlebars.js
+* Bootstrap
+
 ## User Story
 
 ```
@@ -10,7 +19,6 @@
 
 ## Table of Contents
 
-- [Description](#description)
 - [Installation](#installation)
 - [Initialisaton](#initialisation)
 - [Media](#media)
@@ -18,15 +26,6 @@
 - [Contributing](#contributing)
 - [Questions](#questions)
 
-## Description
-
-Stayhaven, a Full Stack application made by Team Sequelize. Essentially a quick, responsive website hosted on Heroku in which prospective tennants and landlords can use. Packages and technologies used include:
-
-* Node.js and Express.js
-* MySql
-* Sequelize ORM
-* Handlebars.js
-* Bootstrap
 
 ## Installation
 

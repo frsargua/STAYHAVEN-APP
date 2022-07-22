@@ -401,9 +401,9 @@
     "reception": 2,
     "description": "wide, open living space with great views and accessibility",
     "available": 1,
-    "image1":"" ,
-    "image2":"",
-    "image3":"",
-    "image4":""
+    "image1":"https://res.cloudinary.com/dooyigunm/image/upload/v1658430549/StayHaven/St%20James%20Place/ezgif.com-gif-maker_66_n1o4v8.jpg",
+    "image2":"https://res.cloudinary.com/dooyigunm/image/upload/v1658430549/StayHaven/St%20James%20Place/ezgif.com-gif-maker_68_ogi7za.jpg",
+    "image3":"https://res.cloudinary.com/dooyigunm/image/upload/v1658430549/StayHaven/St%20James%20Place/ezgif.com-gif-maker_67_ct5aml.jpg",
+    "image4":"https://res.cloudinary.com/dooyigunm/image/upload/v1658430549/StayHaven/St%20James%20Place/ezgif.com-gif-maker_69_puilll.jpg"
   }
 ]

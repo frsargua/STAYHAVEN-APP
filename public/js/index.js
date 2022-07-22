@@ -91,35 +91,35 @@ function fillInAddress() {
     const componentType = component.types[0];
 
     switch (componentType) {
-    case 'street_number': {
-      address1 = `${component.long_name} ${address1}`;
-      break;
-    }
+      case 'street_number': {
+        address1 = `${component.long_name} ${address1}`;
+        break;
+      }
 
-    case 'route': {
-      address1 += component.short_name;
-      break;
-    }
+      case 'route': {
+        address1 += component.short_name;
+        break;
+      }
 
-    case 'postal_code': {
-      postcode = `${component.long_name}${postcode}`;
-      break;
-    }
+      case 'postal_code': {
+        postcode = `${component.long_name}${postcode}`;
+        break;
+      }
 
-    case 'postal_code_suffix': {
-      postcode = `${postcode}-${component.long_name}`;
-      break;
-    }
-    case 'locality':
-      document.querySelector('#locality').value = component.long_name;
-      break;
-    case 'postal_town':
-      document.querySelector('#locality').value = component.long_name;
-      break;
+      case 'postal_code_suffix': {
+        postcode = `${postcode}-${component.long_name}`;
+        break;
+      }
+      case 'locality':
+        document.querySelector('#locality').value = component.long_name;
+        break;
+      case 'postal_town':
+        document.querySelector('#locality').value = component.long_name;
+        break;
 
-    case 'country':
-      document.querySelector('#country').value = component.long_name;
-      break;
+      case 'country':
+        document.querySelector('#country').value = component.long_name;
+        break;
     }
   }
   latitude = place.geometry.location.lat();
@@ -176,21 +176,23 @@ if (window.location.pathname.includes('/about-property/')) {
   });
 
   let bookingForm = document.getElementById('bookingCalender');
-  bookingForm.addEventListener('submit', async function (e) {
-    e.preventDefault();
-    const dates = new FormData(bookingForm);
-    const formProps = Object.fromEntries(dates);
+  if (bookingForm !== null) {
+    bookingForm.addEventListener('submit', async function (e) {
+      e.preventDefault();
+      const dates = new FormData(bookingForm);
+      const formProps = Object.fromEntries(dates);
 
-    var baseUrl = window.location.href;
-    var propertyId = baseUrl.substring(baseUrl.lastIndexOf('/') + 1);
+      var baseUrl = window.location.href;
+      var propertyId = baseUrl.substring(baseUrl.lastIndexOf('/') + 1);
 
-    console.log(formProps);
-    const response = await fetch(`/api/bookings/${propertyId}`, {
-      method: 'POST',
-      body: JSON.stringify(formProps),
-      headers: { 'Content-Type': 'application/json' },
+      console.log(formProps);
+      const response = await fetch(`/api/bookings/${propertyId}`, {
+        method: 'POST',
+        body: JSON.stringify(formProps),
+        headers: { 'Content-Type': 'application/json' },
+      });
     });
-  });
+  }
 }
 
 //Posting the data to the db
@@ -198,6 +200,7 @@ const submitButton = document.getElementById('submitForm');
 const signInButton = document.getElementById('signInButton');
 const signOutButton = document.getElementById('singOutButton');
 const signUpButton = document.getElementById('signUpButton');
+const updatePropertyButton = document.getElementById('updatePropertyDetails');
 if (window.location.pathname == '/add-listing') {
   submitButton.addEventListener('click', async (e) => {
     e.preventDefault();
@@ -373,3 +376,39 @@ $('.bookmark-icon').click(async function () {
     headers: { 'Content-Type': 'application/json' },
   });
 });
+
+// Update property info
+if (window.location.pathname.includes('/about-property/')) {
+  updatePropertyButton.addEventListener('click', async (e) => {
+    e.preventDefault();
+    let address = document.querySelector('#updateAddress').value;
+    let city = document.querySelector('#updateCity').value;
+    let price = document.querySelector('#updatePrice').value;
+    let bedrooms = document.querySelector('#updateBedrooms').value;
+    let bathrooms = document.querySelector('#updateBathrooms').value;
+    let reception = document.querySelector('#updateReception').value;
+    let description = document.querySelector('#updateDescription').value;
+    let available = document.querySelector('#updateAvailable').value;
+    let baseUrl = window.location.href;
+    let propertyId = baseUrl.substring(baseUrl.lastIndexOf('/') + 1);
+    console.log(propertyId);
+    let data = {
+      address: address,
+      city: city,
+      price: price,
+      rooms_number: bedrooms,
+      bathroom_number: bathrooms,
+      reception_number: reception,
+      description: description,
+      available: available,
+    };
+    console.log(data);
+    await fetch(`/api/property/update/${propertyId}`, {
+      method: 'PUT',
+      body: JSON.stringify(data),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
+  });
+}

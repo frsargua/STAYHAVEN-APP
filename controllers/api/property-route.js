@@ -77,9 +77,37 @@ router.post('/', async (req, res) => {
   }
 });
 
-// router.put('/:id', (req, res) => {
-//   // update a property's description by its `id` value
-// });
+router.put('/update/:id', async (req, res) => {
+  console.log(req.body);
+  // update a property's description by its `id` value
+  try {
+    const updateProperty = await Property.update(
+      {
+        address: req.body.address,
+        city: req.body.city,
+        price: req.body.price,
+        bathroom_number: req.body.rooms_number,
+        rooms_number: req.body.bathroom_number,
+        reception_number: req.body.reception_number,
+        description: req.body.description,
+        available: req.body.available,
+      },
+      {
+        where: {
+          id: req.params.id,
+        },
+      }
+    );
+
+    if (!updateProperty) {
+      res.status(404).json({ message: 'No property found with this id!' });
+      return;
+    }
+    res.status(200).json(updateProperty);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
 
 router.delete('/:id', async (req, res) => {
   // delete a property by its `id` value

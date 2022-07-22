@@ -292,9 +292,7 @@ const fetchCities = async () => {
 
 $(async function () {
   let cities = await fetchCities();
-  console.log(cities);
   var availableTags = cities;
-  console.log(availableTags);
   $('#tags').autocomplete({
     source: availableTags,
   });

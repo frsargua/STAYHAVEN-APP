@@ -1,16 +1,17 @@
 {{#each searchPropertyBy}}
   <div
-    class='property-card card col-sm-12 col-md-5 col-lg-2 m-3 augmentate-1'
+    class='property-card card col-10 col-md-5 col-lg-3 m-3 augmentate-1'
     href='/about-property/{{id}}'
     property-id='{{id}}'
   >
     {{#if ../logged}}
       <div class='bookmark-icon'><i class='fa-solid fa-heart'></i></div>
     {{/if}}
-    <a href='/about-property/{{id}}'>
+    <a href='/about-property/{{id}}' style="width: 100%;">
       <img
+      id="image-property-card"
         class='card-img-top'
-        src='https://source.unsplash.com/random/1080x720/?house&{{@index}}1'
+        src='{{image1}}'
         alt='Card image cap'
       />
       <div class='d-flex flex-column p-2'>

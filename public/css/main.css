@@ -136,8 +136,12 @@ body {
 
 .property-card {
   position: relative;
+  max-height: 360px;
 }
-
+#image-property-card {
+  object-fit: cover;
+  height: 200px;
+}
 .bookmark-icon {
   position: absolute;
   color: red;

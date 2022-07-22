@@ -62,9 +62,9 @@ router.get('/by-id/:id', async (req, res) => {
       return;
     }
 
-    const newCities = propertyData.updatePrice('EUR', propertyData);
+    // const newCities = propertyData.updatePrice('EUR', propertyData);
 
-    res.status(200).json(newCities);
+    res.status(200).json(propertyData);
   } catch (error) {
     res.status(500).json(error);
   }

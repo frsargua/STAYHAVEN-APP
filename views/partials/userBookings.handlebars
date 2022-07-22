@@ -1,25 +1,25 @@
 <!-- One -->
-{{#each userBookmarks}}
+{{#each userBookings}}
 
 
   <div
     class='property-card card col-sm-12 col-md-5 col-lg-4 m-3 augmentate-1'
-    href='/about-property/{{property.id}}'
-    property-id='{{property.id}}'
+    href='/about-property/{{rental.id}}'
+    property-id='{{rental.id}}'
   >
     {{#if ../logged}}
       <div class='bookmark-icon'><i class='fa-solid fa-heart'></i></div>
     {{/if}}
-    <a href='/about-property/{{property.id}}'>
+    <a href='/about-property/{{rental.id}}'>
       <img
       id="image-property-card"
         class='card-img-top'
-        src='{{property.image1}}'
+        src='{{rental.image1}}'
         alt='Card image cap'
       />
       <div class='d-flex flex-column p-2'>
-        <li class='list-unstyled'>{{property.city}}, {{property.address}} </li>
-        <li class='ms-auto list-unstyled'>£ {{property.price}} p/m</li>
+        <li class='list-unstyled'>{{rental.city}}, {{rental.address}} </li>
+        <li class='ms-auto list-unstyled'>£ {{rental.price}} p/m</li>
       </div>
     </a>
 

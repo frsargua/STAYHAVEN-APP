@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const withAuth = require('../utils/auth');
-const { Property, User, Bookmark } = require('../models');
+const { Property, User, Bookmark, Booking } = require('../models');
 
 router.get('/', async (req, res) => {
   let logged = req.session.logged_in;
@@ -89,7 +89,15 @@ router.get('/user-profile', withAuth, async (req, res) => {
       },
     });
 
-    console.log(userBookmarks);
+    let userBookings = await Booking.findAll({
+      raw: true,
+      nest: true,
+      where: {
+        user_id: req.session.user_id,
+      },
+      include: [{ model: Property, as: 'rental' }],
+    });
+
     if (!userProfileData) {
       res.status(404).json({ message: 'No cities available in that region' });
       return;
@@ -100,6 +108,7 @@ router.get('/user-profile', withAuth, async (req, res) => {
       userProfileData,
       userOwnsProperties,
       userBookmarks,
+      userBookings,
     });
   } catch (error) {
     res.status(500).json(error);

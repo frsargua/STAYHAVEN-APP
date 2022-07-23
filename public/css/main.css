@@ -149,6 +149,7 @@ body {
   font-size: 2rem;
   left: -30px;
   top: -30px;
+  z-index: 20;
 }
 .removeBookmark-icon {
   position: absolute;

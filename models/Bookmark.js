@@ -15,6 +15,7 @@ Bookmark.init(
     property_id: {
       type: DataTypes.INTEGER,
       allowNull: false,
+      unique: 'uniquePair',
       references: {
         model: 'property',
         key: 'id',
@@ -23,6 +24,8 @@ Bookmark.init(
     user_id: {
       type: DataTypes.INTEGER,
       allowNull: false,
+      unique: 'uniquePair',
+
       references: {
         model: 'user',
         key: 'id',

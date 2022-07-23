@@ -97,7 +97,7 @@ router.get('/user-profile', withAuth, async (req, res) => {
       },
       include: [{ model: Property, as: 'rental' }],
     });
-
+    console.log(userBookings);
     if (!userProfileData) {
       res.status(404).json({ message: 'No cities available in that region' });
       return;

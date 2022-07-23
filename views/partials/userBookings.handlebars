@@ -11,6 +11,10 @@
       <div class='bookmark-icon'><i class='fa-solid fa-heart'></i></div>
     {{/if}}
     <a href='/about-property/{{rental.id}}'>
+    <div class='position-absolute d-flex justify-content-around p-2 bg-info w-100'>
+        <li class='list-unstyled '>{{starting_date}}</li>
+        <li class='list-unstyled '>{{end_date}}</li>
+      </div>
       <img
       id="image-property-card"
         class='card-img-top'

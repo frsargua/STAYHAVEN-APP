@@ -1,0 +1,32 @@
+<!-- One -->
+{{#each userBookings}}
+
+
+  <div
+    class='property-card card col-sm-12 col-md-5 col-lg-4 m-3 augmentate-1'
+    href='/about-property/{{rental.id}}'
+    property-id='{{rental.id}}'
+  >
+    {{#if ../logged}}
+      <div class='bookmark-icon'><i class='fa-solid fa-heart'></i></div>
+    {{/if}}
+    <a href='/about-property/{{rental.id}}'>
+    <div class='position-absolute d-flex justify-content-around p-2 bg-info w-100'>
+        <li class='list-unstyled '>{{starting_date}}</li>
+        <li class='list-unstyled '>{{end_date}}</li>
+      </div>
+      <img
+      id="image-property-card"
+        class='card-img-top'
+        src='{{rental.image1}}'
+        alt='Card image cap'
+      />
+      <div class='d-flex flex-column p-2'>
+        <li class='list-unstyled'>{{rental.city}}, {{rental.address}} </li>
+        <li class='ms-auto list-unstyled'>£ {{rental.price}} p/m</li>
+      </div>
+    </a>
+
+  </div>
+{{/each}}
+

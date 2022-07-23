@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Property, User } = require('../../models');
+const { Property } = require('../../models');
 
 // router.get('/', (req, res) => {
 //   // find all properties in the data base
@@ -36,6 +36,7 @@ router.get('/by/cities', async (req, res) => {
       attributes: ['city'],
       group: ['city'],
     });
+
     if (!cities) {
       res.status(404).json({ message: 'Location not present in the database' });
       return;
@@ -60,6 +61,9 @@ router.get('/by-id/:id', async (req, res) => {
       res.status(404).json({ message: 'Id does not exist' });
       return;
     }
+
+    // const newCities = propertyData.updatePrice('EUR', propertyData);
+
     res.status(200).json(propertyData);
   } catch (error) {
     res.status(500).json(error);
@@ -68,8 +72,11 @@ router.get('/by-id/:id', async (req, res) => {
 
 router.post('/', async (req, res) => {
   // create a new property
-  console.log(User);
+  let landlord_id = req.session.user_id;
+  console.log('Landlord: ' + landlord_id);
   try {
+    req.body.landlord_id = landlord_id;
+    console.log(req.body);
     const newProperty = await Property.create(req.body);
     res.status(200).json(newProperty);
   } catch (error) {
@@ -123,6 +130,20 @@ router.delete('/:id', async (req, res) => {
       return;
     }
     res.status(200).json(deletedProperty);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+router.post('/currencyType', async (req, res) => {
+  // delete a property by its `id` value
+  try {
+    if (req.body) {
+      req.session.save(() => {
+        req.session.currency = req.body;
+        res.send(req.session.currency);
+      });
+    }
   } catch (err) {
     res.status(500).json(err);
   }

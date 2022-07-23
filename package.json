@@ -7,7 +7,7 @@
     "start": "node server.js",
     "seed": "node seeds/seed.js",
     "watch": "nodemon server.js",
-    "prepare": "husky install && chmod ug+x .husky/* && chmod ug+x .git/hooks/*",
+    "dev-prepare": "husky install && chmod ug+x .husky/* && chmod ug+x .git/hooks/*",
     "lint": "eslint \"**/*.js\"",
     "lint-fix": "eslint --fix \"**/*.js\"",
     "precommit": "npm run lint-fix && git add .",

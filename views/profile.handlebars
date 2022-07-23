@@ -4,17 +4,17 @@
 
 
 <!-- Main container -->
-<div class="container-fluid my-2 trendy">
-  <div class="row">
-    <div class="col-4 my-5 text-center">
+<div class="container-fluid d-flex flex-column flex-md-row justify-content-center  align-items-center justify-content-md-start align-items-md-start my-5 trendy block-section">
+  <div class="col-4">
+    <div class=" mb-auto my-5 text-center">
       <!-- User profile info here -->
       <div class="my-5">
         <img src="../img/profilepic.jpg" class="img-fluid rounded-circle" alt="profile picture" />
       </div>
-      <h5>{{user.first_name}} {{user.last_name}} </h5>
-      <h5>{{user.email}} </h5>
-      <h5>{{user.address}} </h5>
-      <h5>{{user.city}}</h5>
+      <h5>{{userProfileData.first_name}} {{userProfileData.last_name}} </h5>
+      <h5>{{userProfileData.email}} </h5>
+      <h5>{{userProfileData.address}} </h5>
+      <h5>{{userProfileData.city}}</h5>
       <!-- Update account info link (opens modal) -->
       <div class="my-4">
         <a class="update-account-btn" data-bs-toggle="modal" data-bs-target="#updateAccountInfo" href="">Update Account
@@ -32,34 +32,33 @@
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
-            <form>
+            <form id="updateUserDetails">
               <label for="fname">First name:</label><br />
-              <input type="text" id="fname" name="fname" /><br />
+              <input type="text" id="fname" name="first_name" placeholder="{{userProfileData.first_name}}" value="{{userProfileData.first_name}}" required/><br />
               <label for="lname">Last name:</label><br />
-              <input type="text" id="lname" name="lname" /><br />
+              <input type="text" id="lname" name="last_name" placeholder="{{userProfileData.last_name}}" value="{{userProfileData.last_name}}"required /><br />
               <label for="email">Email:</label><br />
-              <input type="text" id="email" name="email" /><br />
+              <input type="email" id="email" name="email" placeholder="{{userProfileData.email}}" value="{{userProfileData.email}}"required/><br />
               <label for="address">Address:</label><br />
-              <input type="text" id="address" name="address" /><br />
+              <input type="text" id="address" name="address" placeholder="{{userProfileData.address}}" value="{{userProfileData.address}}" required/><br />
               <label for="city">City:</label><br />
-              <input type="text" id="city" name="city" /><br /><br />
-              <label for="password">Password:</label><br />
-              <input type="text" id="password" name="password" />
-            </form>
-          </div>
+              <input type="text" id="city" name="city" placeholder="{{userProfileData.city}}" value="{{userProfileData.city}}" required/><br />
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
               Close
             </button>
-            <button type="button" class="btn btn-primary">
+            <button type="submit" class="btn btn-primary">
               Save changes
             </button>
+          </div>
+            </form>
           </div>
         </div>
       </div>
     </div>
     <!-- End of Update Account Info Modal -->
 
+  </div>
     <div class="col-8">
       <div class="row">
         <!-- My Listings -->
@@ -69,7 +68,7 @@
           <div class="collapse" id="myListing">
             <div class="d-flex flex-column flex-md-row align-items-center justify-content-center flex-wrap">
 
-              {{>prifileBookmark}}
+              {{>userProperties}}
             </div>
 
 
@@ -78,18 +77,18 @@
         <!-- Upcoming Bookings -->
         <div class="col-12  block-section-1 border-bottom">
           <h3 class="text-left m-4" data-bs-toggle="collapse" data-bs-target="#Bookings" aria-expanded="false"
-            aria-controls="Bookings">Upcoming Bookings</h3>
+            aria-controls="Bookings">Bookings</h3>
           <div class="collapse" id="Bookings">
             <div class="d-flex flex-column flex-md-row align-items-center justify-content-center flex-wrap">
 
-              {{>prifileBookmark}}
+              {{>userBookings}}
             </div>
 
 
           </div>
         </div>
 
-        <!-- Previous Bookings -->
+        {{!-- <!-- Previous Bookings -->
         <div class="col-12 block-section-1 border-bottom">
           <h3 class="text-left m-4" data-bs-toggle="collapse" data-bs-target="#pBookings" aria-expanded="false"
             aria-controls="pBookings">Previous Bookings</h3>
@@ -99,7 +98,7 @@
             </div>
 
           </div>
-        </div>
+        </div> --}}
         <!-- Bookmarks -->
         <div class="col-12 mx-auto block-section-1 border-bottom" id="bookmarks">
           <h3 class="text-left m-4" data-bs-toggle="collapse" data-bs-target="#bookmarksCards" aria-expanded="false"
@@ -109,12 +108,12 @@
           <div class="collapse" id="bookmarksCards">
             <div class="d-flex flex-column flex-md-row align-items-center justify-content-center flex-wrap">
               {{>prifileBookmark}}
+              
             </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
 </div>
 
 

@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { User, Property } = require('../../models');
+const { User } = require('../../models');
 
 // router.get('/booked', (req, res) => {
 //   // query db and return all bookings where user_id == logged in user ID
@@ -28,7 +28,6 @@ router.get('/:id', async (req, res) => {
 });
 
 router.post('/signUp', async (req, res) => {
-  console.log(Property);
   try {
     const userData = await User.create(req.body);
     req.session.save(() => {
@@ -87,9 +86,23 @@ router.post('/signOut', async (req, res) => {
 
 // //Optional
 
-// router.put('/:id', (req, res) => {
-//   // update a User's description by its `id` value
-// });
+router.put('/', async (req, res) => {
+  try {
+    const userData = await User.update(req.body, {
+      where: {
+        id: req.session.user_id,
+      },
+    });
+
+    if (!userData) {
+      res.status(400).json({ message: 'Wrong field' });
+      return;
+    }
+    res.send(userData);
+  } catch (error) {
+    res.status(404).json(error);
+  }
+});
 
 // router.delete('/:id', (req, res) => {
 //   // delete a User by its `id` value

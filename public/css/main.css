@@ -1,5 +1,5 @@
 .trendy {
-  max-width: 1280px;
+  max-width: 1780px;
 }
 
 body {
@@ -136,15 +136,30 @@ body {
 
 .property-card {
   position: relative;
+  max-height: 360px;
 }
-
+#image-property-card {
+  object-fit: cover;
+  height: 200px;
+}
 .bookmark-icon {
   position: absolute;
-  color: red;
+  color: rgb(248, 98, 98);
   padding: 20px;
   font-size: 2rem;
   left: -30px;
   top: -30px;
+  z-index: 20;
+}
+.removeBookmark-icon {
+  position: absolute;
+  color: rgb(0, 0, 0);
+  background-color: rgba(255, 255, 255, 0.186);
+  border-radius: 50%;
+  padding: 5px;
+  font-size: 2rem;
+  right: -20px;
+  top: -20px;
 }
 
 /* Description page */
@@ -236,6 +251,24 @@ nav a:hover {
 .fullscreen-bg_video {
   width: 110%;
   object-fit: fill;
+}
+
+@media screen and (max-width: 750px) {
+  .fullscreen-bg {
+    width: 100%;
+    position: fixed;
+    padding: 0;
+    margin: 0;
+    left: 0px;
+    top: 0px;
+    z-index: -1000;
+    overflow: hidden;
+  }
+
+  .fullscreen-bg_video {
+    height: 100%;
+    object-fit: cover;
+  }
 }
 
 .shadow-video {

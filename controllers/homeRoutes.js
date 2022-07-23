@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const withAuth = require('../utils/auth');
-const { Property, User } = require('../models');
+const { Property, User, Bookmark, Booking } = require('../models');
 
 router.get('/', async (req, res) => {
   let logged = req.session.logged_in;
@@ -24,17 +24,9 @@ router.get('/', async (req, res) => {
   } catch (error) {
     res.status(500).json(error);
   }
-  // res.render('homepage', { logged });
 });
 router.get('/about-property/:id', async (req, res) => {
   let logged = req.session.logged_in;
-  let isPropertyOwner;
-  let images = [
-    'https://res.cloudinary.com/dooyigunm/image/upload/v1657650966/StayHaven/selly-oak-3/walsall_1_drnd00.jpg',
-    'https://res.cloudinary.com/dooyigunm/image/upload/v1657650966/StayHaven/selly-oak-3/2_xy39ye.jpg',
-    'https://res.cloudinary.com/dooyigunm/image/upload/v1657650965/StayHaven/selly-oak-3/3_quh3js.jpg',
-    'https://res.cloudinary.com/dooyigunm/image/upload/v1657650965/StayHaven/selly-oak-3/5_j2nyk4.jpg',
-  ];
   try {
     const propertyData = await Property.findOne({
       where: {
@@ -54,25 +46,10 @@ router.get('/about-property/:id', async (req, res) => {
     }
     const properties = propertyData.get({ plain: true });
 
-    const checkPropertyOwner = () => {
-      if (properties.owner.id == req.session.user_id) {
-        isPropertyOwner = true;
-      } else {
-        isPropertyOwner = false;
-      }
-    };
-
-    checkPropertyOwner();
-
     console.log(properties);
-    console.log(isPropertyOwner);
+    console.log(logged);
 
-    res.render('descriptionpage', {
-      logged,
-      images,
-      properties,
-      isPropertyOwner,
-    });
+    res.render('descriptionpage', { logged, properties });
   } catch (error) {
     res.status(500).json(error);
   }
@@ -80,21 +57,93 @@ router.get('/about-property/:id', async (req, res) => {
 
 router.get('/add-listing', withAuth, async (req, res) => {
   let logged = req.session.logged_in;
-  console.log(logged);
   res.render('addListing', { logged });
 });
 
-router.get('/user-profile', async (req, res) => {
+router.get('/user-profile', withAuth, async (req, res) => {
   let logged = req.session.logged_in;
-  let user = await User.findOne({
-    raw: true,
-    attributes: { exclude: ['password'] },
-    where: {
-      id: req.session.user_id,
-    },
-  });
+  try {
+    let userProfileData = await User.findOne({
+      raw: true,
+      attributes: { exclude: ['password'] },
+      where: {
+        id: req.session.user_id,
+      },
+    });
 
-  res.render('profile', { logged, user });
+    let userOwnsProperties = await Property.findAll({
+      raw: true,
+      where: {
+        landlord_id: req.session.user_id,
+      },
+    });
+
+    let userBookmarks = await Bookmark.findAll({
+      raw: true,
+      nest: true,
+      where: {
+        user_id: req.session.user_id,
+      },
+      include: [{ model: Property }],
+      attributes: {
+        exclude: ['id', 'property_id', 'user_id', 'propertyId'],
+      },
+    });
+
+    let userBookings = await Booking.findAll({
+      raw: true,
+      nest: true,
+      where: {
+        user_id: req.session.user_id,
+      },
+      include: [{ model: Property, as: 'rental' }],
+    });
+    console.log(userBookings);
+    if (!userProfileData) {
+      res.status(404).json({ message: 'No cities available in that region' });
+      return;
+    }
+    // res.send(userBookmarks);
+    res.render('profile', {
+      logged,
+      userProfileData,
+      userOwnsProperties,
+      userBookmarks,
+      userBookings,
+    });
+  } catch (error) {
+    res.status(500).json(error);
+  }
+});
+
+router.get('/search-page/:city', async (req, res) => {
+  let logged = req.session.logged_in;
+  let city = req.params.city;
+
+  // By default we sort by price
+  let queryParam = 'price';
+  if (req.query.sortBy) {
+    queryParam = req.query.sortBy.toString();
+  }
+
+  try {
+    const searchPropertyBy = await Property.findAll({
+      raw: true,
+      where: {
+        city: city,
+      },
+      order: [[queryParam, 'ASC']],
+    });
+
+    if (!searchPropertyBy) {
+      res.status(404).json({ message: 'No cities available in that region' });
+      return;
+    }
+
+    res.render('searchResultsPage', { logged, searchPropertyBy, city });
+  } catch (error) {
+    res.status(500).json(error);
+  }
 });
 
 router.get('/login', async (req, res) => {

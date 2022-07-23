@@ -13,12 +13,25 @@ User.hasMany(Property, {
 // One property belongs to one user only.
 Property.belongsTo(User, { as: 'owner', foreignKey: 'landlord_id' });
 
+// // One User can have many bookmarks
+// User.hasMany(Bookmark, {
+//   onDelete: 'CASCADE',
+// });
+// // One bookmark belongs to one user only.
+// Bookmark.belongsTo(User, { as: 'customer', foreignKey: 'user_id' });
+
+// // One user has many bookings
+// User.hasMany(Booking, {
+//   foreignKey: 'user_id',
+//   onDelete: 'CASCADE',
+// });
+
 // One User can have many bookmarks
-User.hasMany(Bookmark, {
+Property.hasMany(Bookmark, {
   onDelete: 'CASCADE',
 });
 // One bookmark belongs to one user only.
-Bookmark.belongsTo(User);
+Bookmark.belongsTo(Property, { foreignKey: 'property_id' });
 
 // One user has many bookings
 User.hasMany(Booking, {

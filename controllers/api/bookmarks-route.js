@@ -35,11 +35,12 @@ router.post('/', async (req, res) => {
   }
 });
 
-router.delete('/:id', async (req, res) => {
+router.delete('/', async (req, res) => {
   try {
     const deleteBookmark = await Bookmark.destroy({
       where: {
-        id: req.params.id,
+        property_id: req.body.property_id,
+        user_id: req.session.user_id,
       },
     });
 

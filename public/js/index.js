@@ -315,6 +315,19 @@ if (bookmarkIcon) {
     console.log(bookmark);
   });
 }
+// Updating
+let removeBookmarkIcon = $('.removeBookmark-icon');
+if (removeBookmarkIcon) {
+  removeBookmarkIcon.click(async function () {
+    let value = $(this).parent().attr('property-id');
+    const bookmark = await fetch('/api/bookmark', {
+      method: 'DELETE',
+      body: JSON.stringify({ property_id: value }),
+      headers: { 'Content-Type': 'application/json' },
+    });
+    console.log(bookmark);
+  });
+}
 
 // Search page
 if (window.location.pathname.includes('/search-page')) {
@@ -329,6 +342,29 @@ if (window.location.pathname.includes('/search-page')) {
       window.location.href = location + '?sortBy=' + sortByOption;
     });
   }
+}
+
+if (window.location.pathname.includes('/user-profile')) {
+  const updateUserDetailsForm = document.getElementById('updateUserDetails');
+  updateUserDetailsForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    const newPropertyFormFields = new FormData(updateUserDetailsForm);
+    const formProps = Object.fromEntries(newPropertyFormFields);
+    console.log(formProps);
+    try {
+      const response = await fetch('/api/user/', {
+        method: 'PUT',
+        body: JSON.stringify(formProps),
+        headers: { 'Content-Type': 'application/json' },
+      });
+      if (response.ok) {
+        location.reload();
+      }
+    } catch (error) {
+      console.error('Error in PUT request:', error);
+    }
+  });
 }
 
 const initializeLS = () => {

@@ -16,6 +16,7 @@ Booking.init(
       type: DataTypes.INTEGER,
       allowNull: false,
       unique: false,
+      unique: 'uniquePairPropertyUser',
       references: {
         model: 'property',
         key: 'id',
@@ -25,20 +26,21 @@ Booking.init(
       type: DataTypes.INTEGER,
       allowNull: false,
       unique: false,
+      unique: 'uniquePairPropertyUser',
       references: {
         model: 'user',
         key: 'id',
       },
     },
     starting_date: {
-      type: DataTypes.DATE,
+      type: DataTypes.DATEONLY,
       allowNull: false,
       validate: {
         isDate: true,
       },
     },
     end_date: {
-      type: DataTypes.DATE,
+      type: DataTypes.DATEONLY,
       allowNull: false,
       validate: {
         isDate: true,

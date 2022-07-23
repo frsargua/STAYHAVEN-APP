@@ -7,7 +7,8 @@ Stayhaven, a Full Stack application made by Team Sequelize. Essentially a quick,
 * MySql
 * Sequelize ORM
 * Handlebars.js
-* Bootstrap
+* Bootstrap v5
+* Google APIs
 
 ## User Story
 
@@ -32,6 +33,7 @@ Stayhaven, a Full Stack application made by Team Sequelize. Essentially a quick,
 Please follow the instructions on how to install the application:
 
 ```
+- Clone the repository
 - Run npm install
 - Create a `.env` file and add your connection credentials
 - Run database schema if this is your first time running this.
@@ -47,12 +49,14 @@ Please follow the instructions below to run the application:
 
 ## Media
 
-Deployed link: 
+Deployed link: https://radiant-bayou-46133.herokuapp.com/
 
 Below is a view of our landing page:
+
 ![landing](./public/img/landingpage.jpg)
 
 Below is view of our log in page:
+
 ![login](./public/img/login.jpg)
 
 ## License
@@ -62,16 +66,16 @@ This Project is licensed under MIT ![license](https://img.shields.io/badge/MIT-L
 
 ## Contributing
 
-Ways to contribute to the project include:
+Please contact a member of the team if you wish to contribute.
 
 
 ## Questions
 
-Any questions please message any member of the team via our respective emails:
+Any questions please message any member of the team via our respective GitHubs:
 
-* Amina:
-* Fabian:
-* Idil:
-* Jayad:
-* Keyur:
-* Natasha:
+* Amina: https://github.com/aminahayat
+* Fabian: https://github.com/frsargua
+* Idil: https://github.com/iosman11
+* Jayad: https://github.com/Jayad619
+* Keyur: https://github.com/keyurmist
+* Natasha: https://github.com/LonelyOrphan

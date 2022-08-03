@@ -6,7 +6,6 @@ router.use('/', homeRoutes);
 router.use('/api', apiRoutes);
 
 router.use((req, res) => {
-  // res.send('<h1>Wrong Route!</h1>');
   res.redirect('/');
 });
 module.exports = router;

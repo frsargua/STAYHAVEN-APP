@@ -1,5 +1,3 @@
-const router = require('express').Router();
-const withAuth = require('../../utils/auth');
 const { Property, User, Bookmark, Booking } = require('../../models');
 
 const landingPage_get = async (req, res) => {
@@ -54,12 +52,12 @@ const singlePropertybyID_get = async (req, res) => {
   }
 };
 
-router.get('/add-listing', withAuth, async (req, res) => {
+const listingPage_get = async (req, res) => {
   let logged = req.session.logged_in;
   res.render('addListing', { logged });
-});
+};
 
-router.get('/user-profile', withAuth, async (req, res) => {
+const userProfile_get = async (req, res) => {
   let logged = req.session.logged_in;
   try {
     let userProfileData = await User.findOne({
@@ -113,9 +111,9 @@ router.get('/user-profile', withAuth, async (req, res) => {
   } catch (error) {
     res.status(500).json(error);
   }
-});
+};
 
-router.get('/search-page/:city', async (req, res) => {
+const searchResultsByCityPage_get = async (req, res) => {
   let logged = req.session.logged_in;
   let city = req.params.city;
 
@@ -143,11 +141,18 @@ router.get('/search-page/:city', async (req, res) => {
   } catch (error) {
     res.status(500).json(error);
   }
-});
+};
 
-router.get('/login', async (req, res) => {
+const loginPage_get = async (req, res) => {
   let logged = req.session.logged_in;
   res.render('loginPage', { logged });
-});
+};
 
-module.exports = { landingPage_get, singlePropertybyID_get };
+module.exports = {
+  landingPage_get,
+  singlePropertybyID_get,
+  listingPage_get,
+  userProfile_get,
+  searchResultsByCityPage_get,
+  loginPage_get,
+};

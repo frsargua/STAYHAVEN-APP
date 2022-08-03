@@ -25,7 +25,7 @@ const landingPage_get = async (req, res) => {
     res.status(500).json(error);
   }
 };
-router.get('/about-property/:id', async (req, res) => {
+const singlePropertybyID_get = async (req, res) => {
   let logged = req.session.logged_in;
   try {
     const propertyData = await Property.findOne({
@@ -52,7 +52,7 @@ router.get('/about-property/:id', async (req, res) => {
   } catch (error) {
     res.status(500).json(error);
   }
-});
+};
 
 router.get('/add-listing', withAuth, async (req, res) => {
   let logged = req.session.logged_in;
@@ -150,4 +150,4 @@ router.get('/login', async (req, res) => {
   res.render('loginPage', { logged });
 });
 
-module.exports = { landingPage_get };
+module.exports = { landingPage_get, singlePropertybyID_get };

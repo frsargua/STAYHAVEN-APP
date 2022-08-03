@@ -1,8 +1,8 @@
 const router = require('express').Router();
-const withAuth = require('../utils/auth');
-const { Property, User, Bookmark, Booking } = require('../models');
+const withAuth = require('../../utils/auth');
+const { Property, User, Bookmark, Booking } = require('../../models');
 
-router.get('/', async (req, res) => {
+const landingPage_get = async (req, res) => {
   let logged = req.session.logged_in;
   try {
     const propertyData = await Property.findAll({
@@ -24,7 +24,7 @@ router.get('/', async (req, res) => {
   } catch (error) {
     res.status(500).json(error);
   }
-});
+};
 router.get('/about-property/:id', async (req, res) => {
   let logged = req.session.logged_in;
   try {
@@ -150,4 +150,4 @@ router.get('/login', async (req, res) => {
   res.render('loginPage', { logged });
 });
 
-module.exports = router;
+module.exports = { landingPage_get };

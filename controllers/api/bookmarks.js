@@ -1,8 +1,6 @@
-const router = require('express').Router();
-const { Bookmark, User, Property } = require('../../models');
+const { Bookmark } = require('../../models');
 
-console.log(User, Property);
-router.get('/', async (req, res) => {
+const getUserBookmarks_get = async (req, res) => {
   //will use session storage to find the properties associated to the user. (once logged in)
   // find all bookmarks in the data base
   // be sure to include its associated Users and property
@@ -20,9 +18,9 @@ router.get('/', async (req, res) => {
   } catch (error) {
     res.status(500).json(error);
   }
-});
+};
 
-router.post('/', async (req, res) => {
+const createNewBookmark_post = async (req, res) => {
   try {
     const newBookmark = await Bookmark.create({
       property_id: req.body.property_id,
@@ -33,9 +31,9 @@ router.post('/', async (req, res) => {
   } catch (error) {
     res.status(400).json(error);
   }
-});
+};
 
-router.delete('/', async (req, res) => {
+const deleteBookmark_delete = async (req, res) => {
   try {
     const deleteBookmark = await Bookmark.destroy({
       where: {
@@ -52,6 +50,10 @@ router.delete('/', async (req, res) => {
   } catch (err) {
     res.status(500).json(err);
   }
-});
+};
 
-module.exports = router;
+module.exports = {
+  getUserBookmarks_get,
+  createNewBookmark_post,
+  deleteBookmark_delete,
+};

@@ -201,60 +201,38 @@ if (window.location.pathname.includes('/about-property/')) {
 //Posting the data to the db
 if (window.location.pathname === '/add-listing') {
   autocompleteFunc();
-  const newPropertyForm = document.getElementById('newProperty');
-  newPropertyForm.addEventListener('submit', async (e) => {
-    e.preventDefault();
-
-    const newPropertyFormFields = new FormData(newPropertyForm);
-    const formProps = Object.fromEntries(newPropertyFormFields);
-    let propertyAvailability = $('#flexSwitchCheckChecked').prop('checked');
-    formProps.available = propertyAvailability;
-    console.log(formProps);
-
-    const response = await fetch('/api/property/', {
-      method: 'POST',
-      body: JSON.stringify(formProps),
-      headers: { 'Content-Type': 'application/json' },
-    });
-    if (response.ok) {
-      window.location.href = '/';
-    }
-  });
 }
-if (window.location.pathname === '/login') {
-  // Sign in button
-  // const signInForm = document.getElementById('signInForm');
-  // signInForm.addEventListener('click', async (e) => {
-  //   e.preventDefault();
-  //   const signInData = new FormData(signInForm);
-  //   let signInFormProps = Object.fromEntries(signInData);
-  //   // Login fetch request
-  //   const response = await fetch('/auth/signIn', {
-  //     method: 'POST',
-  //     body: JSON.stringify(signInFormProps),
-  //     headers: { 'Content-Type': 'application/json' },
-  //   });
-  //   if (response.ok) {
-  //     window.location.href = '/';
-  //   }
-  // });
-  //   const signUpForm = document.getElementById('signUpForm');
-  //   signUpForm.addEventListener('submit', async (e) => {
-  //     e.preventDefault();
-  //     const signUpData = new FormData(signUpForm);
-  //     let signUpFormProps = Object.fromEntries(signUpData);
-  //     console.log(signUpFormProps);
-  //     // Login fetch request
-  //     const response = await fetch('/auth/signUp', {
-  //       method: 'POST',
-  //       body: JSON.stringify(signUpFormProps),
-  //       headers: { 'Content-Type': 'application/json' },
-  //     });
-  //     if (response.ok) {
-  //       window.location.href = '/';
-  //     }
-  //   });
+
+async function exchange() {
+  let propertyAvailability = $('#flexSwitchCheckChecked');
+  let available = propertyAvailability.prop('checked');
+  let value = propertyAvailability.prop('value', available).prop('value');
 }
+
+// async function createNewProperty() {
+//   const newPropertyForm = document.getElementById('newProperty');
+//   newPropertyForm.addEventListener('click', async (e) => {
+//     e.preventDefault();
+
+//     const newPropertyFormFields = new FormData(newPropertyForm);
+//     const formProps = Object.fromEntries(newPropertyFormFields);
+//     let propertyAvailability = $('#flexSwitchCheckChecked')
+//       .prop('checked')
+//       .prop('value', true);
+//     formProps.available = propertyAvailability;
+
+//     console.log(formProps);
+
+//     // const response = await fetch('/api/property/', {
+//     //   method: 'POST',
+//     //   body: JSON.stringify(formProps),
+//     //   headers: { 'Content-Type': 'application/json' },
+//     // });
+//     // if (response.ok) {
+//     //   window.location.href = '/';
+//     // }
+//   });
+// }
 
 // Sign Out
 async function signOut() {

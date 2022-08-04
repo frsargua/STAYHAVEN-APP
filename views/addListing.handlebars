@@ -5,7 +5,7 @@
 
 <div class="d-flex flex-column flex-md-row justify-content-evenly align-items-center trendy mx-auto h-75 my-5 ">
 
-  <form class="col-10 col-md-4" id="newProperty">
+  <form class="col-10 col-md-4" id="newProperty" action="/api/property/" method="post">
     <h2> Add a Haven </h2>
     <div class="row p-2">
       <input type="text" name="address" class="form-control" placeholder="Address 1" aria-label="firstLineAddress"
@@ -55,7 +55,7 @@
 
     </div>
     <div class="form-check form-switch">
-      <input class="form-check-input" type="checkbox" role="available" id="flexSwitchCheckChecked"
+      <input name="available" class="form-check-input" type="checkbox" role="available" value="false" onclick="exchange()" id="flexSwitchCheckChecked"
       >
       <label class="form-check-label" for="flexSwitchCheckChecked">Available now?</label>
     </div>
@@ -74,6 +74,8 @@
     </div>
     <button type="submit" class="btn btn-success" id="submitForm">Submit</button>
   </form>
+
+   <!--onclick="createNewProperty()"--> 
 
   <!-- image container -->
   <div class="col-4 d-md-flex align-items-center d-none">

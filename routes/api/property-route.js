@@ -5,12 +5,12 @@ const {
   deletePropertyById_delete,
   gerPropertyById,
   changeCurrency,
-  getPropertyiesByCity,
+  getPropertiesByCity,
 } = require('../../controllers/api/property-route');
 
 router.get('/:location', getPropertiesByLocation_get);
 
-router.get('/by/cities', getPropertyiesByCity);
+router.get('/by/cities', getPropertiesByCity);
 
 router.get('/by-id/:id', gerPropertyById);
 

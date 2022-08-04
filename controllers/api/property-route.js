@@ -23,7 +23,7 @@ const getPropertiesByLocation_get = async (req, res) => {
   }
 };
 
-const getPropertyiesByCity = async (req, res) => {
+const getPropertiesByCity = async (req, res) => {
   try {
     const cities = await Property.findAll({
       raw: true,
@@ -118,5 +118,5 @@ module.exports = {
   deletePropertyById_delete,
   gerPropertyById,
   changeCurrency,
-  getPropertyiesByCity,
+  getPropertiesByCity,
 };

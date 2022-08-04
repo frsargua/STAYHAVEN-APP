@@ -5,8 +5,7 @@ const signUp_post = async (req, res) => {
     const userData = await User.create(req.body);
     req.session.logged_in = true;
     req.session.user_id = userData.id;
-    req.session.save(function () {
-      // res.status(200).json(userData);
+    req.session.save(function (err) {
       if (err) {
         res.status(400).json(err);
       }

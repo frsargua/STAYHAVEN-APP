@@ -228,7 +228,6 @@ if (window.location.pathname === '/login') {
   //   e.preventDefault();
   //   const signInData = new FormData(signInForm);
   //   let signInFormProps = Object.fromEntries(signInData);
-
   //   // Login fetch request
   //   const response = await fetch('/auth/signIn', {
   //     method: 'POST',
@@ -239,25 +238,22 @@ if (window.location.pathname === '/login') {
   //     window.location.href = '/';
   //   }
   // });
-
-  const signUpForm = document.getElementById('signUpForm');
-  signUpForm.addEventListener('submit', async (e) => {
-    e.preventDefault();
-
-    const signUpData = new FormData(signUpForm);
-    let signUpFormProps = Object.fromEntries(signUpData);
-    console.log(signUpFormProps);
-
-    // Login fetch request
-    const response = await fetch('/auth/signUp', {
-      method: 'POST',
-      body: JSON.stringify(signUpFormProps),
-      headers: { 'Content-Type': 'application/json' },
-    });
-    if (response.ok) {
-      window.location.href = '/';
-    }
-  });
+  //   const signUpForm = document.getElementById('signUpForm');
+  //   signUpForm.addEventListener('submit', async (e) => {
+  //     e.preventDefault();
+  //     const signUpData = new FormData(signUpForm);
+  //     let signUpFormProps = Object.fromEntries(signUpData);
+  //     console.log(signUpFormProps);
+  //     // Login fetch request
+  //     const response = await fetch('/auth/signUp', {
+  //       method: 'POST',
+  //       body: JSON.stringify(signUpFormProps),
+  //       headers: { 'Content-Type': 'application/json' },
+  //     });
+  //     if (response.ok) {
+  //       window.location.href = '/';
+  //     }
+  //   });
 }
 
 // Sign Out

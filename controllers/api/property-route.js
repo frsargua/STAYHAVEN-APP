@@ -1,12 +1,6 @@
-const router = require('express').Router();
 const { Property } = require('../../models');
 
-// router.get('/', (req, res) => {
-//   // find all properties in the data base
-//   // be sure to include its associated Users
-// });
-
-router.get('/:location', async (req, res) => {
+const getPropertiesByLocation_get = async (req, res) => {
   // find one property by its `id` value
   // be sure to include its associated Users
   //TO DO: We will have to pair a property to a table containing its images
@@ -27,9 +21,9 @@ router.get('/:location', async (req, res) => {
   } catch (error) {
     res.status(500).json(error);
   }
-});
+};
 
-router.get('/by/cities', async (req, res) => {
+const getPropertyiesByCity = async (req, res) => {
   try {
     const cities = await Property.findAll({
       raw: true,
@@ -45,9 +39,9 @@ router.get('/by/cities', async (req, res) => {
   } catch (error) {
     res.status(500).json(error);
   }
-});
+};
 
-router.get('/by-id/:id', async (req, res) => {
+const gerPropertyById = async (req, res) => {
   // find one property by its `id` value
   // be sure to include its associated Users
   //TO DO: We will have to pair a property to a table containing its images
@@ -68,9 +62,9 @@ router.get('/by-id/:id', async (req, res) => {
   } catch (error) {
     res.status(500).json(error);
   }
-});
+};
 
-router.post('/', async (req, res) => {
+const createNewProperty_post = async (req, res) => {
   // create a new property
   let landlord_id = req.session.user_id;
   console.log('Landlord: ' + landlord_id);
@@ -82,13 +76,9 @@ router.post('/', async (req, res) => {
   } catch (error) {
     res.status(400).json(error);
   }
-});
+};
 
-// router.put('/:id', (req, res) => {
-//   // update a property's description by its `id` value
-// });
-
-router.delete('/:id', async (req, res) => {
+const deletePropertyById_delete = async (req, res) => {
   // delete a property by its `id` value
   try {
     const deletedProperty = await Property.destroy({
@@ -105,9 +95,10 @@ router.delete('/:id', async (req, res) => {
   } catch (err) {
     res.status(500).json(err);
   }
-});
+};
 
-router.post('/currencyType', async (req, res) => {
+//wrong path
+const changeCurrency = async (req, res) => {
   // delete a property by its `id` value
   try {
     if (req.body) {
@@ -119,6 +110,13 @@ router.post('/currencyType', async (req, res) => {
   } catch (err) {
     res.status(500).json(err);
   }
-});
+};
 
-module.exports = router;
+module.exports = {
+  getPropertiesByLocation_get,
+  createNewProperty_post,
+  deletePropertyById_delete,
+  gerPropertyById,
+  changeCurrency,
+  getPropertyiesByCity,
+};

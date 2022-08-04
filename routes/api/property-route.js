@@ -6,7 +6,7 @@ const {
   gerPropertyById,
   changeCurrency,
   getPropertiesByCity,
-} = require('../../controllers/api/property-route');
+} = require('../../controllers/api/property');
 
 router.get('/:location', getPropertiesByLocation_get);
 

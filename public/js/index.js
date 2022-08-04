@@ -223,22 +223,22 @@ if (window.location.pathname === '/add-listing') {
 }
 if (window.location.pathname === '/login') {
   // Sign in button
-  const signInForm = document.getElementById('signInForm');
-  signInForm.addEventListener('click', async (e) => {
-    e.preventDefault();
-    const signInData = new FormData(signInForm);
-    let signInFormProps = Object.fromEntries(signInData);
+  // const signInForm = document.getElementById('signInForm');
+  // signInForm.addEventListener('click', async (e) => {
+  //   e.preventDefault();
+  //   const signInData = new FormData(signInForm);
+  //   let signInFormProps = Object.fromEntries(signInData);
 
-    // Login fetch request
-    const response = await fetch('/auth/signIn', {
-      method: 'POST',
-      body: JSON.stringify(signInFormProps),
-      headers: { 'Content-Type': 'application/json' },
-    });
-    if (response.ok) {
-      window.location.href = '/';
-    }
-  });
+  //   // Login fetch request
+  //   const response = await fetch('/auth/signIn', {
+  //     method: 'POST',
+  //     body: JSON.stringify(signInFormProps),
+  //     headers: { 'Content-Type': 'application/json' },
+  //   });
+  //   if (response.ok) {
+  //     window.location.href = '/';
+  //   }
+  // });
 
   const signUpForm = document.getElementById('signUpForm');
   signUpForm.addEventListener('submit', async (e) => {

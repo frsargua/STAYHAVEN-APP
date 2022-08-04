@@ -3,12 +3,14 @@ const { User } = require('../../models');
 const signUp_post = async (req, res) => {
   try {
     const userData = await User.create(req.body);
-    req.session.save(() => {
-      req.session.logged_in = true;
-      req.session.user_id = userData.id;
-      console.log(req.session.user_id);
-
-      res.status(200).json(userData);
+    req.session.logged_in = true;
+    req.session.user_id = userData.id;
+    req.session.save(function () {
+      // res.status(200).json(userData);
+      if (err) {
+        res.status(400).json(err);
+      }
+      res.status(200).redirect('/');
     });
   } catch (err) {
     res.status(400).json(err);
@@ -34,13 +36,15 @@ const SignIn_post = async (req, res) => {
         .json({ message: 'Incorrect email orr password, please try again' });
       return;
     }
-    // res.json({ user: userData, message: 'You are now logged in!' });
 
-    req.session.save(() => {
-      req.session.user_id = userData.id;
-      req.session.logged_in = true;
-
-      res.json({ user: userData, message: 'You are now logged in!' });
+    req.session.user_id = userData.id;
+    req.session.logged_in = true;
+    req.session.save(function (err) {
+      if (err) {
+        res.status(400).json(err);
+      }
+      res.status(200).redirect('/');
+      // res.json({ user: userData, message: 'You are now logged in!' });
     });
   } catch (err) {
     res.status(400).json(err);

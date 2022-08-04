@@ -73,37 +73,37 @@ async function fillInAddress() {
     const componentType = component.types[0];
 
     switch (componentType) {
-    case 'street_number': {
-      address1 = `${component.long_name} ${address1}`;
-      break;
-    }
+      case 'street_number': {
+        address1 = `${component.long_name} ${address1}`;
+        break;
+      }
 
-    case 'route': {
-      address1 += component.short_name;
-      break;
-    }
+      case 'route': {
+        address1 += component.short_name;
+        break;
+      }
 
-    case 'postal_code': {
-      postcode = `${component.long_name}${postcode}`;
-      break;
-    }
+      case 'postal_code': {
+        postcode = `${component.long_name}${postcode}`;
+        break;
+      }
 
-    case 'postal_code_suffix': {
-      postcode = `${postcode}-${component.long_name}`;
-      break;
-    }
-    case 'locality':
-      document.querySelector('#locality').value = component.long_name;
-      break;
-    case 'postal_town':
-      document.querySelector('#locality').value = component.long_name;
-      break;
+      case 'postal_code_suffix': {
+        postcode = `${postcode}-${component.long_name}`;
+        break;
+      }
+      case 'locality':
+        document.querySelector('#locality').value = component.long_name;
+        break;
+      case 'postal_town':
+        document.querySelector('#locality').value = component.long_name;
+        break;
 
-    case 'country':
-      document.querySelector('#country').value = component.long_name;
-      break;
-    default:
-      break;
+      case 'country':
+        document.querySelector('#country').value = component.long_name;
+        break;
+      default:
+        break;
     }
   }
   // latitude = place.geometry.location.lat();
@@ -257,21 +257,18 @@ if (window.location.pathname === '/login') {
 }
 
 // Sign Out
-const signOutButton = document.getElementById('singOutButton');
-if (signOutButton) {
-  signOutButton.addEventListener('click', async () => {
-    try {
-      const response = await fetch('/auth/signOut', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-      });
-      if (response.ok) {
-        window.location.href = '/';
-      }
-    } catch (error) {
-      console.error('Error in POST request:', error);
+async function signOut() {
+  try {
+    const response = await fetch('/auth/signOut', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+    });
+    if (response.ok) {
+      window.location.href = '/';
     }
-  });
+  } catch (error) {
+    console.error('Error in POST request:', error);
+  }
 }
 
 const fetchCities = async () => {

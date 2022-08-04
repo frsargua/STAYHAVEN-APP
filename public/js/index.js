@@ -230,7 +230,7 @@ if (window.location.pathname === '/login') {
     let signInFormProps = Object.fromEntries(signInData);
 
     // Login fetch request
-    const response = await fetch('/api/user/signIn', {
+    const response = await fetch('/auth/signIn', {
       method: 'POST',
       body: JSON.stringify(signInFormProps),
       headers: { 'Content-Type': 'application/json' },
@@ -249,7 +249,7 @@ if (window.location.pathname === '/login') {
     console.log(signUpFormProps);
 
     // Login fetch request
-    const response = await fetch('/api/user/signUp', {
+    const response = await fetch('/auth/signUp', {
       method: 'POST',
       body: JSON.stringify(signUpFormProps),
       headers: { 'Content-Type': 'application/json' },
@@ -265,7 +265,7 @@ const signOutButton = document.getElementById('singOutButton');
 if (signOutButton) {
   signOutButton.addEventListener('click', async () => {
     try {
-      const response = await fetch('/api/user/signOut', {
+      const response = await fetch('/auth/signOut', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
       });

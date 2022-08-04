@@ -1,9 +1,6 @@
-const router = require('express').Router();
-const { Booking, User, Property } = require('../../models');
+const { Booking } = require('../../models');
 
-console.log(User, Property);
-
-router.get('/', async (req, res) => {
+const getBookingsByUser_get = async (req, res) => {
   // find one User by its `id` value
   // be sure to include its associated Users
   //TO DO: We will have to pair a User to a table containing its images
@@ -21,9 +18,9 @@ router.get('/', async (req, res) => {
   } catch (error) {
     res.status(500).json(error);
   }
-});
+};
 
-router.post('/:id', async (req, res) => {
+const createNewBooking_post = async (req, res) => {
   console.log(req.body);
   // create a new User
   try {
@@ -37,13 +34,13 @@ router.post('/:id', async (req, res) => {
   } catch (error) {
     res.status(400).json(error);
   }
-});
+};
 
-// router.put('/:id', (req, res) => {
-//   // update a User's description by its `id` value
-// });
+// // router.put('/:id', (req, res) => {
+// //   // update a User's description by its `id` value
+// // });
 
-router.delete('/:id', async (req, res) => {
+const deleteBooking_delete = async (req, res) => {
   // delete a Userby its `id` value
   try {
     const deleteBooking = await Booking.destroy({
@@ -60,6 +57,10 @@ router.delete('/:id', async (req, res) => {
   } catch (err) {
     res.status(500).json(err);
   }
-});
+};
 
-module.exports = router;
+module.exports = {
+  getBookingsByUser_get,
+  createNewBooking_post,
+  deleteBooking_delete,
+};

@@ -1,0 +1,24 @@
+{{#each propertyData}}
+  <div
+    class='property-card card col-11 col-md-5 col-lg-2 m-3 augmentate-1'
+    href='/about-property/{{id}}'
+    property-id='{{id}}'
+  >
+    {{#if ../logged}}
+      <div class='bookmark-icon'><i class='fa-solid fa-heart'></i></div>
+    {{/if}}
+    <a href='/about-property/{{id}}'>
+      <img
+      id="image-property-card"
+        class='card-img-top'
+        src='{{image1}}'
+        alt='Card image cap'
+      />
+      <div class='d-flex flex-column p-2'>
+        <li class='list-unstyled'>{{city}}, {{address}} </li>
+        <li class='ms-auto list-unstyled'>£ {{price}} p/m</li>
+      </div>
+    </a>
+
+  </div>
+{{/each}}

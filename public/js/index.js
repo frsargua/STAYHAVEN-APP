@@ -337,3 +337,5 @@ currencyTypeEl.change(async function () {
     return;
   }
 });
+
+// Creating carrousell

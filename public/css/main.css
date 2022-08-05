@@ -161,6 +161,17 @@ body {
   right: -20px;
   top: -20px;
 }
+.carousell-handle {
+  background-color: #f1f1f1;
+  border: 2px solid grey;
+  border-radius: 0.2rem;
+}
+
+.property-card-container {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
 
 /* Description page */
 #map {

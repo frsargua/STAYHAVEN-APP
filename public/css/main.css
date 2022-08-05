@@ -191,15 +191,15 @@ body {
 
 .left-handle:hover,
 .right-handle:hover {
-  background-color: rgba(95, 20, 20, 0.186);
+  background-color: rgba(253, 252, 198, 0.186);
 }
 
 .carousel-handle {
-  background-color: #f1f1f1;
+  background-color: #f1f1f17e;
   width: 2.5%;
   margin: auto;
-  height: 300px;
-  border: 1px solid grey;
+  height: 306px;
+  border: 1px solid rgba(213, 210, 210, 0.451);
   border-radius: 0.2rem;
   z-index: 999;
 }

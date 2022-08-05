@@ -5,12 +5,12 @@ const landingPage_get = async (req, res) => {
   try {
     const propertyData = await Property.findAll({
       raw: true,
-      limit: 5,
+      limit: 6,
       order: [['number_visits', 'DESC']],
     });
     const lowCostProperties = await Property.findAll({
       raw: true,
-      limit: 5,
+      limit: 6,
       order: [['Price', 'ASC']],
     });
 

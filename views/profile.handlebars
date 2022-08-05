@@ -32,18 +32,18 @@
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
-            <form id="updateUserDetails">
-              <label for="fname">First name:</label><br />
-              <input type="text" id="fname" name="first_name" placeholder="{{userProfileData.first_name}}" value="{{userProfileData.first_name}}" required/><br />
-              <label for="lname">Last name:</label><br />
-              <input type="text" id="lname" name="last_name" placeholder="{{userProfileData.last_name}}" value="{{userProfileData.last_name}}"required /><br />
-              <label for="email">Email:</label><br />
-              <input type="email" id="email" name="email" placeholder="{{userProfileData.email}}" value="{{userProfileData.email}}"required/><br />
-              <label for="address">Address:</label><br />
-              <input type="text" id="address" name="address" placeholder="{{userProfileData.address}}" value="{{userProfileData.address}}" required/><br />
-              <label for="city">City:</label><br />
-              <input type="text" id="city" name="city" placeholder="{{userProfileData.city}}" value="{{userProfileData.city}}" required/><br />
-          <div class="modal-footer">
+            <form id="updateUserDetails" class=" d-flex flex-column">
+              <label for="fname">First name:</label>
+              <input class="col-12 p-1 rounded-2 mb-2"type="text" id="fname" name="first_name" placeholder="{{userProfileData.first_name}}" value="{{userProfileData.first_name}}" required/>
+              <label for="lname">Last name:</label>
+              <input class="col-12 p-1 rounded-2 mb-2"type="text" id="lname" name="last_name" placeholder="{{userProfileData.last_name}}" value="{{userProfileData.last_name}}"required />
+              <label for="email">Email:</label>
+              <input class="col-12 p-1 rounded-2 mb-2"type="email" id="email" name="email" placeholder="{{userProfileData.email}}" value="{{userProfileData.email}}"required/>
+              <label for="address">Address:</label>
+              <input class="col-12 p-1 rounded-2 mb-2"type="text" id="address" name="address" placeholder="{{userProfileData.address}}" value="{{userProfileData.address}}" required/>
+              <label for="city">City:</label>
+              <input class="col-12 p-1 rounded-2 mb-2"type="text" id="city" name="city" placeholder="{{userProfileData.city}}" value="{{userProfileData.city}}" required/>
+          <div class="modal-footer border-0 mx-auto">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
               Close
             </button>

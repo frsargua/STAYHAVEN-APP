@@ -36,6 +36,9 @@ body {
 .block-section-1 {
   margin-bottom: 1rem;
 }
+.block-section-3 {
+  margin-bottom: 3rem;
+}
 .pb-9 {
   padding-bottom: 9rem;
 }
@@ -140,7 +143,7 @@ body {
 }
 #image-property-card {
   object-fit: cover;
-  height: 270px;
+  height: 240px;
 }
 .bookmark-icon {
   position: absolute;
@@ -172,12 +175,12 @@ body {
 }
 
 .carousel {
-  --carousel--index: 0;
+  /* --carousel--index: 0; */
   flex-grow: 1;
   display: flex;
   flex-direction: row;
   width: 95%;
-  transform: translateX(calc((var(--carousel--index) * -100%)));
+  /* transform: translateX(calc((var(--carousel--index) * -100%))); */
 }
 .custom-property-card {
   --cards--per--index: 3;

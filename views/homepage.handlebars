@@ -43,14 +43,30 @@
 
 <div id="trends-container" class="trendy mx-auto">
   <!-- Row 0 -->
-  <div class='col-11 mx-auto block-section-1'>
+  <!--<div class='col-11 mx-auto block-section-1'>
     <h3 class='text-center mb-2'>carrousel Places</h3>
-    <div class='property-card-container trendy'>
+    <div class='property-card-container trendy' iteration ="0">
+      <button class="carousel-handle left-handle">
+        <div class="text">&#8249</div>
+      </button>
+      <div class="carousel" >
+        {{>carrousel}}
+      </div>
+      <button class="carousel-handle right-handle">
+        <div class="text">&#8250</div>
+      </button>
+    </div>
+  </div>-->
+
+  <!-- Row 1 -->
+    <div class='col-11 mx-auto block-section-3'>
+    <h3 class='text-center mb-2'>Trendy Places</h3>
+    <div class='property-card-container trendy' iteration ="0">
       <button class="carousel-handle left-handle">
         <div class="text">&#8249</div>
       </button>
       <div class="carousel">
-        {{>carrousel}}
+        {{>trendyPlaces}}
       </div>
       <button class="carousel-handle right-handle">
         <div class="text">&#8250</div>
@@ -58,34 +74,40 @@
     </div>
   </div>
 
-  <!-- Row 1 -->
-  <div class='col-11 mx-auto block-section-1'>
-    <h3 class='text-center mb-2'>Trendy Places</h3>
-    <div class='d-flex flex-column flex-md-row align-items-center justify-content-center flex-wrap'>
-      {{>trendyPlaces}}
-
-    </div>
-  </div>
 
   <!-- Row 2 -->
-  <div class='col-11 mx-auto block-section-1'>
-    <h3 class='text-center mb-2'>Low Cost Options</h3>
-    <div class='d-flex flex-column flex-md-row align-items-center justify-content-center flex-wrap'>
+  <div class='col-11 mx-auto block-section-3'>
+    <h3 class='text-center mb-2'>Low Cost Places</h3>
+    <div class='property-card-container trendy' iteration ="0">
+      <button class="carousel-handle left-handle">
+        <div class="text">&#8249</div>
+      </button>
+      <div class="carousel">
       {{>lowCostPlaces}}
 
+      </div>
+      <button class="carousel-handle right-handle">
+        <div class="text">&#8250</div>
+      </button>
     </div>
   </div>
-
   <!-- Row 3 -->
 
   <div class='col-11 mx-auto block-section'>
-    <h3 class='text-center mb-2'>All Year Around</h3>
-    <div class='d-flex flex-column flex-md-row align-items-center justify-content-center flex-wrap'>
-      {{>trendyPlaces}}
+    <h3 class='text-center mb-2'>All year Places</h3>
+    <div class='property-card-container trendy' iteration ="0">
+      <button class="carousel-handle left-handle">
+        <div class="text">&#8249</div>
+      </button>
+      <div class="carousel">
+      {{>lowCostPlaces}}
 
+      </div>
+      <button class="carousel-handle right-handle">
+        <div class="text">&#8250</div>
+      </button>
     </div>
   </div>
-</div>
 
 <!-- Footer -->
 

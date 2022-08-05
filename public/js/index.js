@@ -348,31 +348,44 @@ let carouselIndex = window
 
 let trendsContainerEl = document.getElementById('trends-container');
 trendsContainerEl.addEventListener('click', function (e) {
+  // let carouselIndex;
   let carouselIndex = parseInt(
-    window.getComputedStyle(carousel).getPropertyValue('--carousel--index')
+    e.target.parentElement.getAttribute('iteration')
   );
+  // let carouselIndex = parseInt(
+  //   window.getComputedStyle(carousel).getPropertyValue('--carousel--index')
+  // );
   let cardWidthIndex = parseInt(
     window.getComputedStyle(cardEl).getPropertyValue('--cards--per--index')
   );
 
-  let numberOfcards = carousel.children.length;
+  let numberOfcards = 5;
+  console.log(carouselIndex);
 
-  let numberOfSwipes = Math.floor(numberOfcards / cardWidthIndex);
-  console.log(numberOfSwipes);
+  let numberOfSwipes = Math.floor(numberOfcards / cardWidthIndex) * 100;
 
-  console.log(cardWidthIndex);
   let currentTarge = e.target;
   if (currentTarge.tagName.toLowerCase() === 'button') {
     if (currentTarge.classList.contains('left-handle')) {
       if (carouselIndex === 0) {
+        console.log('test');
         return;
       }
-      carousel.style.setProperty('--carousel--index', carouselIndex - 1);
+      e.target.parentElement.setAttribute('iteration', carouselIndex - 100);
+      // let iterations = carouselIndex * 100;
+      e.target.nextElementSibling.style.transform = `translateX(${
+        carouselIndex - 100
+      }%)`;
+      // carouselIndex--;
+      // carousel.style.setProperty('--carousel--index', carouselIndex - 1);
     } else {
       if (carouselIndex === numberOfSwipes) {
         return;
       }
-      carousel.style.setProperty('--carousel--index', carouselIndex + 1);
+      e.target.parentElement.setAttribute('iteration', carouselIndex + 100);
+      e.target.previousElementSibling.style.transform = `translateX(-${
+        carouselIndex + 100
+      }%)`;
     }
   }
 });

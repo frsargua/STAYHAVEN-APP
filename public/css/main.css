@@ -174,16 +174,13 @@ body {
 .carousel {
   --carousel--index: 0;
   flex-grow: 1;
-  flex-grow: 1;
   display: flex;
   flex-direction: row;
-
-  width: 90%;
+  width: 95%;
   transform: translateX(calc((var(--carousel--index) * -100%)));
 }
 .custom-property-card {
   --cards--per--index: 3;
-
   flex-basis: 0 0 calc((100% / var(--cards--per--index)));
   min-width: calc((98% / var(--cards--per--index)));
   margin: 0 0.33% 0 0.33%;
@@ -196,9 +193,9 @@ body {
 
 .carousel-handle {
   background-color: #f1f1f1;
-  width: 3rem;
+  width: 2.5%;
   margin: auto;
-  height: 100px;
+  height: 300px;
   border: 1px solid grey;
   border-radius: 0.2rem;
   z-index: 999;
@@ -220,6 +217,12 @@ body {
     --cards--per--index: 1;
     min-width: calc((99% / var(--cards--per--index)));
     margin: 0 0.5% 0 0.5%;
+  }
+  .carousel {
+    width: 80%;
+  }
+  .carousel-handle {
+    width: 10%;
   }
 }
 

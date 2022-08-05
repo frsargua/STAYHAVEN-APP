@@ -140,7 +140,7 @@ body {
 }
 #image-property-card {
   object-fit: cover;
-  height: 200px;
+  height: 270px;
 }
 .bookmark-icon {
   position: absolute;
@@ -161,16 +161,64 @@ body {
   right: -20px;
   top: -20px;
 }
-.carousell-handle {
-  background-color: #f1f1f1;
-  border: 2px solid grey;
-  border-radius: 0.2rem;
-}
+/* Carousel */
 
 .property-card-container {
   display: flex;
   flex-direction: row;
-  width: 100%;
+  justify-content: center;
+  overflow-x: hidden;
+}
+
+.carousel {
+  --carousel--index: 0;
+  flex-grow: 1;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: row;
+  width: 90%;
+  transform: translateX(calc((var(--carousel--index) * -100%)));
+}
+.custom-property-card {
+  --cards--per--index: 3;
+
+  flex-basis: 0 0 calc((100% / var(--cards--per--index)));
+  min-width: calc((98% / var(--cards--per--index)));
+  margin: 0 0.33% 0 0.33%;
+}
+
+.left-handle:hover,
+.right-handle:hover {
+  background-color: rgba(95, 20, 20, 0.186);
+}
+
+.carousel-handle {
+  background-color: #f1f1f1;
+  width: 3rem;
+  margin: auto;
+  height: 100px;
+  border: 1px solid grey;
+  border-radius: 0.2rem;
+  z-index: 999;
+}
+.carousel-handle > div {
+  pointer-events: none;
+  font-size: 3rem;
+}
+
+@media screen and (max-width: 1050px) {
+  .custom-property-card {
+    --cards--per--index: 2;
+    min-width: calc((99% / var(--cards--per--index)));
+    margin: 0 0.25% 0 0.25%;
+  }
+}
+@media screen and (max-width: 750px) {
+  .custom-property-card {
+    --cards--per--index: 1;
+    min-width: calc((99% / var(--cards--per--index)));
+    margin: 0 0.5% 0 0.5%;
+  }
 }
 
 /* Description page */

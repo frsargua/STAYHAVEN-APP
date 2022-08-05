@@ -339,3 +339,40 @@ currencyTypeEl.change(async function () {
 });
 
 // Creating carrousell
+
+let carousel = document.getElementsByClassName('carousel')[0];
+let cardEl = document.getElementsByClassName('custom-property-card')[0];
+let carouselIndex = window
+  .getComputedStyle(carousel)
+  .getPropertyValue('--carousel--index');
+
+let trendsContainerEl = document.getElementById('trends-container');
+trendsContainerEl.addEventListener('click', function (e) {
+  let carouselIndex = parseInt(
+    window.getComputedStyle(carousel).getPropertyValue('--carousel--index')
+  );
+  let cardWidthIndex = parseInt(
+    window.getComputedStyle(cardEl).getPropertyValue('--cards--per--index')
+  );
+
+  let numberOfcards = carousel.children.length;
+
+  let numberOfSwipes = Math.floor(numberOfcards / cardWidthIndex);
+  console.log(numberOfSwipes);
+
+  console.log(cardWidthIndex);
+  let currentTarge = e.target;
+  if (currentTarge.tagName.toLowerCase() == 'button') {
+    if (currentTarge.classList.contains('left-handle')) {
+      if (carouselIndex == 0) {
+        return;
+      }
+      carousel.style.setProperty('--carousel--index', carouselIndex - 1);
+    } else {
+      if (carouselIndex == numberOfSwipes) {
+        return;
+      }
+      carousel.style.setProperty('--carousel--index', carouselIndex + 1);
+    }
+  }
+});

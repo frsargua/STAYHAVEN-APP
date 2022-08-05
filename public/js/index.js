@@ -73,37 +73,37 @@ async function fillInAddress() {
     const componentType = component.types[0];
 
     switch (componentType) {
-    case 'street_number': {
-      address1 = `${component.long_name} ${address1}`;
-      break;
-    }
+      case 'street_number': {
+        address1 = `${component.long_name} ${address1}`;
+        break;
+      }
 
-    case 'route': {
-      address1 += component.short_name;
-      break;
-    }
+      case 'route': {
+        address1 += component.short_name;
+        break;
+      }
 
-    case 'postal_code': {
-      postcode = `${component.long_name}${postcode}`;
-      break;
-    }
+      case 'postal_code': {
+        postcode = `${component.long_name}${postcode}`;
+        break;
+      }
 
-    case 'postal_code_suffix': {
-      postcode = `${postcode}-${component.long_name}`;
-      break;
-    }
-    case 'locality':
-      document.querySelector('#locality').value = component.long_name;
-      break;
-    case 'postal_town':
-      document.querySelector('#locality').value = component.long_name;
-      break;
+      case 'postal_code_suffix': {
+        postcode = `${postcode}-${component.long_name}`;
+        break;
+      }
+      case 'locality':
+        document.querySelector('#locality').value = component.long_name;
+        break;
+      case 'postal_town':
+        document.querySelector('#locality').value = component.long_name;
+        break;
 
-    case 'country':
-      document.querySelector('#country').value = component.long_name;
-      break;
-    default:
-      break;
+      case 'country':
+        document.querySelector('#country').value = component.long_name;
+        break;
+      default:
+        break;
     }
   }
   // latitude = place.geometry.location.lat();
@@ -362,14 +362,14 @@ trendsContainerEl.addEventListener('click', function (e) {
 
   console.log(cardWidthIndex);
   let currentTarge = e.target;
-  if (currentTarge.tagName.toLowerCase() == 'button') {
+  if (currentTarge.tagName.toLowerCase() === 'button') {
     if (currentTarge.classList.contains('left-handle')) {
-      if (carouselIndex == 0) {
+      if (carouselIndex === 0) {
         return;
       }
       carousel.style.setProperty('--carousel--index', carouselIndex - 1);
     } else {
-      if (carouselIndex == numberOfSwipes) {
+      if (carouselIndex === numberOfSwipes) {
         return;
       }
       carousel.style.setProperty('--carousel--index', carouselIndex + 1);

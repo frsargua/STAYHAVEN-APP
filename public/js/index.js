@@ -73,37 +73,37 @@ async function fillInAddress() {
     const componentType = component.types[0];
 
     switch (componentType) {
-    case 'street_number': {
-      address1 = `${component.long_name} ${address1}`;
-      break;
-    }
+      case 'street_number': {
+        address1 = `${component.long_name} ${address1}`;
+        break;
+      }
 
-    case 'route': {
-      address1 += component.short_name;
-      break;
-    }
+      case 'route': {
+        address1 += component.short_name;
+        break;
+      }
 
-    case 'postal_code': {
-      postcode = `${component.long_name}${postcode}`;
-      break;
-    }
+      case 'postal_code': {
+        postcode = `${component.long_name}${postcode}`;
+        break;
+      }
 
-    case 'postal_code_suffix': {
-      postcode = `${postcode}-${component.long_name}`;
-      break;
-    }
-    case 'locality':
-      document.querySelector('#locality').value = component.long_name;
-      break;
-    case 'postal_town':
-      document.querySelector('#locality').value = component.long_name;
-      break;
+      case 'postal_code_suffix': {
+        postcode = `${postcode}-${component.long_name}`;
+        break;
+      }
+      case 'locality':
+        document.querySelector('#locality').value = component.long_name;
+        break;
+      case 'postal_town':
+        document.querySelector('#locality').value = component.long_name;
+        break;
 
-    case 'country':
-      document.querySelector('#country').value = component.long_name;
-      break;
-    default:
-      break;
+      case 'country':
+        document.querySelector('#country').value = component.long_name;
+        break;
+      default:
+        break;
     }
   }
   // latitude = place.geometry.location.lat();
@@ -373,7 +373,7 @@ trendsContainerEl.addEventListener('click', function (e) {
       }
       e.target.parentElement.setAttribute('iteration', carouselIndex - 100);
       // let iterations = carouselIndex * 100;
-      e.target.nextElementSibling.style.transform = `translateX(${
+      e.target.nextElementSibling.style.transform = `translateX(-${
         carouselIndex - 100
       }%)`;
       // carouselIndex--;
